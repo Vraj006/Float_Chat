@@ -41,7 +41,7 @@ export default function Landing() {
       {/* Main Content */}
       <div className="relative z-20 min-h-screen flex flex-col">
         {/* Hero Section */}
-        <section className="flex-1 flex items-center justify-center px-4 pt-16">
+        <section className="flex-1 flex items-center justify-center px-4 pt-28 md:pt-40">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -69,16 +69,16 @@ export default function Landing() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-6 items-start mb-16"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start mb-16"
             >
               <Link to="/data">
                 <Button
                   size="lg"
-                  className="group glass glow bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 px-8 py-4 text-lg font-semibold min-w-[250px]"
+                  className="group rounded-full px-8 py-4 text-lg font-semibold min-w-[220px] bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 ring-1 ring-cyan-400/40 shadow-[0_0_24px_rgba(0,255,255,0.25)]"
                 >
-                  <BarChart3 className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-                  Explore Data Visualization
-                  <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+                  <BarChart3 className="w-5 h-5 mr-3 transition-transform group-hover:scale-110" />
+                  Explore Data
+                  <ArrowRight className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
               
@@ -86,11 +86,11 @@ export default function Landing() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="group glass border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/20 hover:border-cyan-300 px-8 py-4 text-lg font-semibold min-w-[250px]"
+                  className="group rounded-full px-8 py-4 text-lg font-semibold min-w-[220px] border-cyan-400/60 text-cyan-200 hover:bg-cyan-400/15 hover:border-cyan-300 ring-1 ring-cyan-400/30"
                 >
-                  <MessageCircle className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-                  AI Ocean Chatbot
-                  <Sparkles className="w-5 h-5 ml-3 group-hover:rotate-12 transition-transform" />
+                  <MessageCircle className="w-5 h-5 mr-3 transition-transform group-hover:scale-110" />
+                  AI Chatbot
+                  <Sparkles className="w-5 h-5 ml-3 transition-transform group-hover:rotate-12" />
                 </Button>
               </Link>
             </motion.div>
@@ -107,11 +107,11 @@ export default function Landing() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h3 className="text-4xl font-bold text-white mb-4 text-glow">
-                Immersive Ocean Experience
+              <h3 className="text-4xl font-bold text-white mb-4">
+                Explore the Deep Toolkit
               </h3>
               <p className="text-xl text-white/70 max-w-2xl mx-auto">
-                Powered by advanced AI and stunning visualizations
+                Three powerful modules to discover the ocean like never before
               </p>
             </motion.div>
 
@@ -145,7 +145,7 @@ export default function Landing() {
                   whileHover={{ scale: 1.05, y: -10 }}
                   className="group"
                 >
-                  <Card className="glass-dark border-white/20 p-8 h-full hover:glow transition-all duration-500 overflow-hidden relative">
+                  <Card className="glass-dark border-white/15 p-8 h-full hover:glow transition-all duration-500 overflow-hidden relative rounded-2xl ring-1 ring-transparent group-hover:ring-cyan-400/40">
                     {/* Background Image */}
                     <div 
                       className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500"
@@ -157,7 +157,7 @@ export default function Landing() {
                     />
                     
                     <div className="relative z-10">
-                      <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_24px_rgba(0,255,255,0.25)]">
                         <feature.icon className="w-8 h-8 text-white" />
                       </div>
                       

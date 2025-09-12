@@ -21,10 +21,10 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/20 border-b border-white/15"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/25 border-b border-white/10 shadow-[0_0_30px_rgba(0,255,255,0.12)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 rounded-2xl border border-white/10 bg-white/5 px-3 sm:px-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <motion.div
@@ -34,7 +34,7 @@ export default function Navbar() {
             >
               <Waves className="w-5 h-5 text-white" />
             </motion.div>
-            <span className="text-xl md:text-2xl font-black tracking-tight font-serif uppercase bg-gradient-to-r from-cyan-200 to-sky-200 bg-clip-text text-transparent drop-shadow">
+            <span className="text-xl md:text-2xl font-black tracking-tight font-serif uppercase bg-gradient-to-r from-cyan-100 to-sky-200 bg-clip-text text-transparent drop-shadow">
               FloatChat
             </span>
           </Link>
@@ -49,10 +49,10 @@ export default function Navbar() {
                   <motion.div
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`nav-link flex items-center space-x-2 px-3 py-2 rounded-md transition-all duration-300 ${
+                    className={`nav-link flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 border ${
                       isActive
-                        ? "text-cyan-200 bg-white/10"
-                        : "text-white/85 hover:text-cyan-200 hover:bg-white/10"
+                        ? "text-cyan-200 bg-white/10 border-cyan-300/30"
+                        : "text-white/85 hover:text-cyan-200 hover:bg-white/10 border-transparent"
                     }`}
                     data-active={isActive}
                   >
@@ -75,7 +75,7 @@ export default function Navbar() {
                   onClick={() => signOut()}
                   variant="outline"
                   size="sm"
-                  className="glass border-white/20 text-white hover:bg-white/20"
+                  className="rounded-full border-white/25 text-white hover:bg-white/20"
                 >
                   Sign Out
                 </Button>
@@ -85,7 +85,7 @@ export default function Navbar() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="glass border-white/20 text-white hover:bg-white/20"
+                  className="rounded-full border-white/25 text-white hover:bg-white/20"
                 >
                   Sign In
                 </Button>
@@ -99,7 +99,7 @@ export default function Navbar() {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:bg-white/20"
+              className="text-white hover:bg-white/20 rounded-full"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
@@ -125,10 +125,10 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                   >
                     <div
-                      className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-all duration-300 ${
+                      className={`flex items-center space-x-3 px-3 py-2 rounded-full transition-all duration-300 border ${
                         isActive
-                          ? "bg-white/20 text-cyan-300"
-                          : "text-white/80 hover:text-cyan-300 hover:bg-white/10"
+                          ? "bg-white/20 text-cyan-300 border-cyan-300/30"
+                          : "text-white/80 hover:text-cyan-300 hover:bg-white/10 border-transparent"
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -146,7 +146,7 @@ export default function Navbar() {
                     }}
                     variant="outline"
                     size="sm"
-                    className="w-full glass border-white/20 text-white hover:bg-white/20"
+                    className="w-full rounded-full border-white/25 text-white hover:bg-white/20"
                   >
                     Sign Out
                   </Button>
@@ -155,7 +155,7 @@ export default function Navbar() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-full glass border-white/20 text-white hover:bg-white/20"
+                      className="w-full rounded-full border-white/25 text-white hover:bg-white/20"
                     >
                       Sign In
                     </Button>
