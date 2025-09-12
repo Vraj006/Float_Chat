@@ -85,7 +85,7 @@ export default function Navbar() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="rounded-full px-4 border-white/15 text-white/70 hover:text-white hover:bg-white/10"
+                  className="rounded-full px-4 border-cyan-300/60 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15"
                 >
                   Sign In
                 </Button>
@@ -152,7 +152,7 @@ export default function Navbar() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full rounded-full border-white/15 text-white/70 hover:text-white hover:bg-white/10"
+                    className="w-full rounded-full border-cyan-300/60 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15"
                   >
                     Sign In
                   </Button>
