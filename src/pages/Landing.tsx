@@ -41,13 +41,13 @@ export default function Landing() {
       {/* Main Content */}
       <div className="relative z-20 min-h-screen flex flex-col">
         {/* Hero Section */}
-        <section className="flex-1 flex items-center justify-center px-4 pt-28 md:pt-40">
+        <section className="flex-1 flex items-center justify-center px-4 pt-28 md:pt-36">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="mb-8"
+              className="mb-10 md:mb-14"
             >
               {/* Left-aligned, high-contrast serif headings */}
               <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-2 font-serif uppercase text-slate-100 text-left">
@@ -69,12 +69,12 @@ export default function Landing() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start mb-16"
+              className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start mb-16"
             >
               <Link to="/data">
                 <Button
                   size="lg"
-                  className="group rounded-full px-8 py-4 text-lg font-semibold min-w-[220px] bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 ring-1 ring-cyan-400/40 shadow-[0_0_24px_rgba(0,255,255,0.25)]"
+                  className="group glass glow bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 text-white border-0 px-10 py-4 text-lg font-semibold rounded-full tracking-tight hover:from-cyan-300 hover:via-sky-400 hover:to-blue-500 transition-all duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-cyan-400/60"
                 >
                   <BarChart3 className="w-5 h-5 mr-3 transition-transform group-hover:scale-110" />
                   Explore Data
@@ -86,7 +86,7 @@ export default function Landing() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="group rounded-full px-8 py-4 text-lg font-semibold min-w-[220px] border-cyan-400/60 text-cyan-200 hover:bg-cyan-400/15 hover:border-cyan-300 ring-1 ring-cyan-400/30"
+                  className="group glass border-cyan-300/50 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15 px-10 py-4 text-lg font-semibold rounded-full tracking-tight transition-all duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-cyan-400/60"
                 >
                   <MessageCircle className="w-5 h-5 mr-3 transition-transform group-hover:scale-110" />
                   AI Chatbot
@@ -107,11 +107,11 @@ export default function Landing() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h3 className="text-4xl font-bold text-white mb-4">
-                Explore the Deep Toolkit
+              <h3 className="text-4xl font-bold text-white mb-3 text-glow">
+                Ocean Capabilities
               </h3>
-              <p className="text-xl text-white/70 max-w-2xl mx-auto">
-                Three powerful modules to discover the ocean like never before
+              <p className="text-white/70 max-w-2xl mx-auto">
+                Real‑time intel, visual depth, and an assistant that learns your curiosity
               </p>
             </motion.div>
 
@@ -119,53 +119,67 @@ export default function Landing() {
               {[
                 {
                   icon: BarChart3,
-                  title: "Data Visualization",
-                  description: "Interactive charts and graphs revealing ocean patterns, temperature changes, and marine life distributions.",
-                  image: "https://harmless-tapir-303.convex.cloud/api/storage/58242cde-844c-46c3-9a32-f1e7359b95d2"
+                  badge: "Live",
+                  title: "Holographic Viz",
+                  description:
+                    "Depth-aware, animated bars with contextual tooltips for currents, temps, and salinity.",
+                  image:
+                    "https://harmless-tapir-303.convex.cloud/api/storage/58242cde-844c-46c3-9a32-f1e7359b95d2",
                 },
                 {
                   icon: MessageCircle,
-                  title: "AI Assistant",
-                  description: "Chat with our intelligent AI to get insights about ocean data, marine biology, and environmental trends.",
-                  image: "https://harmless-tapir-303.convex.cloud/api/storage/47639221-4913-42a5-856a-a3427887a39a"
+                  badge: "AI",
+                  title: "Conversational Insights",
+                  description:
+                    "Ask anything—get summaries, correlations, and plain‑English explanations.",
+                  image:
+                    "https://harmless-tapir-303.convex.cloud/api/storage/47639221-4913-42a5-856a-a3427887a39a",
                 },
                 {
                   icon: Waves,
-                  title: "Real-time Updates",
-                  description: "Live data feeds from ocean sensors, satellite imagery, and research stations worldwide.",
-                  image: "https://harmless-tapir-303.convex.cloud/api/storage/344f538c-088f-4846-b2a2-831a9cb461b5"
-                }
+                  badge: "Now",
+                  title: "Sensor Streams",
+                  description:
+                    "Incoming buoy, satellite, and station data blended to keep you current.",
+                  image:
+                    "https://harmless-tapir-303.convex.cloud/api/storage/344f538c-088f-4846-b2a2-831a9cb461b5",
+                },
               ].map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, y: -10 }}
+                  whileHover={{ scale: 1.04, y: -8 }}
                   className="group"
                 >
-                  <Card className="glass-dark border-white/15 p-8 h-full hover:glow transition-all duration-500 overflow-hidden relative rounded-2xl ring-1 ring-transparent group-hover:ring-cyan-400/40">
+                  <Card className="glass-dark border-white/15 p-8 h-full hover:glow transition-all duration-500 overflow-hidden relative rounded-2xl">
                     {/* Background Image */}
-                    <div 
+                    <div
                       className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500"
                       style={{
                         backgroundImage: `url('${feature.image}')`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
                       }}
                     />
-                    
+
+                    {/* Corner badge */}
+                    <span className="absolute top-4 left-4 z-10 text-xs px-2 py-1 rounded-full bg-cyan-500/20 border border-cyan-300/40 text-cyan-100 backdrop-blur-sm">
+                      {feature.badge}
+                    </span>
+
                     <div className="relative z-10">
-                      <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_24px_rgba(0,255,255,0.25)]">
+                      <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center ring-2 ring-white/10 group-hover:scale-110 transition-transform duration-300">
                         <feature.icon className="w-8 h-8 text-white" />
                       </div>
-                      
-                      <h4 className="text-2xl font-bold text-white mb-4 text-center group-hover:text-glow transition-all duration-300">
+
+                      <h4 className="text-2xl font-bold text-white mb-3 text-center group-hover:text-glow transition-all duration-300">
                         {feature.title}
                       </h4>
-                      
-                      <p className="text-white/70 text-center leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+
+                      <p className="text-white/75 text-center leading-relaxed group-hover:text-white/90 transition-colors duration-300">
                         {feature.description}
                       </p>
                     </div>
@@ -174,59 +188,6 @@ export default function Landing() {
               ))}
             </div>
           </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 px-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <Card className="glass-dark border-cyan-400/30 p-12 glow">
-              <h3 className="text-4xl font-bold text-white mb-6 text-glow">
-                Ready to Explore?
-              </h3>
-              <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-                Join thousands of researchers, students, and ocean enthusiasts 
-                discovering the secrets of our blue planet.
-              </p>
-              
-              {!isAuthenticated ? (
-                <Link to="/auth">
-                  <Button
-                    size="lg"
-                    className="glass glow bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 px-12 py-4 text-lg font-semibold"
-                  >
-                    Get Started Today
-                    <ArrowRight className="w-5 h-5 ml-3" />
-                  </Button>
-                </Link>
-              ) : (
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link to="/data">
-                    <Button
-                      size="lg"
-                      className="glass glow bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 px-8 py-4 text-lg font-semibold"
-                    >
-                      View Data Dashboard
-                    </Button>
-                  </Link>
-                  <Link to="/chat">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="glass border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/20 px-8 py-4 text-lg font-semibold"
-                    >
-                      Chat with AI
-                    </Button>
-                  </Link>
-                </div>
-              )}
-            </Card>
-          </motion.div>
         </section>
       </div>
     </div>
