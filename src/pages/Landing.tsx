@@ -11,21 +11,6 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background Image with Parallax */}
-      <div 
-        className="fixed inset-0 z-0 parallax"
-        style={{
-          backgroundImage: `url('https://harmless-tapir-303.convex.cloud/api/storage/ea0474f4-bac1-4388-9783-c0a428aa480a')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        {/* Overlay Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-blue-800/40 to-cyan-900/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-900/20 to-transparent" />
-      </div>
-
       {/* Floating Bubbles Animation */}
       <div className="fixed inset-0 z-10 pointer-events-none">
         {[...Array(12)].map((_, i) => (
@@ -57,22 +42,23 @@ export default function Landing() {
       <div className="relative z-20 min-h-screen flex flex-col">
         {/* Hero Section */}
         <section className="flex-1 flex items-center justify-center px-4 pt-16">
-          <div className="max-w-6xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
               className="mb-8"
             >
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-4 font-serif uppercase text-slate-100">
+              {/* Left-aligned, high-contrast serif headings */}
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-2 font-serif uppercase text-slate-100 text-left">
                 FloatChat:
               </h1>
 
-              <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif uppercase text-slate-200">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 font-serif uppercase text-cyan-100/95 text-left">
                 Dive Into
               </h2>
               
-              <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-2xl text-slate-200/90 max-w-3xl leading-relaxed text-left">
                 Explore the underwater world and dive into the ocean&apos;s data with our immersive
                 visuals and AI insights.
               </p>
@@ -83,7 +69,7 @@ export default function Landing() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+              className="flex flex-col sm:flex-row gap-6 items-start mb-16"
             >
               <Link to="/data">
                 <Button

@@ -21,39 +21,40 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 right-0 z-50 glass-dark border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/20 border-b border-white/15"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-3 group">
             <motion.div
-              whileHover={{ scale: 1.1, rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.25 }}
+              className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-inner"
             >
               <Waves className="w-5 h-5 text-white" />
             </motion.div>
-            <span className="text-xl font-bold text-glow bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              OceanViz
+            <span className="text-xl md:text-2xl font-black tracking-tight font-serif uppercase bg-gradient-to-r from-cyan-200 to-sky-200 bg-clip-text text-transparent drop-shadow">
+              FloatChat
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.path;
               return (
                 <Link key={item.path} to={item.path}>
                   <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 ${
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className={`nav-link flex items-center space-x-2 px-3 py-2 rounded-md transition-all duration-300 ${
                       isActive
-                        ? "bg-white/20 text-cyan-300 glow"
-                        : "text-white/80 hover:text-cyan-300 hover:bg-white/10"
+                        ? "text-cyan-200 bg-white/10"
+                        : "text-white/85 hover:text-cyan-200 hover:bg-white/10"
                     }`}
+                    data-active={isActive}
                   >
                     <Icon className="w-4 h-4" />
                     <span className="font-medium">{item.name}</span>
