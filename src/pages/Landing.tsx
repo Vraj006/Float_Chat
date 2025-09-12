@@ -50,11 +50,11 @@ export default function Landing() {
               className="mb-10 md:mb-14"
             >
               {/* Left-aligned, high-contrast serif headings */}
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-2 font-serif uppercase text-slate-100 text-left">
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-2 font-serif uppercase text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.85)] text-left">
                 FloatChat:
               </h1>
 
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 font-serif uppercase text-cyan-100/95 text-left">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 font-serif uppercase text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.85)] text-left">
                 Dive Into
               </h2>
               
