@@ -41,7 +41,7 @@ export default function Landing() {
       {/* Main Content */}
       <div className="relative z-20 min-h-screen flex flex-col">
         {/* Hero Section */}
-        <section className="flex-1 flex items-center justify-center px-4 pt-28 md:pt-36">
+        <section className="flex-1 flex items-center justify-center px-4 pt-32 md:pt-40">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -58,7 +58,8 @@ export default function Landing() {
                 Dive Into
               </h2>
               
-              <p className="text-lg md:text-2xl text-slate-200/90 max-w-3xl leading-relaxed text-left">
+              {/* Increase contrast + glow to avoid merging with background */}
+              <p className="text-lg md:text-2xl text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] max-w-3xl leading-relaxed text-left">
                 Explore the underwater world and dive into the ocean&apos;s data with our immersive
                 visuals and AI insights.
               </p>
@@ -74,8 +75,9 @@ export default function Landing() {
               <Link to="/data">
                 <Button
                   size="lg"
-                  className="group glass glow bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 text-white border-0 px-10 py-4 text-lg font-semibold rounded-full tracking-tight hover:from-cyan-300 hover:via-sky-400 hover:to-blue-500 transition-all duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-cyan-400/60"
+                  className="group glass glow bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 text-white border-0 px-10 py-4 text-lg font-semibold rounded-full tracking-tight hover:from-cyan-300 hover:via-sky-400 hover:to-blue-500 transition-all duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-cyan-400/60 relative overflow-hidden"
                 >
+                  <span className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.25),transparent_45%)] opacity-0 group-hover:opacity-100 transition-opacity" />
                   <BarChart3 className="w-5 h-5 mr-3 transition-transform group-hover:scale-110" />
                   Explore Data
                   <ArrowRight className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1" />
@@ -86,8 +88,9 @@ export default function Landing() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="group glass border-cyan-300/50 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15 px-10 py-4 text-lg font-semibold rounded-full tracking-tight transition-all duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-cyan-400/60"
+                  className="group glass border-cyan-300/60 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15 px-10 py-4 text-lg font-semibold rounded-full tracking-tight transition-all duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-cyan-400/60 relative overflow-hidden"
                 >
+                  <span className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,255,255,0.15),transparent_45%)] opacity-0 group-hover:opacity-100 transition-opacity" />
                   <MessageCircle className="w-5 h-5 mr-3 transition-transform group-hover:scale-110" />
                   AI Chatbot
                   <Sparkles className="w-5 h-5 ml-3 transition-transform group-hover:rotate-12" />
@@ -97,7 +100,7 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Features Section (unique, no photos) */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -108,10 +111,10 @@ export default function Landing() {
               className="text-center mb-16"
             >
               <h3 className="text-4xl font-bold text-white mb-3 text-glow">
-                Ocean Capabilities
+                Immersive Ocean Experiences
               </h3>
-              <p className="text-white/70 max-w-2xl mx-auto">
-                Real‑time intel, visual depth, and an assistant that learns your curiosity
+              <p className="text-white/80 max-w-2xl mx-auto">
+                Crafted modules that feel alive—ambient motion, depth, and tactile glass layers
               </p>
             </motion.div>
 
@@ -120,29 +123,26 @@ export default function Landing() {
                 {
                   icon: BarChart3,
                   badge: "Live",
-                  title: "Holographic Viz",
+                  title: "Aqua Spectra",
                   description:
-                    "Depth-aware, animated bars with contextual tooltips for currents, temps, and salinity.",
-                  image:
-                    "https://harmless-tapir-303.convex.cloud/api/storage/58242cde-844c-46c3-9a32-f1e7359b95d2",
+                    "Animated spectral bars with depth shifts and responsive glows for multi-sensor ocean metrics.",
+                  accent: "from-cyan-400 via-blue-500 to-violet-500",
                 },
                 {
                   icon: MessageCircle,
                   badge: "AI",
-                  title: "Conversational Insights",
+                  title: "Echo Dialogue",
                   description:
-                    "Ask anything—get summaries, correlations, and plain‑English explanations.",
-                  image:
-                    "https://harmless-tapir-303.convex.cloud/api/storage/47639221-4913-42a5-856a-a3427887a39a",
+                    "Conversational insights with contextual hints, topic threads, and memory breadcrumbs.",
+                  accent: "from-emerald-400 via-teal-400 to-cyan-400",
                 },
                 {
                   icon: Waves,
-                  badge: "Now",
-                  title: "Sensor Streams",
+                  badge: "Flow",
+                  title: "Current Canvas",
                   description:
-                    "Incoming buoy, satellite, and station data blended to keep you current.",
-                  image:
-                    "https://harmless-tapir-303.convex.cloud/api/storage/344f538c-088f-4846-b2a2-831a9cb461b5",
+                    "Hypnotic wave fields and motion vectors to feel currents, swells, and pulsing energy.",
+                  accent: "from-indigo-400 via-sky-500 to-cyan-500",
                 },
               ].map((feature, index) => (
                 <motion.div
@@ -151,42 +151,70 @@ export default function Landing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.04, y: -8 }}
+                  whileHover={{ y: -6 }}
                   className="group"
                 >
-                  <Card className="glass-dark border-white/15 p-8 h-full hover:glow transition-all duration-500 overflow-hidden relative rounded-2xl">
-                    {/* Background Image */}
-                    <div
-                      className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500"
-                      style={{
-                        backgroundImage: `url('${feature.image}')`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
+                  <Card className="relative overflow-hidden glass-dark border-white/15 p-8 h-full transition-all duration-300 rounded-2xl">
+                    {/* Decorative gradient blobs */}
+                    <div className="pointer-events-none absolute -top-12 -right-12 w-40 h-40 bg-gradient-to-br from-cyan-400/25 to-blue-600/25 blur-2xl rounded-full group-hover:scale-110 transition-transform" />
+                    <div className="pointer-events-none absolute -bottom-10 -left-10 w-36 h-36 bg-gradient-to-tr from-white/10 to-cyan-400/10 blur-2xl rounded-full group-hover:scale-110 transition-transform" />
 
                     {/* Corner badge */}
                     <span className="absolute top-4 left-4 z-10 text-xs px-2 py-1 rounded-full bg-cyan-500/20 border border-cyan-300/40 text-cyan-100 backdrop-blur-sm">
                       {feature.badge}
                     </span>
 
-                    <div className="relative z-10">
+                    <div className="relative z-10 flex flex-col items-center text-center">
                       <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center ring-2 ring-white/10 group-hover:scale-110 transition-transform duration-300">
                         <feature.icon className="w-8 h-8 text-white" />
                       </div>
 
-                      <h4 className="text-2xl font-bold text-white mb-3 text-center group-hover:text-glow transition-all duration-300">
+                      <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-glow transition-all duration-300">
                         {feature.title}
                       </h4>
 
-                      <p className="text-white/75 text-center leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+                      <p className="text-white/80 leading-relaxed">
                         {feature.description}
                       </p>
+
+                      {/* Accent ribbon */}
+                      <div className={`mt-6 h-1.5 w-24 rounded-full bg-gradient-to-r ${feature.accent} opacity-70 group-hover:opacity-100 transition-opacity`} />
                     </div>
                   </Card>
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Restored/Added section: minimal CTA band */}
+        <section className="pb-24 px-4">
+          <div className="max-w-5xl mx-auto">
+            <Card className="glass-dark border-white/15 p-6 md:p-8 rounded-2xl relative overflow-hidden">
+              <div className="pointer-events-none absolute -top-20 right-10 w-64 h-64 bg-gradient-to-br from-cyan-500/15 to-blue-600/15 blur-3xl rounded-full" />
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
+                <div className="text-center md:text-left">
+                  <h5 className="text-2xl font-bold text-white mb-1">
+                    Ready to explore deeper?
+                  </h5>
+                  <p className="text-white/75">
+                    Jump into real-time visualizations or let the AI guide your curiosity.
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <Link to="/data">
+                    <Button className="glass glow bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0">
+                      Explore Data
+                    </Button>
+                  </Link>
+                  <Link to="/chat">
+                    <Button variant="outline" className="glass border-cyan-300/60 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15">
+                      Ask the AI
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </Card>
           </div>
         </section>
       </div>

@@ -21,19 +21,20 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-gradient-to-b from-black/40 to-transparent border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-gradient-to-b from-black/30 to-transparent border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Elevated glass bar */}
-        <div className="mt-2 mb-2 rounded-2xl border border-white/10 bg-white/5 backdrop-saturate-150">
+        <div className="mt-2 mb-2 rounded-2xl border border-cyan-300/20 bg-white/5 backdrop-saturate-150 ring-1 ring-cyan-400/10">
           <div className="flex items-center justify-between h-14 px-3">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.25 }}
-                className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-inner ring-1 ring-white/10"
+                className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-inner ring-1 ring-white/10 relative overflow-hidden"
               >
+                <span className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.2),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Waves className="w-5 h-5 text-white" />
               </motion.div>
               <span className="text-xl font-black tracking-wide font-serif uppercase bg-gradient-to-r from-cyan-200 to-sky-200 bg-clip-text text-transparent drop-shadow">
@@ -53,7 +54,7 @@ export default function Navbar() {
                       whileTap={{ scale: 0.97 }}
                       className={`nav-link flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${
                         isActive
-                          ? "text-cyan-200 bg-white/10 ring-1 ring-cyan-300/30"
+                          ? "text-cyan-200 bg-white/10 ring-1 ring-cyan-300/30 shadow-[inset_0_0_0_1px_rgba(0,255,255,0.12)]"
                           : "text-white/85 hover:text-cyan-200 hover:bg-white/10 hover:ring-1 hover:ring-white/15"
                       }`}
                       data-active={isActive}
@@ -85,7 +86,7 @@ export default function Navbar() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="glass border-cyan-300/50 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15 rounded-full px-4"
+                    className="glass border-cyan-300/60 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15 rounded-full px-4"
                   >
                     Sign In
                   </Button>
@@ -105,6 +106,8 @@ export default function Navbar() {
               </Button>
             </div>
           </div>
+          {/* Bottom animated accent line */}
+          <div className="h-1 rounded-b-2xl bg-gradient-to-r from-cyan-400/20 via-sky-400/30 to-blue-500/20" />
         </div>
 
         {/* Mobile Navigation */}
@@ -152,7 +155,7 @@ export default function Navbar() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-full glass border-cyan-300/50 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15 rounded-full"
+                      className="w-full glass border-cyan-300/60 text-cyan-100 hover:text-cyan-50 hover:bg-cyan-400/15 rounded-full"
                     >
                       Sign In
                     </Button>
