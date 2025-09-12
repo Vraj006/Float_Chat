@@ -64,28 +64,17 @@ export default function Landing() {
               transition={{ duration: 1, delay: 0.2 }}
               className="mb-8"
             >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="w-24 h-24 mx-auto mb-8 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center glow"
-              >
-                <Waves className="w-12 h-12 text-white" />
-              </motion.div>
-              
-              <h1 className="text-6xl md:text-8xl font-bold mb-6 text-glow">
-                <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-400 bg-clip-text text-transparent">
-                  Dive Deep
-                </span>
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-4 font-serif uppercase text-slate-100">
+                FloatChat:
               </h1>
-              
-              <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white/90">
-                Into Ocean Data
+
+              <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif uppercase text-slate-200">
+                Dive Into
               </h2>
               
-              <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-                Explore the mysteries of the deep with cutting-edge data visualization 
-                and AI-powered insights. Discover patterns, trends, and secrets hidden 
-                beneath the waves.
+              <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                Explore the underwater world and dive into the ocean&apos;s data with our immersive
+                visuals and AI insights.
               </p>
             </motion.div>
 
