@@ -14,39 +14,39 @@ const Navbar = () => {
   const { currentUser, isAuthenticated } = useAuth();
 
   const navItems = [
-    { name: "Home", path: "/", icon: Waves },
+    { name: "Home", path: "/home", icon: Waves },
     { name: "Data Viz", path: "/data-viz", icon: Waves },
     { name: "AI Chat", path: "/ai-chat", icon: Waves },
+    { name: "Ocean Explorer", path: "/ocean-explorer", icon: Waves },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-navbar">
+    <nav className="fixed top-0 left-0 right-0 z-[9999] bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50 shadow-xl" style={{ pointerEvents: 'auto' }}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/home" className="flex items-center space-x-3 group transition-all duration-200">
             <div className="relative">
-              <div className="absolute -inset-2 bg-primary/30 rounded-full blur-md animate-pulse opacity-70"></div>
-              <div className="relative bg-gradient-to-br from-primary/20 to-accent/20 p-2 rounded-full border border-white/20">
-                <Waves className="h-6 w-6 text-white drop-shadow-lg" />
+              <div className="relative bg-gradient-to-br from-blue-600 to-cyan-500 p-3 rounded-xl border border-blue-400/30 group-hover:border-blue-300 group-hover:shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300">
+                <Waves className="h-6 w-6 text-white group-hover:text-blue-100 transition-colors duration-300" />
               </div>
             </div>
-            <span className="text-xl font-bold text-white drop-shadow-lg tracking-wide">
-              FLOATCHAT
+            <span className="text-xl font-bold text-white text-headline tracking-tight group-hover:text-blue-200 transition-all duration-300">
+              FloatChat
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg",
+                  "relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg",
                   location.pathname === item.path
-                    ? "text-white bg-white/10 border border-white/20 shadow-lg backdrop-blur-sm"
-                    : "text-white/80 hover:text-white hover:bg-white/5 hover:backdrop-blur-sm"
+                    ? "text-white bg-blue-600 border border-blue-500 shadow-lg shadow-blue-600/25"
+                    : "text-slate-200 hover:text-white hover:bg-slate-800 hover:border hover:border-slate-600"
                 )}
               >
                 {item.name}
@@ -54,14 +54,14 @@ const Navbar = () => {
             ))}
             {isAuthenticated ? (
               <div className="flex items-center gap-4">
-                <div className="text-sm text-white/80">
+                <div className="text-sm text-slate-300">
                   <User className="h-4 w-4 inline-block mr-2" />
                   {currentUser?.email?.split('@')[0]}
                 </div>
-                <Button 
-                  variant="ocean" 
-                  size="sm" 
-                  className="shadow-lg border border-white/20 backdrop-blur-sm"
+                <Button
+                  variant="professional"
+                  size="sm"
+                  className="transition-all duration-300"
                   onClick={async () => {
                     try {
                       await logOut();
@@ -76,10 +76,10 @@ const Navbar = () => {
                 </Button>
               </div>
             ) : (
-              <Button 
-                variant="ocean" 
-                size="sm" 
-                className="shadow-lg border border-white/20 backdrop-blur-sm"
+              <Button
+                variant="hero"
+                size="sm"
+                className="transition-all duration-300"
                 onClick={() => navigate('/auth')}
               >
                 Sign In
@@ -118,10 +118,10 @@ const Navbar = () => {
                 </Link>
               ))}
               {isAuthenticated ? (
-                <Button 
-                  variant="ocean" 
-                  size="sm" 
-                  className="self-start animate-pulse-glow"
+                <Button
+                  variant="professional"
+                  size="sm"
+                  className="self-start transition-all duration-300"
                   onClick={async () => {
                     try {
                       await logOut();
@@ -136,10 +136,10 @@ const Navbar = () => {
                   Sign Out
                 </Button>
               ) : (
-                <Button 
-                  variant="ocean" 
-                  size="sm" 
-                  className="self-start animate-pulse-glow"
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="self-start transition-all duration-300"
                   onClick={() => {
                     navigate('/auth');
                     setIsOpen(false);

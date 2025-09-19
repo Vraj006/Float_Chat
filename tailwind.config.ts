@@ -55,12 +55,22 @@ export default {
         'gradient-surface': 'var(--gradient-surface)',
         'gradient-glow': 'var(--gradient-glow)',
         'gradient-card': 'var(--gradient-card)',
+        'liquid-primary': 'var(--liquid-primary)',
+        'liquid-accent': 'var(--liquid-accent)',
+        'hologram': 'var(--hologram-effect)',
       },
       boxShadow: {
         'ocean': 'var(--shadow-ocean)',
         'glow': 'var(--glow-primary)',
         'glow-accent': 'var(--glow-accent)',
         'glass': 'var(--glass-shadow)',
+        'depth-1': 'var(--depth-1)',
+        'depth-2': 'var(--depth-2)',
+        'depth-3': 'var(--depth-3)',
+        'depth-4': 'var(--depth-4)',
+        'depth-5': 'var(--depth-5)',
+        'cyber': 'var(--cyber-glow)',
+        'neon': 'var(--neon-glow)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -101,6 +111,46 @@ export default {
           "0%": { opacity: "0", transform: "scale(0.8)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        "shimmer": {
+          "0%": { left: "-100%" },
+          "50%": { left: "100%" },
+          "100%": { left: "100%" },
+        },
+        "rotate-border": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "particles": {
+          "0%": { transform: "translateY(0px)" },
+          "100%": { transform: "translateY(-100px)" },
+        },
+        "liquid-flow": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+        "morph-float": {
+          "0%, 100%": {
+            transform: "translateY(0px) translateX(0px) rotate(0deg)",
+            borderRadius: "50% 40% 30% 60%",
+          },
+          "25%": {
+            transform: "translateY(-10px) translateX(5px) rotate(1deg)",
+            borderRadius: "40% 60% 70% 30%",
+          },
+          "50%": {
+            transform: "translateY(-5px) translateX(-3px) rotate(-0.5deg)",
+            borderRadius: "60% 30% 40% 70%",
+          },
+          "75%": {
+            transform: "translateY(-15px) translateX(-5px) rotate(0.8deg)",
+            borderRadius: "30% 70% 60% 40%",
+          },
+        },
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -111,6 +161,12 @@ export default {
         "flow": "flow 8s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
+        "shimmer": "shimmer 3s infinite",
+        "rotate-border": "rotate-border 4s linear infinite",
+        "particles": "particles 20s linear infinite",
+        "liquid-flow": "liquid-flow 15s ease-in-out infinite",
+        "morph-float": "morph-float 8s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 3s ease-in-out infinite",
       },
     },
   },
