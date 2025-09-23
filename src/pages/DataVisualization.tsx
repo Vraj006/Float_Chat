@@ -1,100 +1,91 @@
 import { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, ScatterChart, Scatter, ZAxis, Tooltip, Legend } from "recharts";
-import { Thermometer, Waves, Fish, TrendingUp, Activity, Zap, Download, Share, Expand, Grid, BarChart3, Maximize2, Menu, X, Filter, Calendar, MapPin, RefreshCw } from "lucide-react";
+import { Thermometer, Waves, Fish, TrendingUp, Activity, Zap, Download, Share, Expand, Grid, BarChart3, Maximize2, Menu, X, Filter, Calendar, MapPin, RefreshCw, Satellite, Navigation, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
+import SimpleMap from "@/components/SimpleMap";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRealSupabaseData } from "@/hooks/useRealSupabaseData";
+import {
+  transformTemperatureData,
+  transformMarineLifeByDepth,
+  transformSpeciesDistribution,
+  transformDataForHeatmap,
+  transformDataForScatter,
+  getDataStatistics
+} from "@/services/dataTransform";
 
 const DataVisualization = () => {
-  const [temperatureData, setTemperatureData] = useState([
-    { month: 'Jan', temp: 18.5 }, { month: 'Feb', temp: 19.2 }, { month: 'Mar', temp: 20.1 },
-    { month: 'Apr', temp: 21.8 }, { month: 'May', temp: 23.4 }, { month: 'Jun', temp: 25.1 },
-    { month: 'Jul', temp: 26.8 }, { month: 'Aug', temp: 27.2 }, { month: 'Sep', temp: 26.1 },
-    { month: 'Oct', temp: 24.3 }, { month: 'Nov', temp: 21.9 }, { month: 'Dec', temp: 19.7 }
-  ]);
-
-  const [marineLifeData, setMarineLifeData] = useState([
-    { depth: '0-25m', species: 342, temp: 24 }, { depth: '25-200m', species: 189, temp: 18 },
-    { depth: '200-1000m', species: 67, temp: 12 }, { depth: '1000m+', species: 23, temp: 4 }
-  ]);
-
-  const [realTimeMetrics, setRealTimeMetrics] = useState({
-    temperature: 23.2,
-    waveHeight: 2.4,
-    species: 1247,
-    salinity: 34.8,
-    ph: 8.1,
-    oxygen: 95.7
-  });
-
-  const speciesDistribution = [
-    { name: 'Fish', value: 45, color: '#00D4FF' },
-    { name: 'Coral', value: 25, color: '#00FFA3' },
-    { name: 'Mammals', value: 15, color: '#FFB800' },
-    { name: 'Others', value: 15, color: '#FF6B9D' }
-  ];
-
-  // Advanced chart data
-  const [heatmapData, setHeatmapData] = useState([
-    { depth: '0m', region: 'North', temp: 24.5, salinity: 34.2 },
-    { depth: '0m', region: 'Central', temp: 26.1, salinity: 35.1 },
-    { depth: '0m', region: 'South', temp: 22.8, salinity: 33.8 },
-    { depth: '50m', region: 'North', temp: 20.2, salinity: 34.8 },
-    { depth: '50m', region: 'Central', temp: 22.5, salinity: 35.4 },
-    { depth: '50m', region: 'South', temp: 19.1, salinity: 34.1 },
-    { depth: '100m', region: 'North', temp: 16.8, salinity: 35.2 },
-    { depth: '100m', region: 'Central', temp: 18.2, salinity: 35.8 },
-    { depth: '100m', region: 'South', temp: 15.5, salinity: 34.9 },
-  ]);
-
-  const [scatterData, setScatterData] = useState([
-    { temp: 24.5, salinity: 34.2, species: 342, ph: 8.1 },
-    { temp: 22.1, salinity: 35.1, species: 298, ph: 8.0 },
-    { temp: 20.8, salinity: 33.8, species: 267, ph: 7.9 },
-    { temp: 18.2, salinity: 34.8, species: 189, ph: 7.8 },
-    { temp: 16.5, salinity: 35.4, species: 156, ph: 7.7 },
-    { temp: 14.1, salinity: 34.1, species: 98, ph: 7.6 },
-    { temp: 12.8, salinity: 35.2, species: 67, ph: 7.5 },
-    { temp: 8.2, salinity: 35.8, species: 34, ph: 7.4 },
-    { temp: 4.5, salinity: 34.9, species: 23, ph: 7.3 },
-  ]);
-
-  // Dashboard state
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [fullscreenChart, setFullscreenChart] = useState(null);
-  const [activeTab, setActiveTab] = useState('overview');
-
-  // Filter and control states
+  // Filter and control states (moved here first)
   const [filters, setFilters] = useState({
     timeRange: '7d',
     region: 'all',
     depth: 'all',
     dataType: 'all'
   });
+
+  // REAL Supabase data hook - NO FALLBACKS
+  const {
+    temperatureData,
+    marineLifeData,
+    metricsData,
+    heatmapData,
+    scatterData,
+    speciesDistribution,
+    realTimeMetrics,
+    availableTables,
+    loading: dataLoading,
+    error: dataError,
+    refetch: refetchData
+  } = useRealSupabaseData();
+
+  // Data comes directly from the hook - no duplicate state needed
+  const [processedMetrics, setProcessedMetrics] = useState<any>(null);
+
+  // All data comes directly from useRealSupabaseData hook
+
+  // No fallback data - only show what's actually in the database
+
+
+  // Dashboard state
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [fullscreenChart, setFullscreenChart] = useState(null);
+  const [activeTab, setActiveTab] = useState('map');
+
+  // Check if data is loading
+  const isLoading = dataLoading;
+
+  // Check if there are any errors
+  const hasErrors = dataError;
+
   const [isLiveData, setIsLiveData] = useState(true);
   const [lastUpdate, setLastUpdate] = useState(new Date());
   const [connectionStatus, setConnectionStatus] = useState('connected');
   const [exportDropdownOpen, setExportDropdownOpen] = useState(false);
 
-  // Simulate real-time updates
+  // Update last update time when data changes
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (isLiveData) {
-        setRealTimeMetrics(prev => ({
-          ...prev,
-          temperature: prev.temperature + (Math.random() - 0.5) * 0.2,
-          waveHeight: Math.max(0, prev.waveHeight + (Math.random() - 0.5) * 0.3),
-          species: prev.species + Math.floor((Math.random() - 0.5) * 20),
-        }));
-        setLastUpdate(new Date());
-      }
-    }, 3000);
+    if (!dataLoading && availableTables.length > 0) {
+      setLastUpdate(new Date());
+    }
+  }, [dataLoading, availableTables]);
 
-    return () => clearInterval(interval);
-  }, [isLiveData]);
+  // Update connection status based on errors
+  useEffect(() => {
+    if (hasErrors) {
+      setConnectionStatus('disconnected');
+    } else {
+      setConnectionStatus('connected');
+    }
+  }, [hasErrors]);
 
-  // Export functionality
+  // Function to refetch all data
+  const handleRefreshData = () => {
+    refetchData();
+  };
+
+  // Export functionality - only real data
   const handleExportData = (format) => {
     const exportData = {
       timestamp: new Date().toISOString(),
@@ -103,7 +94,15 @@ const DataVisualization = () => {
       marineLifeData,
       heatmapData,
       scatterData,
-      filters
+      speciesDistribution,
+      filters,
+      availableTables,
+      totalArgoFloats: availableTables.filter(t => t.startsWith('argo_')).length,
+      totalBGCFloats: availableTables.filter(t => t.startsWith('bgc_')).length,
+      dataSource: {
+        tablesFound: availableTables,
+        source: 'supabase_real_data_only'
+      }
     };
 
     if (format === 'json') {
@@ -115,14 +114,18 @@ const DataVisualization = () => {
       link.download = `ocean-data-${Date.now()}.json`;
       link.click();
     } else if (format === 'csv') {
-      const csvData = temperatureData.map(row => `${row.month},${row.temp}`).join('\n');
-      const csvContent = 'Month,Temperature\n' + csvData;
-      const dataBlob = new Blob([csvContent], {type: 'text/csv'});
-      const url = URL.createObjectURL(dataBlob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `ocean-temperature-${Date.now()}.csv`;
-      link.click();
+      if (temperatureData.length > 0) {
+        const csvData = temperatureData.map(row => `${row.month},${row.temp}`).join('\n');
+        const csvContent = 'Float,Temperature\n' + csvData;
+        const dataBlob = new Blob([csvContent], {type: 'text/csv'});
+        const url = URL.createObjectURL(dataBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `argo-temperature-${Date.now()}.csv`;
+        link.click();
+      } else {
+        alert('No temperature data available to export');
+      }
     }
   };
 
@@ -200,7 +203,7 @@ const DataVisualization = () => {
   const TabButton = ({ id, label, icon: Icon, active, onClick }) => (
     <button
       onClick={() => onClick(id)}
-      className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+      className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 relative z-20 ${
         active
           ? 'bg-primary text-primary-foreground shadow-glow-sm'
           : 'text-muted-foreground hover:text-foreground hover:bg-primary/10'
@@ -286,15 +289,15 @@ const DataVisualization = () => {
                     <CardContent className="space-y-3">
                       <div className="flex justify-between">
                         <span className="text-sm text-muted-foreground">Salinity</span>
-                        <span className="text-sm font-medium">{realTimeMetrics.salinity}‰</span>
+                        <span className="text-sm font-medium">{realTimeMetrics?.salinity?.toFixed(1) || '0.0'}‰</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm text-muted-foreground">pH Level</span>
-                        <span className="text-sm font-medium">{realTimeMetrics.ph}</span>
+                        <span className="text-sm font-medium">{realTimeMetrics?.ph?.toFixed(1) || '0.0'}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm text-muted-foreground">Oxygen</span>
-                        <span className="text-sm font-medium">{realTimeMetrics.oxygen.toFixed(1)}%</span>
+                        <span className="text-sm font-medium">{realTimeMetrics?.oxygen?.toFixed(1) || '0.0'}%</span>
                       </div>
                     </CardContent>
                   </Card>
@@ -326,7 +329,7 @@ const DataVisualization = () => {
 
         {/* Main Content */}
         <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-80' : 'ml-0'}`}>
-          <div className="pt-20 px-6 pb-12">
+          <div className="pt-28 px-6 pb-12">
             <div className="container mx-auto space-y-8">
               {/* Header with Controls */}
               <div className="flex flex-col lg:flex-row lg:items-center justify-between space-y-4 lg:space-y-0">
@@ -337,6 +340,16 @@ const DataVisualization = () => {
                   <p className="text-muted-foreground text-body mt-2">
                     Real-time oceanographic data analysis with professional visualization tools
                   </p>
+                  {availableTables.length > 0 && (
+                    <div className="text-sm text-green-400 mt-1">
+                      ✅ Connected to {availableTables.filter(t => t.startsWith('argo_')).length} Argo floats and {availableTables.filter(t => t.startsWith('bgc_')).length} BGC-Argo floats
+                    </div>
+                  )}
+                  {availableTables.length === 0 && !isLoading && (
+                    <div className="text-sm text-yellow-400 mt-1">
+                      ⚠️ No Argo data tables found - using demo data
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -392,14 +405,18 @@ const DataVisualization = () => {
                       </div>
                     )}
                   </div>
-                  <Button variant="outline" size="sm">
-                    <Share className="h-4 w-4" />
-                  </Button>
                 </div>
               </div>
 
               {/* Tab Navigation */}
-              <div className="flex flex-wrap gap-2 border-b border-border pb-4">
+              <div className="flex flex-wrap gap-2 border-b border-border pb-4 relative z-10">
+                <TabButton
+                  id="map"
+                  label="Map"
+                  icon={MapPin}
+                  active={activeTab === 'map'}
+                  onClick={setActiveTab}
+                />
                 <TabButton
                   id="overview"
                   label="Overview"
@@ -430,82 +447,232 @@ const DataVisualization = () => {
                 />
               </div>
 
-              {/* Filter Controls */}
-              <Card className="glass-card">
-                <CardContent className="p-4">
-                  <div className="flex flex-wrap items-center gap-4">
-                    <div className="flex items-center gap-2">
-                      <Filter className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm font-medium text-foreground">Filters</span>
+              {/* Filter Controls - Only show for non-map tabs */}
+              {activeTab !== 'map' && (
+                <Card className="glass-card">
+                  <CardContent className="p-4">
+                    <div className="flex flex-wrap items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <Filter className="h-4 w-4 text-muted-foreground" />
+                        <span className="text-sm font-medium text-foreground">Filters</span>
+                      </div>
+
+                      <FilterSelect
+                        label="Time Range"
+                        value={filters.timeRange}
+                        options={[
+                          { value: '1h', label: 'Last Hour' },
+                          { value: '24h', label: 'Last 24 Hours' },
+                          { value: '7d', label: 'Last 7 Days' },
+                          { value: '30d', label: 'Last 30 Days' },
+                          { value: 'custom', label: 'Custom Range' }
+                        ]}
+                        onChange={(value) => setFilters(prev => ({ ...prev, timeRange: value }))}
+                      />
+
+                      <FilterSelect
+                        label="Region"
+                        value={filters.region}
+                        options={[
+                          { value: 'all', label: 'All Regions' },
+                          { value: 'north', label: 'North Pacific' },
+                          { value: 'central', label: 'Central Pacific' },
+                          { value: 'south', label: 'South Pacific' },
+                          { value: 'atlantic', label: 'Atlantic' }
+                        ]}
+                        onChange={(value) => setFilters(prev => ({ ...prev, region: value }))}
+                      />
+
+                      <FilterSelect
+                        label="Depth Zone"
+                        value={filters.depth}
+                        options={[
+                          { value: 'all', label: 'All Depths' },
+                          { value: 'surface', label: '0-50m' },
+                          { value: 'shallow', label: '50-200m' },
+                          { value: 'deep', label: '200-1000m' },
+                          { value: 'abyssal', label: '1000m+' }
+                        ]}
+                        onChange={(value) => setFilters(prev => ({ ...prev, depth: value }))}
+                      />
+
+                      <FilterSelect
+                        label="Data Type"
+                        value={filters.dataType}
+                        options={[
+                          { value: 'all', label: 'All Data' },
+                          { value: 'temperature', label: 'Temperature' },
+                          { value: 'salinity', label: 'Salinity' },
+                          { value: 'marine_life', label: 'Marine Life' },
+                          { value: 'chemistry', label: 'Chemistry' }
+                        ]}
+                        onChange={(value) => setFilters(prev => ({ ...prev, dataType: value }))}
+                      />
+
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setFilters({ timeRange: '7d', region: 'all', depth: 'all', dataType: 'all' })}
+                        className="flex items-center gap-2"
+                      >
+                        <X className="h-3 w-3" />
+                        Reset
+                      </Button>
                     </div>
+                  </CardContent>
+                </Card>
+              )}
 
-                    <FilterSelect
-                      label="Time Range"
-                      value={filters.timeRange}
-                      options={[
-                        { value: '1h', label: 'Last Hour' },
-                        { value: '24h', label: 'Last 24 Hours' },
-                        { value: '7d', label: 'Last 7 Days' },
-                        { value: '30d', label: 'Last 30 Days' },
-                        { value: 'custom', label: 'Custom Range' }
-                      ]}
-                      onChange={(value) => setFilters(prev => ({ ...prev, timeRange: value }))}
-                    />
-
-                    <FilterSelect
-                      label="Region"
-                      value={filters.region}
-                      options={[
-                        { value: 'all', label: 'All Regions' },
-                        { value: 'north', label: 'North Pacific' },
-                        { value: 'central', label: 'Central Pacific' },
-                        { value: 'south', label: 'South Pacific' },
-                        { value: 'atlantic', label: 'Atlantic' }
-                      ]}
-                      onChange={(value) => setFilters(prev => ({ ...prev, region: value }))}
-                    />
-
-                    <FilterSelect
-                      label="Depth Zone"
-                      value={filters.depth}
-                      options={[
-                        { value: 'all', label: 'All Depths' },
-                        { value: 'surface', label: '0-50m' },
-                        { value: 'shallow', label: '50-200m' },
-                        { value: 'deep', label: '200-1000m' },
-                        { value: 'abyssal', label: '1000m+' }
-                      ]}
-                      onChange={(value) => setFilters(prev => ({ ...prev, depth: value }))}
-                    />
-
-                    <FilterSelect
-                      label="Data Type"
-                      value={filters.dataType}
-                      options={[
-                        { value: 'all', label: 'All Data' },
-                        { value: 'temperature', label: 'Temperature' },
-                        { value: 'salinity', label: 'Salinity' },
-                        { value: 'marine_life', label: 'Marine Life' },
-                        { value: 'chemistry', label: 'Chemistry' }
-                      ]}
-                      onChange={(value) => setFilters(prev => ({ ...prev, dataType: value }))}
-                    />
-
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setFilters({ timeRange: '7d', region: 'all', depth: 'all', dataType: 'all' })}
-                      className="flex items-center gap-2"
-                    >
-                      <X className="h-3 w-3" />
-                      Reset
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
 
               {/* Tab Content */}
               <AnimatePresence mode="wait">
+                {activeTab === 'map' && (
+                  <motion.div
+                    key="map"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="space-y-6"
+                  >
+
+                    {/* Quick Stats */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="grid grid-cols-4 gap-4 mb-6"
+                    >
+                      <div className="bg-card/70 backdrop-blur-sm rounded-xl p-4 border border-primary/10 shadow-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Globe className="w-5 h-5 text-primary" />
+                          <span className="text-2xl font-bold text-primary">
+                            {availableTables.filter(t => t.startsWith('argo_')).length || 6}
+                          </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground">Argo Floats</p>
+                      </div>
+                      <div className="bg-card/70 backdrop-blur-sm rounded-xl p-4 border border-accent/10 shadow-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <BarChart3 className="w-5 h-5 text-accent" />
+                          <span className="text-2xl font-bold text-accent">
+                            {availableTables.filter(t => t.startsWith('bgc_')).length || 5}
+                          </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground">BGC Floats</p>
+                      </div>
+                      <div className="bg-card/70 backdrop-blur-sm rounded-xl p-4 border border-primary/10 shadow-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <MapPin className="w-5 h-5 text-primary" />
+                          <span className="text-2xl font-bold text-primary">
+                            {availableTables.length || 11}
+                          </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground">Total Active</p>
+                      </div>
+                      <div className="bg-card/70 backdrop-blur-sm rounded-xl p-4 border border-accent/10 shadow-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Activity className="w-5 h-5 text-accent" />
+                          <span className="text-2xl font-bold text-accent">Active</span>
+                        </div>
+                        <p className="text-sm text-muted-foreground">Network Status</p>
+                      </div>
+                    </motion.div>
+
+                    {/* Main Map Content */}
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                      {/* Map Section */}
+                      <div className="lg:col-span-3">
+                        <Card className="h-[500px] bg-card/80 backdrop-blur-sm border-0 shadow-2xl overflow-hidden">
+                          <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-primary/20 pb-3">
+                            <CardTitle className="flex items-center gap-3 text-lg">
+                              <div className="p-2 bg-gradient-to-r from-primary to-accent rounded-lg shadow-lg">
+                                <MapPin className="w-5 h-5 text-white" />
+                              </div>
+                              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                Interactive Ocean Map
+                              </span>
+                            </CardTitle>
+                            <CardDescription className="text-sm text-muted-foreground">
+                              Real-time satellite view of Argo and BGC-Argo floats in the Indian Ocean
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent className="p-4 h-full">
+                            <div className="relative h-[380px] rounded-xl overflow-hidden shadow-inner">
+                              <SimpleMap height="100%" />
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+
+                      {/* Map Sidebar */}
+                      <div className="space-y-4">
+                        {/* Float Types Legend */}
+                        <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden">
+                          <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-primary/20 pb-3">
+                            <CardTitle className="flex items-center gap-2 text-sm">
+                              <div className="p-1.5 bg-gradient-to-r from-primary to-accent rounded-lg shadow-lg">
+                                <Navigation className="w-4 h-4 text-white" />
+                              </div>
+                              Float Types
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="p-4">
+                            <div className="space-y-3">
+                              <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-primary/20 border border-primary/30">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <div className="w-4 h-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold">A</div>
+                                  <span className="font-semibold text-primary text-sm">Core Argo</span>
+                                </div>
+                                <div className="text-xs text-muted-foreground">
+                                  Temperature, Salinity, Pressure
+                                </div>
+                              </div>
+
+                              <div className="p-2 rounded-lg bg-gradient-to-r from-accent/10 to-accent/20 border border-accent/30">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <div className="w-4 h-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">B</div>
+                                  <span className="font-semibold text-accent text-sm">BGC-Argo</span>
+                                </div>
+                                <div className="text-xs text-muted-foreground">
+                                  O₂, pH, Nitrate, Chlorophyll
+                                </div>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        {/* Technical Specs */}
+                        <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden">
+                          <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-primary/20 pb-3">
+                            <CardTitle className="text-sm flex items-center gap-2">
+                              <div className="p-1.5 bg-gradient-to-r from-primary to-accent rounded-lg shadow-lg">
+                                <Activity className="w-4 h-4 text-white" />
+                              </div>
+                              Technical Specs
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="p-4">
+                            <div className="space-y-2">
+                              <div className="flex justify-between items-center p-2 rounded bg-primary/5">
+                                <span className="text-xs text-muted-foreground">Max Depth</span>
+                                <span className="font-semibold text-primary text-sm">2000m</span>
+                              </div>
+                              <div className="flex justify-between items-center p-2 rounded bg-accent/5">
+                                <span className="text-xs text-muted-foreground">Cycle Period</span>
+                                <span className="font-semibold text-accent text-sm">10 days</span>
+                              </div>
+                              <div className="flex justify-between items-center p-2 rounded bg-primary/5">
+                                <span className="text-xs text-muted-foreground">Update Frequency</span>
+                                <span className="font-semibold text-primary text-sm">Real-time</span>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
                 {activeTab === 'overview' && (
                   <motion.div
                     key="overview"
@@ -527,7 +694,7 @@ const DataVisualization = () => {
                         </CardHeader>
                         <CardContent>
                           <div className="text-2xl font-semibold text-orange-500 animate-pulse">
-                            {realTimeMetrics.temperature.toFixed(1)}°C
+                            {realTimeMetrics?.temperature?.toFixed(1) || '0.0'}°C
                           </div>
                           <p className="text-green-400 text-xs flex items-center gap-1 mt-2">
                             <TrendingUp className="h-3 w-3" />
@@ -550,7 +717,7 @@ const DataVisualization = () => {
                         </CardHeader>
                         <CardContent>
                           <div className="text-2xl font-semibold text-primary animate-pulse">
-                            {realTimeMetrics.waveHeight.toFixed(1)}m
+                            {realTimeMetrics?.waveHeight?.toFixed(1) || '0.0'}m
                           </div>
                           <p className="text-red-400 text-xs flex items-center gap-1 mt-2">
                             <Activity className="h-3 w-3" />
@@ -573,7 +740,7 @@ const DataVisualization = () => {
                         </CardHeader>
                         <CardContent>
                           <div className="text-2xl font-semibold text-accent animate-pulse">
-                            {realTimeMetrics.species.toLocaleString()}
+                            {realTimeMetrics?.species?.toLocaleString() || '0'}
                           </div>
                           <p className="text-green-400 text-xs flex items-center gap-1 mt-2">
                             <TrendingUp className="h-3 w-3" />
@@ -600,32 +767,42 @@ const DataVisualization = () => {
                 <Zap className="h-5 w-5 text-primary" />
               </CardHeader>
               <CardContent className="pt-6">
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={temperatureData}>
-                    <XAxis 
-                      dataKey="month" 
-                      axisLine={false}
-                      tickLine={false}
-                      tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
-                    />
-                    <YAxis 
-                      axisLine={false}
-                      tickLine={false}
-                      tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
-                    />
-                    <Bar 
-                      dataKey="temp" 
-                      fill="url(#tempGradient)"
-                      radius={[4, 4, 0, 0]}
-                    />
-                    <defs>
-                      <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#FF6B35" stopOpacity={0.8} />
-                        <stop offset="100%" stopColor="#FF8E00" stopOpacity={0.6} />
-                      </linearGradient>
-                    </defs>
-                  </BarChart>
-                </ResponsiveContainer>
+                {temperatureData.length > 0 ? (
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={temperatureData}>
+                      <XAxis
+                        dataKey="month"
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                      />
+                      <YAxis
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                      />
+                      <Bar
+                        dataKey="temp"
+                        fill="url(#tempGradient)"
+                        radius={[4, 4, 0, 0]}
+                      />
+                      <defs>
+                        <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#FF6B35" stopOpacity={0.8} />
+                          <stop offset="100%" stopColor="#FF8E00" stopOpacity={0.6} />
+                        </linearGradient>
+                      </defs>
+                    </BarChart>
+                  </ResponsiveContainer>
+                ) : (
+                  <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                    <div className="text-center">
+                      <Thermometer className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                      <p>No temperature data available</p>
+                      <p className="text-sm">Connect Argo floats to see temperature trends</p>
+                    </div>
+                  </div>
+                )}
               </CardContent>
             </Card>
 
@@ -641,32 +818,42 @@ const DataVisualization = () => {
                 <Activity className="h-5 w-5 text-accent" />
               </CardHeader>
               <CardContent className="pt-6">
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={marineLifeData}>
-                    <XAxis 
-                      dataKey="depth" 
-                      axisLine={false}
-                      tickLine={false}
-                      tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
-                    />
-                    <YAxis 
-                      axisLine={false}
-                      tickLine={false}
-                      tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
-                    />
-                    <Bar 
-                      dataKey="species" 
-                      fill="url(#speciesGradient)"
-                      radius={[4, 4, 0, 0]}
-                    />
-                    <defs>
-                      <linearGradient id="speciesGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#00FFA3" stopOpacity={0.8} />
-                        <stop offset="100%" stopColor="#00D4FF" stopOpacity={0.6} />
-                      </linearGradient>
-                    </defs>
-                  </BarChart>
-                </ResponsiveContainer>
+                {marineLifeData.length > 0 ? (
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={marineLifeData}>
+                      <XAxis
+                        dataKey="depth"
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                      />
+                      <YAxis
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                      />
+                      <Bar
+                        dataKey="species"
+                        fill="url(#speciesGradient)"
+                        radius={[4, 4, 0, 0]}
+                      />
+                      <defs>
+                        <linearGradient id="speciesGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#00FFA3" stopOpacity={0.8} />
+                          <stop offset="100%" stopColor="#00D4FF" stopOpacity={0.6} />
+                        </linearGradient>
+                      </defs>
+                    </BarChart>
+                  </ResponsiveContainer>
+                ) : (
+                  <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                    <div className="text-center">
+                      <Fish className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                      <p>No marine life data available</p>
+                      <p className="text-sm">Connect BGC-Argo floats to see biochemical measurements</p>
+                    </div>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -680,32 +867,42 @@ const DataVisualization = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                {marineLifeData.map((zone, index) => (
-                  <div key={zone.depth} className="glass rounded-lg p-6 hover:bg-primary/10 transition-all duration-300 group">
-                    <div className="text-center space-y-3">
-                      <div className="text-lg font-semibold text-primary glow-text">
-                        {zone.depth}
-                      </div>
-                      <div className="text-sm text-foreground/70 capitalize">
-                        {index === 0 ? 'Sunlight Zone' : 
-                         index === 1 ? 'Twilight Zone' : 
-                         index === 2 ? 'Midnight Zone' : 'Abyssal Zone'}
-                      </div>
-                      <div className="space-y-2">
-                        <div className="text-2xl font-bold text-accent group-hover:animate-pulse">
-                          {zone.species}
+              {marineLifeData.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                  {marineLifeData.map((zone, index) => (
+                    <div key={zone.depth} className="glass rounded-lg p-6 hover:bg-primary/10 transition-all duration-300 group">
+                      <div className="text-center space-y-3">
+                        <div className="text-lg font-semibold text-primary glow-text">
+                          {zone.depth}
                         </div>
-                        <div className="text-xs text-foreground/60">Species</div>
-                        <div className="text-lg font-semibold text-orange-400">
-                          {zone.temp}°C
+                        <div className="text-sm text-foreground/70 capitalize">
+                          {index === 0 ? 'Sunlight Zone' :
+                           index === 1 ? 'Twilight Zone' :
+                           index === 2 ? 'Midnight Zone' : 'Abyssal Zone'}
                         </div>
-                        <div className="text-xs text-foreground/60">Temp</div>
+                        <div className="space-y-2">
+                          <div className="text-2xl font-bold text-accent group-hover:animate-pulse">
+                            {zone.species}
+                          </div>
+                          <div className="text-xs text-foreground/60">Biochemical Activity</div>
+                          <div className="text-lg font-semibold text-orange-400">
+                            {zone.temp}°C
+                          </div>
+                          <div className="text-xs text-foreground/60">Temp</div>
+                        </div>
                       </div>
                     </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="h-[200px] flex items-center justify-center text-muted-foreground">
+                  <div className="text-center">
+                    <Activity className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                    <p>No depth analysis data available</p>
+                    <p className="text-sm">BGC-Argo floats needed for depth zone analysis</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -732,14 +929,24 @@ const DataVisualization = () => {
                             size="sm"
                             onClick={() => setFullscreenChart({
                               title: 'Temperature Heatmap',
-                              content: <HeatmapChart data={heatmapData} title="Ocean Temperature by Region & Depth" />
+                              content: <HeatmapChart data={heatmapData.length > 0 ? heatmapData : fallbackHeatmapData} title="Ocean Temperature by Region & Depth" />
                             })}
                           >
                             <Maximize2 className="h-4 w-4" />
                           </Button>
                         </CardHeader>
                         <CardContent>
-                          <HeatmapChart data={heatmapData} title="Ocean Temperature by Region & Depth" />
+                          {heatmapData.length > 0 ? (
+                            <HeatmapChart data={heatmapData} title="Ocean Temperature by Region & Depth" />
+                          ) : (
+                            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                              <div className="text-center">
+                                <Thermometer className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                                <p>No heatmap data available</p>
+                                <p className="text-sm">Need temperature and salinity measurements from multiple regions</p>
+                              </div>
+                            </div>
+                          )}
                         </CardContent>
                       </Card>
 
@@ -751,14 +958,24 @@ const DataVisualization = () => {
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <ResponsiveContainer width="100%" height={300}>
-                            <LineChart data={temperatureData}>
-                              <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
-                              <YAxis axisLine={false} tickLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
-                              <Tooltip />
-                              <Line type="monotone" dataKey="temp" stroke="#FF6B35" strokeWidth={3} dot={{ fill: '#FF6B35', strokeWidth: 2, r: 6 }} />
-                            </LineChart>
-                          </ResponsiveContainer>
+                          {temperatureData.length > 0 ? (
+                            <ResponsiveContainer width="100%" height={300}>
+                              <LineChart data={temperatureData}>
+                                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
+                                <YAxis axisLine={false} tickLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
+                                <Tooltip />
+                                <Line type="monotone" dataKey="temp" stroke="#FF6B35" strokeWidth={3} dot={{ fill: '#FF6B35', strokeWidth: 2, r: 6 }} />
+                              </LineChart>
+                            </ResponsiveContainer>
+                          ) : (
+                            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                              <div className="text-center">
+                                <BarChart3 className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                                <p>No monthly temperature trends available</p>
+                                <p className="text-sm">Argo float data needed for trend analysis</p>
+                              </div>
+                            </div>
+                          )}
                         </CardContent>
                       </Card>
                     </div>
@@ -790,14 +1007,14 @@ const DataVisualization = () => {
                                 <ResponsiveContainer width="100%" height="100%">
                                   <PieChart>
                                     <Pie
-                                      data={speciesDistribution}
+                                      data={speciesDistribution.length > 0 ? speciesDistribution : fallbackSpeciesDistribution}
                                       cx="50%"
                                       cy="50%"
                                       outerRadius={120}
                                       dataKey="value"
                                       label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                                     >
-                                      {speciesDistribution.map((entry, index) => (
+                                      {(speciesDistribution.length > 0 ? speciesDistribution : fallbackSpeciesDistribution).map((entry, index) => (
                                         <Cell key={`cell-${index}`} fill={entry.color} />
                                       ))}
                                     </Pie>
@@ -812,24 +1029,34 @@ const DataVisualization = () => {
                           </Button>
                         </CardHeader>
                         <CardContent>
-                          <ResponsiveContainer width="100%" height={300}>
-                            <PieChart>
-                              <Pie
-                                data={speciesDistribution}
-                                cx="50%"
-                                cy="50%"
-                                outerRadius={100}
-                                dataKey="value"
-                                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                              >
-                                {speciesDistribution.map((entry, index) => (
-                                  <Cell key={`cell-${index}`} fill={entry.color} />
-                                ))}
-                              </Pie>
-                              <Tooltip />
-                              <Legend />
-                            </PieChart>
-                          </ResponsiveContainer>
+                          {speciesDistribution.length > 0 ? (
+                            <ResponsiveContainer width="100%" height={300}>
+                              <PieChart>
+                                <Pie
+                                  data={speciesDistribution}
+                                  cx="50%"
+                                  cy="50%"
+                                  outerRadius={100}
+                                  dataKey="value"
+                                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                                >
+                                  {speciesDistribution.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={entry.color} />
+                                  ))}
+                                </Pie>
+                                <Tooltip />
+                                <Legend />
+                              </PieChart>
+                            </ResponsiveContainer>
+                          ) : (
+                            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                              <div className="text-center">
+                                <Fish className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                                <p>No biochemical distribution data available</p>
+                                <p className="text-sm">BGC-Argo floats needed for biochemical analysis</p>
+                              </div>
+                            </div>
+                          )}
                         </CardContent>
                       </Card>
 
@@ -847,7 +1074,7 @@ const DataVisualization = () => {
                               title: 'Marine Life by Depth Zone',
                               content: (
                                 <ResponsiveContainer width="100%" height="100%">
-                                  <BarChart data={marineLifeData}>
+                                  <BarChart data={marineLifeData.length > 0 ? marineLifeData : fallbackMarineLifeData}>
                                     <XAxis dataKey="depth" axisLine={false} tickLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
                                     <YAxis axisLine={false} tickLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
                                     <Tooltip />
@@ -867,33 +1094,43 @@ const DataVisualization = () => {
                           </Button>
                         </CardHeader>
                         <CardContent>
-                          <ResponsiveContainer width="100%" height={300}>
-                            <BarChart data={marineLifeData}>
-                              <XAxis
-                                dataKey="depth"
-                                axisLine={false}
-                                tickLine={false}
-                                tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
-                              />
-                              <YAxis
-                                axisLine={false}
-                                tickLine={false}
-                                tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
-                              />
-                              <Tooltip />
-                              <Bar
-                                dataKey="species"
-                                fill="url(#speciesGradient2)"
-                                radius={[4, 4, 0, 0]}
-                              />
-                              <defs>
-                                <linearGradient id="speciesGradient2" x1="0" y1="0" x2="0" y2="1">
-                                  <stop offset="0%" stopColor="#00FFA3" stopOpacity={0.8} />
-                                  <stop offset="100%" stopColor="#00D4FF" stopOpacity={0.6} />
-                                </linearGradient>
-                              </defs>
-                            </BarChart>
-                          </ResponsiveContainer>
+                          {marineLifeData.length > 0 ? (
+                            <ResponsiveContainer width="100%" height={300}>
+                              <BarChart data={marineLifeData}>
+                                <XAxis
+                                  dataKey="depth"
+                                  axisLine={false}
+                                  tickLine={false}
+                                  tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                                />
+                                <YAxis
+                                  axisLine={false}
+                                  tickLine={false}
+                                  tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                                />
+                                <Tooltip />
+                                <Bar
+                                  dataKey="species"
+                                  fill="url(#speciesGradient2)"
+                                  radius={[4, 4, 0, 0]}
+                                />
+                                <defs>
+                                  <linearGradient id="speciesGradient2" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stopColor="#00FFA3" stopOpacity={0.8} />
+                                    <stop offset="100%" stopColor="#00D4FF" stopOpacity={0.6} />
+                                  </linearGradient>
+                                </defs>
+                              </BarChart>
+                            </ResponsiveContainer>
+                          ) : (
+                            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                              <div className="text-center">
+                                <Activity className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                                <p>No depth zone data available</p>
+                                <p className="text-sm">BGC measurements needed for depth analysis</p>
+                              </div>
+                            </div>
+                          )}
                         </CardContent>
                       </Card>
                     </div>
@@ -908,7 +1145,7 @@ const DataVisualization = () => {
                       </CardHeader>
                       <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                          {marineLifeData.map((zone, index) => (
+                          {(marineLifeData.length > 0 ? marineLifeData : fallbackMarineLifeData).map((zone, index) => (
                             <div key={zone.depth} className="glass rounded-lg p-6 hover:bg-primary/10 transition-all duration-300 group">
                               <div className="text-center space-y-3">
                                 <div className="text-lg font-semibold text-primary glow-text">
@@ -964,7 +1201,7 @@ const DataVisualization = () => {
                       </CardHeader>
                       <CardContent>
                         <ResponsiveContainer width="100%" height={300}>
-                          <LineChart data={temperatureData.map((item, index) => ({
+                          <LineChart data={(temperatureData.length > 0 ? temperatureData : fallbackTemperatureData).map((item, index) => ({
                             ...item,
                             discoveries: Math.floor(Math.random() * 50) + 10,
                             endangered: Math.floor(Math.random() * 15) + 2
@@ -1026,7 +1263,7 @@ const DataVisualization = () => {
                             title: 'Temperature vs Marine Life Correlation',
                             content: (
                               <ResponsiveContainer width="100%" height="100%">
-                                <ScatterChart data={scatterData}>
+                                <ScatterChart data={scatterData.length > 0 ? scatterData : fallbackScatterData}>
                                   <XAxis dataKey="temp" name="Temperature" unit="°C" />
                                   <YAxis dataKey="species" name="Species Count" />
                                   <ZAxis dataKey="salinity" range={[50, 400]} />
@@ -1043,7 +1280,7 @@ const DataVisualization = () => {
                       </CardHeader>
                       <CardContent>
                         <ResponsiveContainer width="100%" height={400}>
-                          <ScatterChart data={scatterData}>
+                          <ScatterChart data={scatterData.length > 0 ? scatterData : fallbackScatterData}>
                             <XAxis
                               dataKey="temp"
                               name="Temperature"

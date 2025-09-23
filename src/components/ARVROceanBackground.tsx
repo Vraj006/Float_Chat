@@ -898,8 +898,6 @@ export default function ARVROceanBackground({ className = "" }: ARVROceanBackgro
           {/* Natural Ocean Surface with subtle AR glow */}
           <ARNaturalOcean />
 
-          {/* Ocean surface diver */}
-          <OceanDiver />
 
           {/* Natural underwater bubbles */}
           <UnderwaterBubbles />

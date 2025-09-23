@@ -52,7 +52,7 @@ const OceanLaunch = () => {
               {/* Glow effect behind title */}
               <div className="absolute inset-0 blur-3xl bg-gradient-to-r from-blue-400/30 via-cyan-400/40 to-blue-500/30 animate-pulse-slow"></div>
 
-              <h1 className="relative text-7xl md:text-9xl lg:text-[12rem] font-black tracking-tight">
+              <h1 className="relative text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
                 <span className="bg-gradient-to-br from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent drop-shadow-2xl">
                   Float
                 </span>
@@ -75,7 +75,7 @@ const OceanLaunch = () => {
 
             {/* Enhanced Subtitle */}
             <motion.p
-              className="text-2xl md:text-3xl lg:text-4xl font-medium bg-gradient-to-r from-blue-100 via-cyan-100 to-blue-200 bg-clip-text text-transparent max-w-4xl mx-auto leading-relaxed"
+              className="text-lg md:text-xl lg:text-2xl font-medium bg-gradient-to-r from-blue-100 via-cyan-100 to-blue-200 bg-clip-text text-transparent max-w-4xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.2 }}
@@ -83,55 +83,24 @@ const OceanLaunch = () => {
               Dive into the depths of ocean intelligence
             </motion.p>
 
-            {/* Enhanced Dive Deep Button */}
+            {/* Clean Professional Button */}
             <motion.div
               className="mt-16"
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.5, type: "spring", bounce: 0.4 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.5 }}
             >
               <Link to="/home">
                 <Button
-                  className="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 hover:from-blue-500 hover:via-cyan-500 hover:to-blue-600 border-2 border-cyan-400/50 hover:border-cyan-300 transition-all duration-500 px-12 py-6 text-xl font-bold text-white shadow-2xl hover:shadow-cyan-500/25 transform hover:scale-105"
+                  className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 backdrop-blur-sm px-8 py-3 text-base font-medium text-white hover:text-white shadow-sm hover:shadow-md transition-all duration-200 rounded-xl"
                   size="lg"
                 >
-                  {/* Button glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-
-                  {/* Animated wave background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-
-                  <div className="relative flex items-center space-x-4">
-                    <Waves className="h-7 w-7 animate-bounce group-hover:animate-wave transition-all duration-300" />
-                    <span className="tracking-wide">Dive Deep</span>
-                    <div className="w-0 group-hover:w-6 transition-all duration-300 overflow-hidden">
-                      <div className="w-6 h-0.5 bg-white/80 rounded-full"></div>
-                    </div>
-                  </div>
+                  <Waves className="h-4 w-4 mr-2" />
+                  Dive Deep
                 </Button>
               </Link>
             </motion.div>
 
-            {/* Ocean stats indicators */}
-            <motion.div
-              className="flex justify-center space-x-8 mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.8 }}
-            >
-              <div className="glass-card px-6 py-3 rounded-full border border-blue-400/30">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-blue-100 font-medium">Live Ocean Data</span>
-                </div>
-              </div>
-              <div className="glass-card px-6 py-3 rounded-full border border-cyan-400/30">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  <span className="text-sm text-cyan-100 font-medium">AI Powered</span>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>

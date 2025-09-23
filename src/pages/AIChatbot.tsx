@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { Send, Sparkles, User, Bot, BarChart3, Waves, Fish, Anchor, Mic, MicOff, Upload, X, Download, History, Settings, ChevronDown, TrendingUp, Thermometer } from "lucide-react";
+import { Send, Sparkles, User, Bot, BarChart3, Waves, Fish, Anchor, Mic, MicOff, Upload, X, History, ChevronDown, TrendingUp, Thermometer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Tooltip } from "recharts";
+import mistralService from "@/services/mistralService";
 
 const AIChatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -13,12 +14,15 @@ const AIChatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [chatHistory, setChatHistory] = useState([]);
+  const [conversationHistory, setConversationHistory] = useState([]); // For Mistral API context
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [menuSidebarOpen, setMenuSidebarOpen] = useState(false);
   const [currentTopic, setCurrentTopic] = useState('general');
   const [attachedFile, setAttachedFile] = useState(null);
   const [isChatActive, setIsChatActive] = useState(false);
   const [showMainNav, setShowMainNav] = useState(false);
   const [headerTransition, setHeaderTransition] = useState('idle'); // idle, transitioning, active
+  const [dynamicChartData, setDynamicChartData] = useState({ temp: [], species: [], table: [] }); // Dynamic chart data
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
   const hasMountedRef = useRef(false);
@@ -34,6 +38,7 @@ const AIChatbot = () => {
     { depth: '0-50m', count: 342 }, { depth: '50-200m', count: 189 },
     { depth: '200-1000m', count: 67 }, { depth: '1000m+', count: 23 }
   ];
+
 
   const suggestedQuestions = [
     "What affects ocean temperature?",
@@ -142,74 +147,64 @@ const AIChatbot = () => {
     }
   };
 
-  const simulateAIResponse = (userMessage) => {
+  const generateAIResponse = async (userMessage) => {
     setIsTyping(true);
     setCurrentTopic(getTopicFromMessage(userMessage));
 
-    setTimeout(() => {
-      const responses = {
-        temperature: {
-          content: "Ocean temperature varies significantly with depth and location. Here's what the data shows:\n\n• **Surface Waters**: 15-30°C depending on latitude\n• **Thermocline**: Rapid temperature drop between 200-1000m\n• **Deep Ocean**: Consistently 2-4°C\n• **Seasonal Variation**: 1-5°C in surface waters\n\nTemperature affects marine life distribution, ocean currents, and weather patterns globally.",
-          hasChart: true,
-          chartType: 'temperature',
-          suggestions: ["Show me temperature by depth", "How does temperature affect marine life?", "What causes ocean warming?"]
-        },
-        biodiversity: {
-          content: "Marine biodiversity is extraordinary! Our oceans host:\n\n🐠 **230,000+ known species** (estimated 2 million total)\n🌊 **Distinct ecosystems** by depth and region\n🦑 **Unique adaptations** for extreme environments\n🪸 **Coral reefs** - most biodiverse marine ecosystems\n\nBiodiversity decreases with depth but increases in complexity.",
-          hasChart: true,
-          chartType: 'species',
-          suggestions: ["Show species by depth zones", "Tell me about coral reef biodiversity", "What threatens marine biodiversity?"]
-        },
-        depth: {
-          content: "Ocean depth creates fascinating ecological zones:\n\n🌅 **Sunlight Zone (0-200m)**: 90% of marine life\n🌙 **Twilight Zone (200-1000m)**: Bioluminescence begins\n🌑 **Midnight Zone (1000-4000m)**: No sunlight, extreme pressure\n🕳️ **Abyssal Zone (4000m+)**: Specialized deep-sea creatures\n\nEach zone has unique adaptations and ecosystems.",
-          hasChart: true,
-          chartType: 'species',
-          suggestions: ["How do animals adapt to deep ocean?", "Show me pressure changes by depth", "What lives in the deepest ocean?"]
-        },
-        currents: {
-          content: "Ocean currents are Earth's circulatory system:\n\n🌊 **Surface Currents**: Driven by winds, affect climate\n🌡️ **Thermohaline Circulation**: Deep currents from temperature/salinity\n🔄 **Global Conveyor Belt**: Distributes heat worldwide\n🐟 **Upwelling**: Brings nutrients to surface, supports food chains\n\nCurrents transport heat, nutrients, and marine life across oceans.",
-          hasChart: false,
-          suggestions: ["How do currents affect weather?", "Show me major ocean currents", "What is El Niño?"]
-        },
-        data: {
-          content: "Our ocean monitoring system provides real-time data:\n\n📊 **Temperature**: Surface to 2000m depth\n🧪 **Chemical**: pH, salinity, oxygen levels\n🐠 **Biological**: Species counts and distribution\n📡 **Satellite**: Sea surface temperature, currents\n\nData helps us understand climate change and ecosystem health.",
-          hasChart: true,
-          chartType: 'temperature',
-          suggestions: ["Show me current ocean data", "How is data collected?", "What are the latest trends?"]
-        },
-        default: {
-          content: "That's a fascinating question about our oceans! 🌊\n\nThe marine environment is incredibly complex and interconnected. Ocean temperatures, currents, and depth all work together to create diverse ecosystems.\n\n**I can help you explore:**\n• Real-time ocean data and trends\n• Marine life and biodiversity\n• Ocean physics and chemistry\n• Climate change impacts\n\nWhat specific aspect interests you most?",
-          hasChart: false,
-          suggestions: ["Show me ocean temperature data", "Tell me about marine ecosystems", "How does climate change affect oceans?"]
-        }
-      };
+    try {
+      // Use Mistral API to generate response
+      const response = await mistralService.sendMessage(userMessage, conversationHistory);
 
-      let response = responses.default;
-      const lowerMessage = userMessage.toLowerCase();
+      // Check if response should include chart
+      const chartInfo = mistralService.shouldIncludeChart(userMessage);
 
-      if (lowerMessage.includes('temperature') || lowerMessage.includes('temp')) {
-        response = responses.temperature;
-      } else if (lowerMessage.includes('biodiversity') || lowerMessage.includes('species') || lowerMessage.includes('marine life')) {
-        response = responses.biodiversity;
-      } else if (lowerMessage.includes('depth') || lowerMessage.includes('zone')) {
-        response = responses.depth;
-      } else if (lowerMessage.includes('current') || lowerMessage.includes('flow')) {
-        response = responses.currents;
-      } else if (lowerMessage.includes('data') || lowerMessage.includes('chart') || lowerMessage.includes('show')) {
-        response = responses.data;
+      // Generate chart data if needed
+      let chartData = null;
+      if (chartInfo.hasChart) {
+        chartData = await mistralService.generateChartData(userMessage, chartInfo.chartType);
+        setDynamicChartData(prev => ({
+          ...prev,
+          [chartInfo.chartType]: chartData
+        }));
       }
 
+      // Generate suggestions for follow-up questions
+      const suggestions = mistralService.generateSuggestions(userMessage);
+
+      // Update conversation history for context
+      const newConversationHistory = [
+        ...conversationHistory,
+        { role: 'user', content: userMessage },
+        { role: 'assistant', content: response }
+      ];
+      setConversationHistory(newConversationHistory.slice(-10)); // Keep last 10 messages for context
+
+      // Add bot message
       setMessages(prev => [...prev, {
         id: Date.now().toString(),
         type: 'bot',
-        content: response.content,
-        hasChart: response.hasChart,
-        chartType: response.chartType,
-        suggestions: response.suggestions,
+        content: response,
+        hasChart: chartInfo.hasChart,
+        chartType: chartInfo.chartType,
+        suggestions: suggestions,
         timestamp: new Date()
       }]);
+
+    } catch (error) {
+      console.error('Error generating AI response:', error);
+
+      // Fallback to a helpful error message
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        type: 'bot',
+        content: "I'm experiencing some technical difficulties right now. Please try asking your question again, or check that the Mistral API is properly configured.",
+        hasChart: false,
+        suggestions: ["Try asking about ocean temperature", "Ask about marine biodiversity", "Inquire about ocean currents"],
+        timestamp: new Date()
+      }]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   const getTopicFromMessage = (message) => {
@@ -257,7 +252,7 @@ const AIChatbot = () => {
 
     setMessages(prev => [...prev, newMessage]);
 
-    simulateAIResponse(inputValue);
+    generateAIResponse(inputValue);
     setInputValue('');
     setAttachedFile(null);
     if (fileInputRef.current) {
@@ -268,6 +263,7 @@ const AIChatbot = () => {
   // Chart component for AI responses
   const AIChart = ({ chartType }) => {
     if (chartType === 'temperature') {
+      const chartData = dynamicChartData.temperature.length > 0 ? dynamicChartData.temperature : tempData;
       return (
         <Card className="glass-card mt-4 border-primary/20">
           <CardHeader className="pb-2">
@@ -278,7 +274,7 @@ const AIChatbot = () => {
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={200}>
-              <LineChart data={tempData}>
+              <LineChart data={chartData}>
                 <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
                 <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
                 <Tooltip />
@@ -291,6 +287,7 @@ const AIChatbot = () => {
     }
 
     if (chartType === 'species') {
+      const chartData = dynamicChartData.species.length > 0 ? dynamicChartData.species : speciesData;
       return (
         <Card className="glass-card mt-4 border-accent/20">
           <CardHeader className="pb-2">
@@ -301,7 +298,7 @@ const AIChatbot = () => {
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={speciesData}>
+              <BarChart data={chartData}>
                 <XAxis dataKey="depth" axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
                 <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
                 <Tooltip />
@@ -314,6 +311,50 @@ const AIChatbot = () => {
                 </defs>
               </BarChart>
             </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      );
+    }
+
+    if (chartType === 'table') {
+      const tableData = dynamicChartData.table && dynamicChartData.table.length > 0
+        ? dynamicChartData.table
+        : [
+            { column1: 'Tropical Zone (30°S–30°N)', column2: '25–30°C (77–86°F)', column3: 'Warmest waters; high evaporation drives hurricanes/typhoons.' },
+            { column1: 'Subtropical Zone (30°–50°)', column2: '15–25°C (59–77°F)', column3: 'Transition zone; strong temperature gradients (e.g., Gulf Stream).' },
+            { column1: 'Temperate Zone (50°–60°)', column2: '5–15°C (41–59°F)', column3: 'Seasonal variability; upwelling brings cold, nutrient-rich water.' },
+            { column1: 'Polar Zone (>60°)', column2: '-2–5°C (28–41°F)', column3: 'Near-freezing; ice formation regulates global circulation.' }
+          ];
+
+      return (
+        <Card className="glass-card mt-4 border-blue-500/20">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm flex items-center gap-2">
+              <BarChart3 className="h-4 w-4 text-blue-500" />
+              Ocean Data Table
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border/30">
+                    <th className="text-left py-2 px-3 font-semibold text-foreground">Category</th>
+                    <th className="text-left py-2 px-3 font-semibold text-foreground">Value</th>
+                    <th className="text-left py-2 px-3 font-semibold text-foreground">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tableData.map((row, index) => (
+                    <tr key={index} className="border-b border-border/10 hover:bg-muted/20 transition-colors">
+                      <td className="py-3 px-3 font-medium text-primary">{row.column1}</td>
+                      <td className="py-3 px-3 text-orange-500 font-medium">{row.column2}</td>
+                      <td className="py-3 px-3 text-muted-foreground">{row.column3}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </CardContent>
         </Card>
       );
@@ -341,7 +382,7 @@ const AIChatbot = () => {
     }
 
     setMessages(prev => [...prev, newMessage]);
-    simulateAIResponse(question);
+    generateAIResponse(question);
   };
 
   return (
@@ -393,7 +434,7 @@ const AIChatbot = () => {
 
                 {/* Navigation Controls */}
                 <div className="flex items-center space-x-2">
-                  {/* Sidebar Toggle */}
+                  {/* Chat Info Sidebar Toggle */}
                   <Button
                     variant="outline"
                     size="sm"
@@ -404,12 +445,12 @@ const AIChatbot = () => {
                     <span className="text-sm hidden sm:inline">Chat Info</span>
                   </Button>
 
-                  {/* Main Nav Access Button */}
+                  {/* Menu Sidebar Toggle */}
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => setShowMainNav(!showMainNav)}
-                    className="hidden sm:flex items-center space-x-2 hover:bg-primary/10 hover:border-primary/20 transition-all duration-200"
+                    onClick={() => setMenuSidebarOpen(!menuSidebarOpen)}
+                    className="flex items-center space-x-2 hover:bg-accent/10 hover:border-accent/20 transition-all duration-200"
                   >
                     <div className="w-4 h-4 flex flex-col space-y-0.5">
                       <div className="w-full h-0.5 bg-current"></div>
@@ -419,13 +460,6 @@ const AIChatbot = () => {
                     <span className="text-sm">Menu</span>
                   </Button>
 
-                  {/* Quick Actions */}
-                  <Button variant="ghost" size="sm" className="hover:bg-accent/10">
-                    <Download className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="sm" className="hover:bg-muted/50">
-                    <Settings className="h-4 w-4" />
-                  </Button>
 
                   {/* Chat Status */}
                   <div className="hidden lg:flex items-center space-x-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full">
@@ -520,11 +554,11 @@ const AIChatbot = () => {
         isChatActive ? 'top-16 chat-activation' : 'top-20'
       }`}>
 
-        {/* Enhanced Sidebar */}
+        {/* Chat Info Sidebar (Left) */}
         <AnimatePresence>
           {sidebarOpen && (
             <motion.div
-              className={`fixed left-0 bottom-0 w-80 lg:w-80 md:w-72 sm:w-full bg-background/95 backdrop-blur-xl border-r border-border/30 z-40 overflow-hidden shadow-2xl ${
+              className={`fixed left-0 bottom-0 w-80 lg:w-80 md:w-72 sm:w-full bg-background/95 backdrop-blur-xl border-r border-border/30 z-50 overflow-hidden shadow-2xl ${
                 isChatActive ? 'top-16' : 'top-20'
               }`}
               initial={{ x: -320, opacity: 0 }}
@@ -581,17 +615,9 @@ const AIChatbot = () => {
                       <span>Quick Actions</span>
                     </div>
                     <div className="space-y-2">
-                      <Button variant="ghost" size="sm" className="w-full justify-start hover:bg-primary/10 transition-all duration-200 text-xs">
-                        <Download className="h-4 w-4 mr-2" />
-                        Export Chat
-                      </Button>
                       <Button variant="ghost" size="sm" className="w-full justify-start hover:bg-accent/10 transition-all duration-200 text-xs">
                         <History className="h-4 w-4 mr-2" />
                         Clear History
-                      </Button>
-                      <Button variant="ghost" size="sm" className="w-full justify-start hover:bg-muted/20 transition-all duration-200 text-xs">
-                        <Settings className="h-4 w-4 mr-2" />
-                        AI Settings
                       </Button>
                     </div>
                   </CardContent>
@@ -657,8 +683,103 @@ const AIChatbot = () => {
         )}
       </AnimatePresence>
 
+      {/* Menu Sidebar (Right) */}
+      <AnimatePresence>
+        {menuSidebarOpen && (
+          <motion.div
+            className={`fixed right-0 bottom-0 w-80 lg:w-80 md:w-72 sm:w-full bg-background/95 backdrop-blur-xl border-l border-border/30 z-50 overflow-hidden shadow-2xl ${
+              isChatActive ? 'top-16' : 'top-20'
+            }`}
+            initial={{ x: 320, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 320, opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+          >
+            <div className="h-full flex flex-col">
+              {/* Menu Header */}
+              <div className="flex-shrink-0 p-4 bg-gradient-to-br from-accent/5 via-accent/3 to-primary/5 border-b border-border/20">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center border border-accent/20">
+                      <div className="w-4 h-4 flex flex-col space-y-0.5">
+                        <div className="w-full h-0.5 bg-accent"></div>
+                        <div className="w-full h-0.5 bg-accent"></div>
+                        <div className="w-full h-0.5 bg-accent"></div>
+                      </div>
+                    </div>
+                    <h2 className="text-lg font-semibold text-foreground">Navigation Menu</h2>
+                  </div>
+                  <Button variant="ghost" size="sm" onClick={() => setMenuSidebarOpen(false)} className="hover:bg-red-500/10 rounded-full">
+                    <X className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+
+              {/* Menu Content */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                {/* Navigation Links */}
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold text-foreground mb-3">Navigation</h3>
+                  <div className="space-y-2">
+                    {[
+                      { name: 'Home', icon: '🏠', href: '/home' },
+                      { name: 'Data Visualization', icon: '📊', href: '/data-viz' },
+                      { name: 'AI Chat', icon: '🤖', href: '/ai-chat', active: true },
+                    ].map((item, index) => (
+                      <a
+                        key={index}
+                        href={item.href}
+                        className={`flex items-center space-x-3 p-3 rounded-xl border transition-all duration-200 hover:shadow-md ${
+                          item.active
+                            ? 'bg-accent/10 border-accent/20 text-accent'
+                            : 'bg-card/50 border-border/20 hover:bg-card/80'
+                        }`}
+                        onClick={() => setMenuSidebarOpen(false)}
+                      >
+                        <span className="text-xl">{item.icon}</span>
+                        <span className="font-medium text-sm">{item.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Quick Actions */}
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold text-foreground mb-3">Quick Actions</h3>
+                  <div className="space-y-2">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start hover:bg-primary/10 transition-all duration-200 text-xs"
+                      onClick={() => {
+                        setMessages([]);
+                        setMenuSidebarOpen(false);
+                      }}
+                    >
+                      <History className="h-4 w-4 mr-2" />
+                      New Chat Session
+                    </Button>
+                  </div>
+                </div>
+
+                {/* App Info */}
+                <div className="mt-6 p-4 bg-muted/20 rounded-xl border border-border/20">
+                  <p className="text-sm text-muted-foreground text-center">
+                    AI Ocean Assistant - Real-time marine intelligence and data analysis
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
         {/* Main Chat Container - Enhanced Full Screen */}
-        <div className={`flex-1 flex flex-col min-h-0 transition-all duration-500 ease-in-out ${sidebarOpen ? 'lg:ml-80 md:ml-72 sm:ml-0' : 'ml-0'} relative z-10 pb-20`}>
+        <div className={`flex-1 flex flex-col min-h-0 transition-all duration-500 ease-in-out ${
+          sidebarOpen ? 'lg:ml-80 md:ml-72 sm:ml-0' : 'ml-0'
+        } ${
+          menuSidebarOpen ? 'lg:mr-80 md:mr-72 sm:mr-0' : 'mr-0'
+        } relative z-10 pb-20`}>
 
 
         {/* Enhanced Chat Messages Area - FIXED SCROLLING */}

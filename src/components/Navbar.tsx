@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Waves, Menu, X, LogOut, User } from "lucide-react";
+import { Waves, Menu, X, LogOut, User, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/lib/auth-context";
@@ -9,6 +9,7 @@ import { toast } from "@/components/ui/sonner";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { currentUser, isAuthenticated } = useAuth();
@@ -17,7 +18,7 @@ const Navbar = () => {
     { name: "Home", path: "/home", icon: Waves },
     { name: "Data Viz", path: "/data-viz", icon: Waves },
     { name: "AI Chat", path: "/ai-chat", icon: Waves },
-    { name: "Ocean Explorer", path: "/ocean-explorer", icon: Waves },
+    // { name: "Ocean Explorer", path: "/ocean-explorer", icon: Waves },
   ];
 
   return (
@@ -53,27 +54,40 @@ const Navbar = () => {
               </Link>
             ))}
             {isAuthenticated ? (
-              <div className="flex items-center gap-4">
-                <div className="text-sm text-slate-300">
-                  <User className="h-4 w-4 inline-block mr-2" />
-                  {currentUser?.email?.split('@')[0]}
-                </div>
-                <Button
-                  variant="professional"
-                  size="sm"
-                  className="transition-all duration-300"
-                  onClick={async () => {
-                    try {
-                      await logOut();
-                      toast.success('Logged out successfully');
-                    } catch (error) {
-                      toast.error('Failed to log out');
-                    }
-                  }}
+              <div className="relative">
+                <button
+                  className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-slate-800"
+                  onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
                 >
-                  <LogOut className="h-4 w-4 mr-2" />
-                  Sign Out
-                </Button>
+                  <User className="h-4 w-4" />
+                  {currentUser?.email?.split('@')[0]}
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+
+                {profileDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-600 rounded-lg shadow-lg z-50">
+                    <div className="py-1">
+                      <div className="px-4 py-2 text-sm text-slate-400 border-b border-slate-600">
+                        {currentUser?.email}
+                      </div>
+                      <button
+                        className="w-full text-left px-4 py-2 text-sm text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-2"
+                        onClick={async () => {
+                          try {
+                            await logOut();
+                            toast.success('Logged out successfully');
+                            setProfileDropdownOpen(false);
+                          } catch (error) {
+                            toast.error('Failed to log out');
+                          }
+                        }}
+                      >
+                        <LogOut className="h-4 w-4" />
+                        Sign Out
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <Button
@@ -118,23 +132,26 @@ const Navbar = () => {
                 </Link>
               ))}
               {isAuthenticated ? (
-                <Button
-                  variant="professional"
-                  size="sm"
-                  className="self-start transition-all duration-300"
-                  onClick={async () => {
-                    try {
-                      await logOut();
-                      toast.success('Logged out successfully');
-                      setIsOpen(false);
-                    } catch (error) {
-                      toast.error('Failed to log out');
-                    }
-                  }}
-                >
-                  <LogOut className="h-4 w-4 mr-2" />
-                  Sign Out
-                </Button>
+                <div className="border-t border-slate-600 pt-4">
+                  <div className="px-4 py-2 text-sm text-slate-400">
+                    {currentUser?.email}
+                  </div>
+                  <button
+                    className="w-full text-left px-4 py-2 text-sm text-slate-300 hover:text-white flex items-center gap-2"
+                    onClick={async () => {
+                      try {
+                        await logOut();
+                        toast.success('Logged out successfully');
+                        setIsOpen(false);
+                      } catch (error) {
+                        toast.error('Failed to log out');
+                      }
+                    }}
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Sign Out
+                  </button>
+                </div>
               ) : (
                 <Button
                   variant="hero"
