@@ -37,7 +37,7 @@ class RagService {
 
   constructor() {
     // Use environment variable or default to localhost
-    this.backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+    this.backendUrl = 'https://fc847a52ecf9.ngrok-free.app';
   }
 
   // Build the FAISS index (run once)
@@ -59,7 +59,7 @@ class RagService {
     try {
       console.log('RAG Service: Sending request to backend...', this.backendUrl);
 
-      const response = await axios.post<RagResponse>(`${this.backendUrl}/chat`, {
+      const response = await axios.post<RagResponse>(this.backendUrl, {
         query: userMessage,
         k: 5 // Number of tables to retrieve
       }, {

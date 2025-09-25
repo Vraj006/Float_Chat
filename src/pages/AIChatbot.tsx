@@ -6,9 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Tooltip } from "recharts";
-// import ragService from "@/services/ragService";
+import ragService from "@/services/ragService";
 // import RagPlotDisplay from "@/components/RagPlotDisplay";
-import mistralService from "@/services/mistralService";
+// import mistralService from "@/services/mistralService";
 import { useAuth } from "@/lib/auth-context";
 import { createNewChat, listChats, saveMessage as saveChatMessage, loadMessages as loadChatMessages, clearChatMessages, deleteChat, type ChatThread } from "@/services/chatService";
 import { toast } from "@/components/ui/sonner";
@@ -200,16 +200,16 @@ const AIChatbot = () => {
     setCurrentTopic(getTopicFromMessage(userMessage));
 
     try {
-      // Use Mistral API to generate response
-      const response = await mistralService.sendMessage(userMessage, conversationHistory);
+      // Use RAG service to generate response
+      const response = await ragService.sendMessage(userMessage, conversationHistory);
 
       // Check if response should include chart
-      const chartInfo = mistralService.shouldIncludeChart(userMessage);
+      const chartInfo = ragService.shouldIncludeChart(userMessage);
 
       // Generate chart data if needed
       let chartData = null;
       if (chartInfo.hasChart) {
-        chartData = await mistralService.generateChartData(userMessage, chartInfo.chartType);
+        chartData = await ragService.generateChartData(userMessage, chartInfo.chartType);
         setDynamicChartData(prev => ({
           ...prev,
           [chartInfo.chartType]: chartData
@@ -217,7 +217,7 @@ const AIChatbot = () => {
       }
 
       // Generate suggestions for follow-up questions
-      const suggestions = mistralService.generateSuggestions(userMessage);
+      const suggestions = ragService.generateSuggestions(userMessage);
 
       // Update conversation history for context
       const newConversationHistory = [
@@ -255,7 +255,7 @@ const AIChatbot = () => {
       setMessages(prev => [...prev, {
         id: Date.now().toString(),
         type: 'bot',
-        content: "I'm experiencing some technical difficulties right now. Please try asking your question again, or check that the Mistral API is properly configured.",
+        content: "I'm experiencing some technical difficulties right now. Please try asking your question again, or check that the RAG service is properly configured.",
         hasChart: false,
         suggestions: ["Try asking about ocean temperature", "Ask about marine biodiversity", "Inquire about ocean currents"],
         timestamp: new Date()
