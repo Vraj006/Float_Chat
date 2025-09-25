@@ -199,32 +199,52 @@ const DataVisualization = () => {
     );
   };
 
-  // Tab Navigation Component
+  // Enhanced Tab Navigation Component
   const TabButton = ({ id, label, icon: Icon, active, onClick }) => (
     <button
       onClick={() => onClick(id)}
-      className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 relative z-20 ${
+      className={`relative flex items-center gap-3 px-6 py-3 rounded-xl transition-all duration-300 backdrop-blur-sm border font-mono text-sm uppercase tracking-wider overflow-hidden group ${
         active
-          ? 'bg-primary text-primary-foreground shadow-glow-sm'
-          : 'text-muted-foreground hover:text-foreground hover:bg-primary/10'
+          ? 'bg-gradient-to-r from-blue-600/80 to-teal-600/80 border-blue-400/50 text-white shadow-lg shadow-blue-600/25'
+          : 'bg-black/40 border-slate-400/20 text-slate-300 hover:text-white hover:border-blue-400/30 hover:bg-black/60 hover:shadow-lg hover:shadow-blue-500/10'
       }`}
     >
-      <Icon className="h-4 w-4" />
-      <span className="text-sm font-medium">{label}</span>
+      {/* Active indicator */}
+      {active && (
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent animate-pulse"></div>
+      )}
+
+      {/* Hover effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
+
+      <Icon className={`h-4 w-4 relative z-10 ${active ? 'text-white' : 'text-current'}`} />
+      <span className="relative z-10">{label}</span>
     </button>
   );
 
   return (
     <motion.div
-      className="min-h-screen bg-background relative overflow-hidden"
+      className="min-h-screen bg-black relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
-      {/* Subtle background elements */}
-      <div className="absolute -bottom-16 left-1/4 w-64 h-64 bg-primary/3 rounded-full blur-3xl opacity-20 z-0"></div>
-      <div className="absolute -top-32 right-1/3 w-96 h-96 bg-accent/2 rounded-full blur-3xl opacity-15 z-0"></div>
+      {/* Professional ocean background elements */}
+      <div className="absolute -bottom-16 left-1/4 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl opacity-20 z-0"></div>
+      <div className="absolute -top-32 right-1/3 w-96 h-96 bg-teal-500/8 rounded-full blur-3xl opacity-15 z-0"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-blue-900/5 via-transparent to-teal-900/5 z-0"></div>
+
+      {/* Ocean-tech grid background */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(90deg, transparent 98%, rgba(59, 130, 246, 0.1) 100%),
+            linear-gradient(180deg, transparent 98%, rgba(20, 184, 166, 0.1) 100%)
+          `,
+          backgroundSize: '100px 100px'
+        }}></div>
+      </div>
 
       <Navbar />
 
@@ -331,85 +351,130 @@ const DataVisualization = () => {
         <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-80' : 'ml-0'}`}>
           <div className="pt-28 px-6 pb-12">
             <div className="container mx-auto space-y-8">
-              {/* Header with Controls */}
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between space-y-4 lg:space-y-0">
-                <div>
-                  <h1 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight text-headline">
-                    Ocean Analytics Dashboard
-                  </h1>
-                  <p className="text-muted-foreground text-body mt-2">
-                    Real-time oceanographic data analysis with professional visualization tools
-                  </p>
-                  {availableTables.length > 0 && (
-                    <div className="text-sm text-green-400 mt-1">
-                      ✅ Connected to {availableTables.filter(t => t.startsWith('argo_')).length} Argo floats and {availableTables.filter(t => t.startsWith('bgc_')).length} BGC-Argo floats
+              {/* Enhanced Professional Header */}
+              <div className="flex flex-col space-y-6">
+                {/* Title and Controls on Same Level */}
+                <div className="flex flex-col lg:flex-row lg:items-start justify-between space-y-4 lg:space-y-0">
+                  <div className="relative">
+                    {/* Glow effect */}
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 via-teal-500/10 to-emerald-500/10 rounded-2xl blur-xl"></div>
+
+                    <div className="relative">
+                      <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-2">
+                        <span className="bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
+                          Ocean Analytics
+                        </span>
+                        <br />
+                        <span className="text-white">Dashboard</span>
+                      </h1>
+
+                      {/* Decorative line */}
+                      <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-teal-500 to-transparent rounded-full"></div>
                     </div>
-                  )}
-                  {availableTables.length === 0 && !isLoading && (
-                    <div className="text-sm text-yellow-400 mt-1">
-                      ⚠️ No Argo data tables found - using demo data
+                  </div>
+
+                  {/* Enhanced Control Panel - Aligned with Title */}
+                  <div className="flex flex-col lg:flex-row items-start lg:items-start gap-4 lg:mt-4">
+                    {/* Status Display */}
+                    <div className="bg-black/40 backdrop-blur-sm rounded-xl px-4 py-3 border border-blue-400/20">
+                      <LiveDataIndicator />
                     </div>
-                  )}
+
+                    {/* Control Buttons */}
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => setIsLiveData(!isLiveData)}
+                        className={`flex items-center gap-2 px-4 py-2.5 rounded-xl backdrop-blur-sm border font-mono text-sm uppercase tracking-wider transition-all duration-300 ${
+                          isLiveData
+                            ? 'bg-emerald-600/80 hover:bg-emerald-500/80 border-emerald-400/50 text-white shadow-lg shadow-emerald-500/20'
+                            : 'bg-black/40 hover:bg-black/60 border-slate-400/30 text-slate-300 hover:text-white hover:border-slate-300'
+                        }`}
+                      >
+                        <RefreshCw className={`h-4 w-4 ${isLiveData ? 'animate-spin' : ''}`} />
+                        {isLiveData ? 'LIVE' : 'PAUSED'}
+                      </button>
+
+                      <button
+                        onClick={() => setSidebarOpen(!sidebarOpen)}
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-black/40 backdrop-blur-sm border border-blue-400/20 hover:border-blue-400/40 hover:bg-black/60 text-blue-300 hover:text-blue-200 font-mono text-sm uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
+                      >
+                        <Menu className="h-4 w-4" />
+                        DETAILS
+                      </button>
+
+                      <div className="relative">
+                        <button
+                          onClick={() => setExportDropdownOpen(!exportDropdownOpen)}
+                          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-black/40 backdrop-blur-sm border border-teal-400/20 hover:border-teal-400/40 hover:bg-black/60 text-teal-300 hover:text-teal-200 font-mono text-sm uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/10"
+                        >
+                          <Download className="h-4 w-4" />
+                          EXPORT
+                        </button>
+                        {exportDropdownOpen && (
+                          <div className="absolute top-full right-0 mt-2 bg-black/90 backdrop-blur-xl border border-teal-400/30 rounded-xl shadow-2xl z-50 min-w-[140px] overflow-hidden">
+                            <button
+                              onClick={() => {
+                                handleExportData('json');
+                                setExportDropdownOpen(false);
+                              }}
+                              className="block w-full px-4 py-3 text-sm text-left hover:bg-teal-500/10 hover:text-white text-slate-200 font-mono transition-colors duration-200"
+                            >
+                              EXPORT_JSON
+                            </button>
+                            <button
+                              onClick={() => {
+                                handleExportData('csv');
+                                setExportDropdownOpen(false);
+                              }}
+                              className="block w-full px-4 py-3 text-sm text-left hover:bg-teal-500/10 hover:text-white text-slate-200 font-mono transition-colors duration-200"
+                            >
+                              EXPORT_CSV
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <LiveDataIndicator />
-                  <Button
-                    variant={isLiveData ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setIsLiveData(!isLiveData)}
-                    className="flex items-center gap-2"
-                  >
-                    <RefreshCw className={`h-4 w-4 ${isLiveData ? 'animate-spin' : ''}`} />
-                    {isLiveData ? 'Live' : 'Paused'}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="flex items-center gap-2"
-                  >
-                    <Menu className="h-4 w-4" />
-                    Detailed View
-                  </Button>
-                  <div className="relative">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex items-center gap-2"
-                      onClick={() => setExportDropdownOpen(!exportDropdownOpen)}
-                    >
-                      <Download className="h-4 w-4" />
-                      Export
-                    </Button>
-                    {exportDropdownOpen && (
-                      <div className="absolute top-full right-0 mt-1 bg-background border border-border rounded-lg shadow-lg z-10 min-w-[120px]">
-                        <button
-                          onClick={() => {
-                            handleExportData('json');
-                            setExportDropdownOpen(false);
-                          }}
-                          className="block w-full px-3 py-2 text-sm text-left hover:bg-muted rounded-t-lg"
-                        >
-                          Export JSON
-                        </button>
-                        <button
-                          onClick={() => {
-                            handleExportData('csv');
-                            setExportDropdownOpen(false);
-                          }}
-                          className="block w-full px-3 py-2 text-sm text-left hover:bg-muted rounded-b-lg"
-                        >
-                          Export CSV
-                        </button>
+                {/* Description and Status Below */}
+                <div>
+                  <p className="text-slate-300 text-lg leading-relaxed max-w-2xl mb-4">
+                    Professional oceanographic data analysis with real-time monitoring and AI-powered insights
+                  </p>
+
+                  {/* Enhanced status indicators */}
+                  <div className="space-y-2">
+                    {availableTables.length > 0 && (
+                      <div className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                        <span className="text-sm text-emerald-400 font-mono">
+                          CONNECTED: {availableTables.filter(t => t.startsWith('argo_')).length} Argo • {availableTables.filter(t => t.startsWith('bgc_')).length} BGC-Argo floats
+                        </span>
                       </div>
                     )}
+                    {availableTables.length === 0 && !isLoading && (
+                      <div className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                        <span className="text-sm text-yellow-400 font-mono">
+                          DEMO MODE: No Argo data tables found
+                        </span>
+                      </div>
+                    )}
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                      <span className="text-sm text-blue-400 font-mono">
+                        LAST_UPDATE: {lastUpdate.toLocaleTimeString()}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Tab Navigation */}
-              <div className="flex flex-wrap gap-2 border-b border-border pb-4 relative z-10">
+              {/* Enhanced Tab Navigation */}
+              <div className="flex flex-wrap gap-3 pb-6 relative z-10">
+                {/* Navigation background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-teal-900/20 rounded-xl blur-xl"></div>
                 <TabButton
                   id="map"
                   label="Map"
@@ -447,14 +512,19 @@ const DataVisualization = () => {
                 />
               </div>
 
-              {/* Filter Controls - Only show for non-map tabs */}
+              {/* Enhanced Filter Controls - Only show for non-map tabs */}
               {activeTab !== 'map' && (
-                <Card className="glass-card">
-                  <CardContent className="p-4">
-                    <div className="flex flex-wrap items-center gap-4">
-                      <div className="flex items-center gap-2">
-                        <Filter className="h-4 w-4 text-muted-foreground" />
-                        <span className="text-sm font-medium text-foreground">Filters</span>
+                <Card className="relative bg-black/60 backdrop-blur-xl border border-slate-400/30 hover:border-slate-400/50 shadow-lg hover:shadow-slate-500/10 transition-all duration-300 overflow-hidden">
+                  {/* Glow effect background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-800/10 via-transparent to-slate-700/5 opacity-40"></div>
+
+                  <CardContent className="p-6 relative z-10">
+                    <div className="flex flex-wrap items-center gap-6">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-gradient-to-r from-slate-600 to-slate-500 rounded-xl shadow-lg border border-slate-400/30">
+                          <Filter className="h-4 w-4 text-white" />
+                        </div>
+                        <span className="text-sm font-black text-white font-mono uppercase tracking-wider">Data Filters</span>
                       </div>
 
                       <FilterSelect
@@ -513,10 +583,10 @@ const DataVisualization = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => setFilters({ timeRange: '7d', region: 'all', depth: 'all', dataType: 'all' })}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 bg-black/40 border border-red-400/30 hover:border-red-400/50 hover:bg-red-900/20 text-red-300 hover:text-red-200 font-mono font-bold uppercase tracking-wider transition-all duration-200"
                       >
                         <X className="h-3 w-3" />
-                        Reset
+                        RESET
                       </Button>
                     </div>
                   </CardContent>
@@ -535,46 +605,74 @@ const DataVisualization = () => {
                     className="space-y-6"
                   >
 
-                    {/* Quick Stats */}
+                    {/* Enhanced Quick Stats */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.2 }}
-                      className="grid grid-cols-4 gap-4 mb-6"
+                      className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
                     >
-                      <div className="bg-card/70 backdrop-blur-sm rounded-xl p-4 border border-primary/10 shadow-lg">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Globe className="w-5 h-5 text-primary" />
-                          <span className="text-2xl font-bold text-primary">
-                            {availableTables.filter(t => t.startsWith('argo_')).length || 6}
-                          </span>
+                      <div className="relative group bg-black/40 backdrop-blur-sm rounded-xl p-5 border border-blue-400/30 hover:border-blue-400/50 shadow-lg hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden">
+                        {/* Glow effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="p-2 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg shadow-lg">
+                              <Globe className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="text-3xl font-black text-blue-400 font-mono">
+                              {availableTables.filter(t => t.startsWith('argo_')).length || 6}
+                            </span>
+                          </div>
+                          <p className="text-sm text-slate-400 font-mono uppercase tracking-wider">Argo Floats</p>
+                          <div className="mt-2 h-0.5 bg-gradient-to-r from-blue-400/20 to-transparent rounded-full"></div>
                         </div>
-                        <p className="text-sm text-muted-foreground">Argo Floats</p>
                       </div>
-                      <div className="bg-card/70 backdrop-blur-sm rounded-xl p-4 border border-accent/10 shadow-lg">
-                        <div className="flex items-center gap-2 mb-2">
-                          <BarChart3 className="w-5 h-5 text-accent" />
-                          <span className="text-2xl font-bold text-accent">
-                            {availableTables.filter(t => t.startsWith('bgc_')).length || 5}
-                          </span>
+
+                      <div className="relative group bg-black/40 backdrop-blur-sm rounded-xl p-5 border border-teal-400/30 hover:border-teal-400/50 shadow-lg hover:shadow-teal-500/10 transition-all duration-300 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-teal-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="p-2 bg-gradient-to-r from-teal-600 to-emerald-500 rounded-lg shadow-lg">
+                              <BarChart3 className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="text-3xl font-black text-teal-400 font-mono">
+                              {availableTables.filter(t => t.startsWith('bgc_')).length || 5}
+                            </span>
+                          </div>
+                          <p className="text-sm text-slate-400 font-mono uppercase tracking-wider">BGC Floats</p>
+                          <div className="mt-2 h-0.5 bg-gradient-to-r from-teal-400/20 to-transparent rounded-full"></div>
                         </div>
-                        <p className="text-sm text-muted-foreground">BGC Floats</p>
                       </div>
-                      <div className="bg-card/70 backdrop-blur-sm rounded-xl p-4 border border-primary/10 shadow-lg">
-                        <div className="flex items-center gap-2 mb-2">
-                          <MapPin className="w-5 h-5 text-primary" />
-                          <span className="text-2xl font-bold text-primary">
-                            {availableTables.length || 11}
-                          </span>
+
+                      <div className="relative group bg-black/40 backdrop-blur-sm rounded-xl p-5 border border-emerald-400/30 hover:border-emerald-400/50 shadow-lg hover:shadow-emerald-500/10 transition-all duration-300 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="p-2 bg-gradient-to-r from-emerald-600 to-blue-500 rounded-lg shadow-lg">
+                              <MapPin className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="text-3xl font-black text-emerald-400 font-mono">
+                              {availableTables.length || 11}
+                            </span>
+                          </div>
+                          <p className="text-sm text-slate-400 font-mono uppercase tracking-wider">Total Active</p>
+                          <div className="mt-2 h-0.5 bg-gradient-to-r from-emerald-400/20 to-transparent rounded-full"></div>
                         </div>
-                        <p className="text-sm text-muted-foreground">Total Active</p>
                       </div>
-                      <div className="bg-card/70 backdrop-blur-sm rounded-xl p-4 border border-accent/10 shadow-lg">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Activity className="w-5 h-5 text-accent" />
-                          <span className="text-2xl font-bold text-accent">Active</span>
+
+                      <div className="relative group bg-black/40 backdrop-blur-sm rounded-xl p-5 border border-blue-400/30 hover:border-blue-400/50 shadow-lg hover:shadow-blue-500/10 transition-all duration-300 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="p-2 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg shadow-lg">
+                              <Activity className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="text-xl font-black text-emerald-400 font-mono">ONLINE</span>
+                          </div>
+                          <p className="text-sm text-slate-400 font-mono uppercase tracking-wider">Network Status</p>
+                          <div className="mt-2 h-0.5 bg-gradient-to-r from-emerald-400/50 via-emerald-400/20 to-transparent rounded-full animate-pulse"></div>
                         </div>
-                        <p className="text-sm text-muted-foreground">Network Status</p>
                       </div>
                     </motion.div>
 
@@ -582,18 +680,18 @@ const DataVisualization = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                       {/* Map Section */}
                       <div className="lg:col-span-3">
-                        <Card className="h-[500px] bg-card/80 backdrop-blur-sm border-0 shadow-2xl overflow-hidden">
-                          <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-primary/20 pb-3">
-                            <CardTitle className="flex items-center gap-3 text-lg">
-                              <div className="p-2 bg-gradient-to-r from-primary to-accent rounded-lg shadow-lg">
-                                <MapPin className="w-5 h-5 text-white" />
+                        <Card className="h-[500px] bg-black/60 backdrop-blur-xl border border-blue-400/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden">
+                          <CardHeader className="bg-gradient-to-r from-blue-900/20 via-black/40 to-teal-900/20 border-b border-blue-400/30 pb-4">
+                            <CardTitle className="flex items-center gap-3 text-xl">
+                              <div className="p-2.5 bg-gradient-to-r from-blue-600 to-teal-500 rounded-xl shadow-lg border border-blue-400/30">
+                                <MapPin className="w-6 h-6 text-white" />
                               </div>
-                              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                              <span className="bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent font-black tracking-tight">
                                 Interactive Ocean Map
                               </span>
                             </CardTitle>
-                            <CardDescription className="text-sm text-muted-foreground">
-                              Real-time satellite view of Argo and BGC-Argo floats in the Indian Ocean
+                            <CardDescription className="text-sm text-slate-300 font-mono">
+                              REAL-TIME satellite view of Argo and BGC-Argo floats in the Indian Ocean
                             </CardDescription>
                           </CardHeader>
                           <CardContent className="p-4 h-full">
@@ -606,64 +704,69 @@ const DataVisualization = () => {
 
                       {/* Map Sidebar */}
                       <div className="space-y-4">
-                        {/* Float Types Legend */}
-                        <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden">
-                          <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-primary/20 pb-3">
+                        {/* Enhanced Float Types Legend */}
+                        <Card className="bg-black/60 backdrop-blur-xl border border-blue-400/30 shadow-lg hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden">
+                          <CardHeader className="bg-gradient-to-r from-blue-900/20 via-black/40 to-teal-900/20 border-b border-blue-400/30 pb-3">
                             <CardTitle className="flex items-center gap-2 text-sm">
-                              <div className="p-1.5 bg-gradient-to-r from-primary to-accent rounded-lg shadow-lg">
+                              <div className="p-1.5 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg shadow-lg">
                                 <Navigation className="w-4 h-4 text-white" />
                               </div>
-                              Float Types
+                              <span className="text-white font-mono uppercase tracking-wider">Float Types</span>
                             </CardTitle>
                           </CardHeader>
                           <CardContent className="p-4">
-                            <div className="space-y-3">
-                              <div className="p-2 rounded-lg bg-gradient-to-r from-primary/10 to-primary/20 border border-primary/30">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <div className="w-4 h-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-bold">A</div>
-                                  <span className="font-semibold text-primary text-sm">Core Argo</span>
+                            <div className="space-y-4">
+                              <div className="p-3 rounded-xl bg-gradient-to-r from-orange-900/20 to-orange-800/20 border border-orange-400/30 hover:border-orange-400/50 transition-all duration-200 group">
+                                <div className="flex items-center gap-3 mb-2">
+                                  <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-black shadow-lg">A</div>
+                                  <span className="font-black text-orange-400 text-sm font-mono">CORE ARGO</span>
                                 </div>
-                                <div className="text-xs text-muted-foreground">
-                                  Temperature, Salinity, Pressure
+                                <div className="text-xs text-slate-400 font-mono pl-9">
+                                  TEMP • SALINITY • PRESSURE
                                 </div>
+                                <div className="mt-2 h-0.5 bg-gradient-to-r from-orange-400/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                               </div>
 
-                              <div className="p-2 rounded-lg bg-gradient-to-r from-accent/10 to-accent/20 border border-accent/30">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <div className="w-4 h-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">B</div>
-                                  <span className="font-semibold text-accent text-sm">BGC-Argo</span>
+                              <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-900/20 to-emerald-800/20 border border-emerald-400/30 hover:border-emerald-400/50 transition-all duration-200 group">
+                                <div className="flex items-center gap-3 mb-2">
+                                  <div className="w-6 h-6 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-black shadow-lg">B</div>
+                                  <span className="font-black text-emerald-400 text-sm font-mono">BGC-ARGO</span>
                                 </div>
-                                <div className="text-xs text-muted-foreground">
-                                  O₂, pH, Nitrate, Chlorophyll
+                                <div className="text-xs text-slate-400 font-mono pl-9">
+                                  O₂ • pH • NITRATE • CHLOROPHYLL
                                 </div>
+                                <div className="mt-2 h-0.5 bg-gradient-to-r from-emerald-400/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                               </div>
                             </div>
                           </CardContent>
                         </Card>
 
-                        {/* Technical Specs */}
-                        <Card className="bg-card/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden">
-                          <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-primary/20 pb-3">
+                        {/* Enhanced Technical Specs */}
+                        <Card className="bg-black/60 backdrop-blur-xl border border-blue-400/30 shadow-lg hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden">
+                          <CardHeader className="bg-gradient-to-r from-blue-900/20 via-black/40 to-teal-900/20 border-b border-blue-400/30 pb-3">
                             <CardTitle className="text-sm flex items-center gap-2">
-                              <div className="p-1.5 bg-gradient-to-r from-primary to-accent rounded-lg shadow-lg">
+                              <div className="p-1.5 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg shadow-lg">
                                 <Activity className="w-4 h-4 text-white" />
                               </div>
-                              Technical Specs
+                              <span className="text-white font-mono uppercase tracking-wider">Technical Specs</span>
                             </CardTitle>
                           </CardHeader>
                           <CardContent className="p-4">
-                            <div className="space-y-2">
-                              <div className="flex justify-between items-center p-2 rounded bg-primary/5">
-                                <span className="text-xs text-muted-foreground">Max Depth</span>
-                                <span className="font-semibold text-primary text-sm">2000m</span>
+                            <div className="space-y-3">
+                              <div className="flex justify-between items-center p-3 rounded-xl bg-black/40 border border-blue-400/20 hover:border-blue-400/40 transition-colors duration-200">
+                                <span className="text-xs text-slate-400 font-mono uppercase tracking-wider">Max Depth</span>
+                                <span className="font-black text-blue-400 text-sm font-mono">2000M</span>
                               </div>
-                              <div className="flex justify-between items-center p-2 rounded bg-accent/5">
-                                <span className="text-xs text-muted-foreground">Cycle Period</span>
-                                <span className="font-semibold text-accent text-sm">10 days</span>
+                              <div className="flex justify-between items-center p-3 rounded-xl bg-black/40 border border-teal-400/20 hover:border-teal-400/40 transition-colors duration-200">
+                                <span className="text-xs text-slate-400 font-mono uppercase tracking-wider">Cycle Period</span>
+                                <span className="font-black text-teal-400 text-sm font-mono">10 DAYS</span>
                               </div>
-                              <div className="flex justify-between items-center p-2 rounded bg-primary/5">
-                                <span className="text-xs text-muted-foreground">Update Frequency</span>
-                                <span className="font-semibold text-primary text-sm">Real-time</span>
+                              <div className="flex justify-between items-center p-3 rounded-xl bg-black/40 border border-emerald-400/20 hover:border-emerald-400/40 transition-colors duration-200">
+                                <span className="text-xs text-slate-400 font-mono uppercase tracking-wider">Update Freq</span>
+                                <div className="flex items-center gap-2">
+                                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                                  <span className="font-black text-emerald-400 text-sm font-mono">REAL-TIME</span>
+                                </div>
                               </div>
                             </div>
                           </CardContent>
@@ -681,90 +784,133 @@ const DataVisualization = () => {
                     exit={{ opacity: 0, y: -20 }}
                     className="space-y-8"
                   >
-                    {/* Real-time Metrics Cards */}
+                    {/* Enhanced Real-time Metrics Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* Temperature Card */}
-                      <Card className="glass-card border-border hover:border-primary/40 transition-all duration-200 group relative overflow-hidden">
+                      {/* Enhanced Temperature Card */}
+                      <Card className="relative bg-black/60 backdrop-blur-xl border border-orange-400/30 hover:border-orange-400/50 shadow-lg hover:shadow-orange-500/20 transition-all duration-300 group overflow-hidden">
+                        {/* Glow effect background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-orange-600/10 via-transparent to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
                         {isLiveData && (
-                          <div className="absolute top-0 right-0 w-3 h-3 bg-green-400 rounded-full animate-pulse m-2"></div>
+                          <div className="absolute top-3 right-3 flex items-center gap-2">
+                            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span className="text-xs text-emerald-400 font-mono font-bold">LIVE</span>
+                          </div>
                         )}
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                          <CardTitle className="text-sm font-medium text-muted-foreground">Avg Temperature</CardTitle>
-                          <Thermometer className="h-4 w-4 text-orange-500" />
+
+                        <CardHeader className="flex flex-row items-center justify-between pb-3 relative z-10">
+                          <CardTitle className="text-sm font-mono font-bold text-slate-400 uppercase tracking-wider">Avg Temperature</CardTitle>
+                          <div className="p-2 bg-gradient-to-r from-orange-600 to-red-500 rounded-lg shadow-lg border border-orange-400/30">
+                            <Thermometer className="h-4 w-4 text-white" />
+                          </div>
                         </CardHeader>
-                        <CardContent>
-                          <div className="text-2xl font-semibold text-orange-500 animate-pulse">
+                        <CardContent className="relative z-10">
+                          <div className="text-4xl font-black text-orange-400 font-mono mb-2">
                             {realTimeMetrics?.temperature?.toFixed(1) || '0.0'}°C
                           </div>
-                          <p className="text-green-400 text-xs flex items-center gap-1 mt-2">
+                          <p className="text-emerald-400 text-xs flex items-center gap-2 font-mono">
                             <TrendingUp className="h-3 w-3" />
-                            +1.2° from last month
+                            +1.2° FROM_LAST_MONTH
                           </p>
                           {isLiveData && (
-                            <div className="mt-2 h-1 bg-gradient-to-r from-orange-500/20 via-orange-500/60 to-orange-500/20 rounded-full animate-pulse"></div>
+                            <div className="mt-3 h-1 bg-gradient-to-r from-orange-500/30 via-orange-400/80 to-orange-500/30 rounded-full animate-pulse shadow-lg shadow-orange-500/20"></div>
                           )}
+                          {/* Animated background pattern */}
+                          <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-orange-500/10 to-transparent rounded-full -mr-8 -mb-8 group-hover:scale-110 transition-transform duration-500"></div>
                         </CardContent>
                       </Card>
 
-                      {/* Wave Height Card */}
-                      <Card className="glass-card border-border hover:border-primary/40 transition-all duration-200 group relative overflow-hidden">
+                      {/* Enhanced Wave Height Card */}
+                      <Card className="relative bg-black/60 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 shadow-lg hover:shadow-blue-500/20 transition-all duration-300 group overflow-hidden">
+                        {/* Glow effect background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
                         {isLiveData && (
-                          <div className="absolute top-0 right-0 w-3 h-3 bg-green-400 rounded-full animate-pulse m-2"></div>
-                        )}
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                          <CardTitle className="text-sm font-medium text-muted-foreground">Wave Height</CardTitle>
-                          <Waves className="h-4 w-4 text-primary" />
-                        </CardHeader>
-                        <CardContent>
-                          <div className="text-2xl font-semibold text-primary animate-pulse">
-                            {realTimeMetrics?.waveHeight?.toFixed(1) || '0.0'}m
+                          <div className="absolute top-3 right-3 flex items-center gap-2">
+                            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span className="text-xs text-emerald-400 font-mono font-bold">LIVE</span>
                           </div>
-                          <p className="text-red-400 text-xs flex items-center gap-1 mt-2">
+                        )}
+
+                        <CardHeader className="flex flex-row items-center justify-between pb-3 relative z-10">
+                          <CardTitle className="text-sm font-mono font-bold text-slate-400 uppercase tracking-wider">Wave Height</CardTitle>
+                          <div className="p-2 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg shadow-lg border border-blue-400/30">
+                            <Waves className="h-4 w-4 text-white" />
+                          </div>
+                        </CardHeader>
+                        <CardContent className="relative z-10">
+                          <div className="text-4xl font-black text-blue-400 font-mono mb-2">
+                            {realTimeMetrics?.waveHeight?.toFixed(1) || '0.0'}M
+                          </div>
+                          <p className="text-red-400 text-xs flex items-center gap-2 font-mono">
                             <Activity className="h-3 w-3" />
-                            -0.3m from average
+                            -0.3M FROM_AVERAGE
                           </p>
                           {isLiveData && (
-                            <div className="mt-2 h-1 bg-gradient-to-r from-primary/20 via-primary/60 to-primary/20 rounded-full animate-pulse"></div>
+                            <div className="mt-3 h-1 bg-gradient-to-r from-blue-500/30 via-blue-400/80 to-blue-500/30 rounded-full animate-pulse shadow-lg shadow-blue-500/20"></div>
                           )}
+                          {/* Animated background pattern */}
+                          <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-full -mr-8 -mb-8 group-hover:scale-110 transition-transform duration-500"></div>
                         </CardContent>
                       </Card>
 
-                      {/* Species Count Card */}
-                      <Card className="glass-card border-border hover:border-accent/40 transition-all duration-200 group relative overflow-hidden">
+                      {/* Enhanced Species Count Card */}
+                      <Card className="relative bg-black/60 backdrop-blur-xl border border-emerald-400/30 hover:border-emerald-400/50 shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 group overflow-hidden">
+                        {/* Glow effect background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/10 via-transparent to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
                         {isLiveData && (
-                          <div className="absolute top-0 right-0 w-3 h-3 bg-green-400 rounded-full animate-pulse m-2"></div>
+                          <div className="absolute top-3 right-3 flex items-center gap-2">
+                            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span className="text-xs text-emerald-400 font-mono font-bold">LIVE</span>
+                          </div>
                         )}
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                          <CardTitle className="text-sm font-medium text-muted-foreground">Marine Species</CardTitle>
-                          <Fish className="h-4 w-4 text-accent" />
+
+                        <CardHeader className="flex flex-row items-center justify-between pb-3 relative z-10">
+                          <CardTitle className="text-sm font-mono font-bold text-slate-400 uppercase tracking-wider">Marine Species</CardTitle>
+                          <div className="p-2 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-lg shadow-lg border border-emerald-400/30">
+                            <Fish className="h-4 w-4 text-white" />
+                          </div>
                         </CardHeader>
-                        <CardContent>
-                          <div className="text-2xl font-semibold text-accent animate-pulse">
+                        <CardContent className="relative z-10">
+                          <div className="text-4xl font-black text-emerald-400 font-mono mb-2">
                             {realTimeMetrics?.species?.toLocaleString() || '0'}
                           </div>
-                          <p className="text-green-400 text-xs flex items-center gap-1 mt-2">
+                          <p className="text-emerald-400 text-xs flex items-center gap-2 font-mono">
                             <TrendingUp className="h-3 w-3" />
-                            +89 new species found
+                            +89 NEW_SPECIES_FOUND
                           </p>
                           {isLiveData && (
-                            <div className="mt-2 h-1 bg-gradient-to-r from-accent/20 via-accent/60 to-accent/20 rounded-full animate-pulse"></div>
+                            <div className="mt-3 h-1 bg-gradient-to-r from-emerald-500/30 via-emerald-400/80 to-emerald-500/30 rounded-full animate-pulse shadow-lg shadow-emerald-500/20"></div>
                           )}
+                          {/* Animated background pattern */}
+                          <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-emerald-500/10 to-transparent rounded-full -mr-8 -mb-8 group-hover:scale-110 transition-transform duration-500"></div>
                         </CardContent>
                       </Card>
                     </div>
 
-          {/* Main Charts Section */}
+          {/* Enhanced Main Charts Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in-up">
-            {/* Temperature Trends */}
-            <Card className="glass-card border-border hover:shadow-md transition-all duration-200">
-              <CardHeader className="flex flex-row items-center justify-between">
+            {/* Enhanced Temperature Trends */}
+            <Card className="relative bg-black/60 backdrop-blur-xl border border-orange-400/30 hover:border-orange-400/50 shadow-xl hover:shadow-orange-500/20 transition-all duration-300 overflow-hidden">
+              {/* Glow effect background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-900/10 via-transparent to-red-900/5 opacity-60"></div>
+
+              <CardHeader className="flex flex-row items-center justify-between relative z-10">
                 <div>
-                  <CardTitle className="text-lg font-semibold text-foreground text-headline flex items-center gap-2">
-                    <Thermometer className="h-5 w-5 text-orange-500" />
-                    Temperature Trends
+                  <CardTitle className="text-xl font-black text-white flex items-center gap-3">
+                    <div className="p-2 bg-gradient-to-r from-orange-600 to-red-500 rounded-xl shadow-lg border border-orange-400/30">
+                      <Thermometer className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                      Temperature Trends
+                    </span>
                   </CardTitle>
+                  <p className="text-sm text-slate-400 font-mono mt-1">REAL-TIME ocean temperature analysis</p>
                 </div>
-                <Zap className="h-5 w-5 text-primary" />
+                <div className="p-2 bg-black/40 border border-blue-400/20 rounded-lg">
+                  <Zap className="h-5 w-5 text-blue-400" />
+                </div>
               </CardHeader>
               <CardContent className="pt-6">
                 {temperatureData.length > 0 ? (
@@ -795,27 +941,40 @@ const DataVisualization = () => {
                     </BarChart>
                   </ResponsiveContainer>
                 ) : (
-                  <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                  <div className="h-[300px] flex items-center justify-center">
                     <div className="text-center">
-                      <Thermometer className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                      <p>No temperature data available</p>
-                      <p className="text-sm">Connect Argo floats to see temperature trends</p>
+                      <div className="p-4 bg-gradient-to-r from-orange-600 to-red-500 rounded-full mx-auto mb-4 shadow-lg border border-orange-400/30">
+                        <Thermometer className="h-12 w-12 text-white" />
+                      </div>
+                      <p className="text-slate-300 font-mono text-lg mb-2">NO_TEMPERATURE_DATA</p>
+                      <p className="text-slate-400 font-mono text-sm">CONNECT_ARGO_FLOATS to see temperature trends</p>
+                      <div className="mt-4 h-1 w-32 bg-gradient-to-r from-orange-500/30 to-red-500/30 rounded-full mx-auto animate-pulse"></div>
                     </div>
                   </div>
                 )}
               </CardContent>
             </Card>
 
-            {/* Marine Life Activity */}
-            <Card className="glass-card border-border hover:shadow-md transition-all duration-200">
-              <CardHeader className="flex flex-row items-center justify-between">
+            {/* Enhanced Marine Life Activity */}
+            <Card className="relative bg-black/60 backdrop-blur-xl border border-emerald-400/30 hover:border-emerald-400/50 shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 overflow-hidden">
+              {/* Glow effect background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/10 via-transparent to-teal-900/5 opacity-60"></div>
+
+              <CardHeader className="flex flex-row items-center justify-between relative z-10">
                 <div>
-                  <CardTitle className="text-lg font-semibold text-foreground text-headline flex items-center gap-2">
-                    <Fish className="h-5 w-5 text-accent" />
-                    Marine Life Distribution
+                  <CardTitle className="text-xl font-black text-white flex items-center gap-3">
+                    <div className="p-2 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-xl shadow-lg border border-emerald-400/30">
+                      <Fish className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                      Marine Life Distribution
+                    </span>
                   </CardTitle>
+                  <p className="text-sm text-slate-400 font-mono mt-1">SPECIES diversity and population data</p>
                 </div>
-                <Activity className="h-5 w-5 text-accent" />
+                <div className="p-2 bg-black/40 border border-emerald-400/20 rounded-lg">
+                  <Activity className="h-5 w-5 text-emerald-400" />
+                </div>
               </CardHeader>
               <CardContent className="pt-6">
                 {marineLifeData.length > 0 ? (
@@ -825,12 +984,12 @@ const DataVisualization = () => {
                         dataKey="depth"
                         axisLine={false}
                         tickLine={false}
-                        tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                        tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }}
                       />
                       <YAxis
                         axisLine={false}
                         tickLine={false}
-                        tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                        tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }}
                       />
                       <Bar
                         dataKey="species"
@@ -846,11 +1005,14 @@ const DataVisualization = () => {
                     </BarChart>
                   </ResponsiveContainer>
                 ) : (
-                  <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                  <div className="h-[300px] flex items-center justify-center">
                     <div className="text-center">
-                      <Fish className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                      <p>No marine life data available</p>
-                      <p className="text-sm">Connect BGC-Argo floats to see biochemical measurements</p>
+                      <div className="p-4 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-full mx-auto mb-4 shadow-lg border border-emerald-400/30">
+                        <Fish className="h-12 w-12 text-white" />
+                      </div>
+                      <p className="text-slate-300 font-mono text-lg mb-2">NO_MARINE_LIFE_DATA</p>
+                      <p className="text-slate-400 font-mono text-sm">CONNECT_BGC-ARGO_FLOATS for biochemical measurements</p>
+                      <div className="mt-4 h-1 w-40 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-full mx-auto animate-pulse"></div>
                     </div>
                   </div>
                 )}
@@ -858,48 +1020,72 @@ const DataVisualization = () => {
             </Card>
           </div>
 
-          {/* Ocean Depth Analysis */}
-          <Card className="glass-card border-border hover:shadow-md transition-all duration-200 animate-fade-in-up">
-            <CardHeader>
-              <CardTitle className="text-xl font-semibold text-foreground text-headline flex items-center gap-2">
-                <Activity className="h-5 w-5 text-primary" />
-                Depth Zone Analysis
+          {/* Enhanced Ocean Depth Analysis */}
+          <Card className="relative bg-black/60 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 shadow-xl hover:shadow-blue-500/20 transition-all duration-300 animate-fade-in-up overflow-hidden">
+            {/* Glow effect background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-teal-900/5 opacity-40"></div>
+
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-2xl font-black text-white flex items-center gap-3">
+                <div className="p-2.5 bg-gradient-to-r from-blue-600 to-teal-500 rounded-xl shadow-lg border border-blue-400/30">
+                  <Activity className="h-6 w-6 text-white" />
+                </div>
+                <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
+                  Depth Zone Analysis
+                </span>
               </CardTitle>
+              <p className="text-sm text-slate-400 font-mono mt-2">BIOCHEMICAL activity distribution across ocean layers</p>
             </CardHeader>
             <CardContent>
               {marineLifeData.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                  {marineLifeData.map((zone, index) => (
-                    <div key={zone.depth} className="glass rounded-lg p-6 hover:bg-primary/10 transition-all duration-300 group">
-                      <div className="text-center space-y-3">
-                        <div className="text-lg font-semibold text-primary glow-text">
+                  {marineLifeData.map((zone, index) => {
+                    const zoneColors = [
+                      { bg: 'from-yellow-600/20 to-orange-600/20', border: 'yellow-400/30', text: 'yellow-400', accent: 'orange-400' },
+                      { bg: 'from-blue-600/20 to-indigo-600/20', border: 'blue-400/30', text: 'blue-400', accent: 'indigo-400' },
+                      { bg: 'from-indigo-600/20 to-purple-600/20', border: 'indigo-400/30', text: 'indigo-400', accent: 'purple-400' },
+                      { bg: 'from-purple-600/20 to-gray-600/20', border: 'purple-400/30', text: 'purple-400', accent: 'gray-400' }
+                    ][index] || { bg: 'from-blue-600/20 to-teal-600/20', border: 'blue-400/30', text: 'blue-400', accent: 'teal-400' };
+
+                    return (
+                    <div key={zone.depth} className={`relative bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-${zoneColors.border} hover:border-${zoneColors.border.replace('/30', '/50')} transition-all duration-300 group overflow-hidden`}>
+                      {/* Zone gradient background */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${zoneColors.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+
+                      <div className="text-center space-y-4 relative z-10">
+                        <div className={`text-xl font-black text-${zoneColors.text} font-mono`}>
                           {zone.depth}
                         </div>
-                        <div className="text-sm text-foreground/70 capitalize">
-                          {index === 0 ? 'Sunlight Zone' :
-                           index === 1 ? 'Twilight Zone' :
-                           index === 2 ? 'Midnight Zone' : 'Abyssal Zone'}
+                        <div className="text-sm text-slate-400 font-mono font-bold uppercase tracking-wider">
+                          {index === 0 ? 'SUNLIGHT_ZONE' :
+                           index === 1 ? 'TWILIGHT_ZONE' :
+                           index === 2 ? 'MIDNIGHT_ZONE' : 'ABYSSAL_ZONE'}
                         </div>
-                        <div className="space-y-2">
-                          <div className="text-2xl font-bold text-accent group-hover:animate-pulse">
+                        <div className="space-y-3">
+                          <div className={`text-3xl font-black text-${zoneColors.accent} group-hover:animate-pulse font-mono`}>
                             {zone.species}
                           </div>
-                          <div className="text-xs text-foreground/60">Biochemical Activity</div>
-                          <div className="text-lg font-semibold text-orange-400">
+                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Biochemical Activity</div>
+                          <div className={`text-2xl font-black text-${zoneColors.text} font-mono`}>
                             {zone.temp}°C
                           </div>
-                          <div className="text-xs text-foreground/60">Temp</div>
+                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Temperature</div>
                         </div>
+                        {/* Zone indicator line */}
+                        <div className={`h-1 bg-gradient-to-r from-${zoneColors.text}/30 to-transparent rounded-full group-hover:from-${zoneColors.text}/60 transition-all duration-300`}></div>
                       </div>
                     </div>
-                  ))}
+                  )})}
                 </div>
               ) : (
-                <div className="h-[200px] flex items-center justify-center text-muted-foreground">
+                <div className="h-[200px] flex items-center justify-center">
                   <div className="text-center">
-                    <Activity className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                    <p>No depth analysis data available</p>
-                    <p className="text-sm">BGC-Argo floats needed for depth zone analysis</p>
+                    <div className="p-4 bg-gradient-to-r from-blue-600 to-teal-500 rounded-full mx-auto mb-4 shadow-lg border border-blue-400/30">
+                      <Activity className="h-12 w-12 text-white" />
+                    </div>
+                    <p className="text-slate-300 font-mono text-lg mb-2">NO_DEPTH_ANALYSIS_DATA</p>
+                    <p className="text-slate-400 font-mono text-sm">BGC-ARGO_FLOATS needed for depth zone analysis</p>
+                    <div className="mt-4 h-1 w-48 bg-gradient-to-r from-blue-500/30 to-teal-500/30 rounded-full mx-auto animate-pulse"></div>
                   </div>
                 </div>
               )}
@@ -918,11 +1104,18 @@ const DataVisualization = () => {
                     className="space-y-8"
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                      <Card className="glass-card">
-                        <CardHeader className="flex flex-row items-center justify-between">
-                          <CardTitle className="flex items-center gap-2">
-                            <Thermometer className="h-5 w-5 text-orange-500" />
-                            Temperature Heatmap
+                      <Card className="relative bg-black/60 backdrop-blur-xl border border-orange-400/30 hover:border-orange-400/50 shadow-xl hover:shadow-orange-500/20 transition-all duration-300 overflow-hidden">
+                        {/* Glow effect background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-orange-900/10 via-transparent to-red-900/5 opacity-40"></div>
+
+                        <CardHeader className="flex flex-row items-center justify-between relative z-10">
+                          <CardTitle className="flex items-center gap-3">
+                            <div className="p-2 bg-gradient-to-r from-orange-600 to-red-500 rounded-xl shadow-lg border border-orange-400/30">
+                              <Thermometer className="h-5 w-5 text-white" />
+                            </div>
+                            <span className="text-xl font-black bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                              Temperature Heatmap
+                            </span>
                           </CardTitle>
                           <Button
                             variant="ghost"
@@ -939,40 +1132,54 @@ const DataVisualization = () => {
                           {heatmapData.length > 0 ? (
                             <HeatmapChart data={heatmapData} title="Ocean Temperature by Region & Depth" />
                           ) : (
-                            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                            <div className="h-[300px] flex items-center justify-center">
                               <div className="text-center">
-                                <Thermometer className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                                <p>No heatmap data available</p>
-                                <p className="text-sm">Need temperature and salinity measurements from multiple regions</p>
+                                <div className="p-4 bg-gradient-to-r from-orange-600 to-red-500 rounded-full mx-auto mb-4 shadow-lg border border-orange-400/30">
+                                  <Thermometer className="h-12 w-12 text-white" />
+                                </div>
+                                <p className="text-slate-300 font-mono text-lg mb-2">NO_HEATMAP_DATA</p>
+                                <p className="text-slate-400 font-mono text-sm">NEED temperature and salinity measurements</p>
+                                <div className="mt-4 h-1 w-56 bg-gradient-to-r from-orange-500/30 to-red-500/30 rounded-full mx-auto animate-pulse"></div>
                               </div>
                             </div>
                           )}
                         </CardContent>
                       </Card>
 
-                      <Card className="glass-card">
-                        <CardHeader>
-                          <CardTitle className="flex items-center gap-2">
-                            <BarChart3 className="h-5 w-5 text-primary" />
-                            Monthly Trends
+                      <Card className="relative bg-black/60 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 shadow-xl hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden">
+                        {/* Glow effect background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-teal-900/5 opacity-40"></div>
+
+                        <CardHeader className="relative z-10">
+                          <CardTitle className="flex items-center gap-3">
+                            <div className="p-2 bg-gradient-to-r from-blue-600 to-teal-500 rounded-xl shadow-lg border border-blue-400/30">
+                              <BarChart3 className="h-5 w-5 text-white" />
+                            </div>
+                            <span className="text-xl font-black bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
+                              Monthly Trends
+                            </span>
                           </CardTitle>
+                          <p className="text-sm text-slate-400 font-mono mt-1">TEMPERATURE variations over time</p>
                         </CardHeader>
                         <CardContent>
                           {temperatureData.length > 0 ? (
                             <ResponsiveContainer width="100%" height={300}>
                               <LineChart data={temperatureData}>
-                                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
-                                <YAxis axisLine={false} tickLine={false} tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
+                                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }} />
+                                <YAxis axisLine={false} tickLine={false} tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }} />
                                 <Tooltip />
                                 <Line type="monotone" dataKey="temp" stroke="#FF6B35" strokeWidth={3} dot={{ fill: '#FF6B35', strokeWidth: 2, r: 6 }} />
                               </LineChart>
                             </ResponsiveContainer>
                           ) : (
-                            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                            <div className="h-[300px] flex items-center justify-center">
                               <div className="text-center">
-                                <BarChart3 className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                                <p>No monthly temperature trends available</p>
-                                <p className="text-sm">Argo float data needed for trend analysis</p>
+                                <div className="p-4 bg-gradient-to-r from-blue-600 to-teal-500 rounded-full mx-auto mb-4 shadow-lg border border-blue-400/30">
+                                  <BarChart3 className="h-12 w-12 text-white" />
+                                </div>
+                                <p className="text-slate-300 font-mono text-lg mb-2">NO_MONTHLY_TRENDS</p>
+                                <p className="text-slate-400 font-mono text-sm">ARGO_FLOAT data needed for trend analysis</p>
+                                <div className="mt-4 h-1 w-48 bg-gradient-to-r from-blue-500/30 to-teal-500/30 rounded-full mx-auto animate-pulse"></div>
                               </div>
                             </div>
                           )}
@@ -991,12 +1198,19 @@ const DataVisualization = () => {
                     className="space-y-8"
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                      {/* Species Distribution Pie Chart */}
-                      <Card className="glass-card">
-                        <CardHeader className="flex flex-row items-center justify-between">
-                          <CardTitle className="flex items-center gap-2">
-                            <Fish className="h-5 w-5 text-accent" />
-                            Species Distribution
+                      {/* Enhanced Species Distribution Pie Chart */}
+                      <Card className="relative bg-black/60 backdrop-blur-xl border border-emerald-400/30 hover:border-emerald-400/50 shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 overflow-hidden">
+                        {/* Glow effect background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/10 via-transparent to-teal-900/5 opacity-40"></div>
+
+                        <CardHeader className="flex flex-row items-center justify-between relative z-10">
+                          <CardTitle className="flex items-center gap-3">
+                            <div className="p-2 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-xl shadow-lg border border-emerald-400/30">
+                              <Fish className="h-5 w-5 text-white" />
+                            </div>
+                            <span className="text-xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                              Species Distribution
+                            </span>
                           </CardTitle>
                           <Button
                             variant="ghost"
@@ -1049,23 +1263,33 @@ const DataVisualization = () => {
                               </PieChart>
                             </ResponsiveContainer>
                           ) : (
-                            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                            <div className="h-[300px] flex items-center justify-center">
                               <div className="text-center">
-                                <Fish className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                                <p>No biochemical distribution data available</p>
-                                <p className="text-sm">BGC-Argo floats needed for biochemical analysis</p>
+                                <div className="p-4 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-full mx-auto mb-4 shadow-lg border border-emerald-400/30">
+                                  <Fish className="h-12 w-12 text-white" />
+                                </div>
+                                <p className="text-slate-300 font-mono text-lg mb-2">NO_BIOCHEMICAL_DATA</p>
+                                <p className="text-slate-400 font-mono text-sm">BGC-ARGO_FLOATS needed for analysis</p>
+                                <div className="mt-4 h-1 w-52 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-full mx-auto animate-pulse"></div>
                               </div>
                             </div>
                           )}
                         </CardContent>
                       </Card>
 
-                      {/* Marine Life by Depth */}
-                      <Card className="glass-card">
-                        <CardHeader className="flex flex-row items-center justify-between">
-                          <CardTitle className="flex items-center gap-2">
-                            <Activity className="h-5 w-5 text-primary" />
-                            Life by Depth Zone
+                      {/* Enhanced Marine Life by Depth */}
+                      <Card className="relative bg-black/60 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 shadow-xl hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden">
+                        {/* Glow effect background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-indigo-900/5 opacity-40"></div>
+
+                        <CardHeader className="flex flex-row items-center justify-between relative z-10">
+                          <CardTitle className="flex items-center gap-3">
+                            <div className="p-2 bg-gradient-to-r from-blue-600 to-indigo-500 rounded-xl shadow-lg border border-blue-400/30">
+                              <Activity className="h-5 w-5 text-white" />
+                            </div>
+                            <span className="text-xl font-black bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                              Life by Depth Zone
+                            </span>
                           </CardTitle>
                           <Button
                             variant="ghost"
@@ -1101,12 +1325,12 @@ const DataVisualization = () => {
                                   dataKey="depth"
                                   axisLine={false}
                                   tickLine={false}
-                                  tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                                  tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }}
                                 />
                                 <YAxis
                                   axisLine={false}
                                   tickLine={false}
-                                  tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                                  tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }}
                                 />
                                 <Tooltip />
                                 <Bar
@@ -1123,11 +1347,14 @@ const DataVisualization = () => {
                               </BarChart>
                             </ResponsiveContainer>
                           ) : (
-                            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+                            <div className="h-[300px] flex items-center justify-center">
                               <div className="text-center">
-                                <Activity className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                                <p>No depth zone data available</p>
-                                <p className="text-sm">BGC measurements needed for depth analysis</p>
+                                <div className="p-4 bg-gradient-to-r from-blue-600 to-indigo-500 rounded-full mx-auto mb-4 shadow-lg border border-blue-400/30">
+                                  <Activity className="h-12 w-12 text-white" />
+                                </div>
+                                <p className="text-slate-300 font-mono text-lg mb-2">NO_DEPTH_ZONE_DATA</p>
+                                <p className="text-slate-400 font-mono text-sm">BGC_MEASUREMENTS needed for depth analysis</p>
+                                <div className="mt-4 h-1 w-56 bg-gradient-to-r from-blue-500/30 to-indigo-500/30 rounded-full mx-auto animate-pulse"></div>
                               </div>
                             </div>
                           )}
@@ -1135,55 +1362,100 @@ const DataVisualization = () => {
                       </Card>
                     </div>
 
-                    {/* Ocean Depth Analysis - Enhanced for Marine Life */}
-                    <Card className="glass-card">
-                      <CardHeader>
-                        <CardTitle className="text-xl font-semibold text-foreground text-headline flex items-center gap-2">
-                          <Waves className="h-5 w-5 text-primary" />
-                          Marine Ecosystem Zones
+                    {/* Enhanced Marine Ecosystem Zones */}
+                    <Card className="relative bg-black/60 backdrop-blur-xl border border-teal-400/30 hover:border-teal-400/50 shadow-xl hover:shadow-teal-500/20 transition-all duration-300 overflow-hidden">
+                      {/* Glow effect background */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-teal-900/10 via-transparent to-emerald-900/5 opacity-40"></div>
+
+                      <CardHeader className="relative z-10">
+                        <CardTitle className="text-2xl font-black text-white flex items-center gap-3">
+                          <div className="p-2.5 bg-gradient-to-r from-teal-600 to-emerald-500 rounded-xl shadow-lg border border-teal-400/30">
+                            <Waves className="h-6 w-6 text-white" />
+                          </div>
+                          <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+                            Marine Ecosystem Zones
+                          </span>
                         </CardTitle>
+                        <p className="text-sm text-slate-400 font-mono mt-2">BIODIVERSITY analysis across ocean depth layers</p>
                       </CardHeader>
                       <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                           {(marineLifeData.length > 0 ? marineLifeData : fallbackMarineLifeData).map((zone, index) => (
-                            <div key={zone.depth} className="glass rounded-lg p-6 hover:bg-primary/10 transition-all duration-300 group">
-                              <div className="text-center space-y-3">
-                                <div className="text-lg font-semibold text-primary glow-text">
+                            <div key={zone.depth} className={`relative bg-black/40 backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 group overflow-hidden ${
+                              index === 0 ? 'border-yellow-400/30 hover:border-yellow-400/50' :
+                              index === 1 ? 'border-blue-400/30 hover:border-blue-400/50' :
+                              index === 2 ? 'border-indigo-400/30 hover:border-indigo-400/50' :
+                              'border-purple-400/30 hover:border-purple-400/50'
+                            }`}>
+                              {/* Zone gradient background */}
+                              <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                                index === 0 ? 'from-yellow-600/20 to-orange-600/20' :
+                                index === 1 ? 'from-blue-600/20 to-indigo-600/20' :
+                                index === 2 ? 'from-indigo-600/20 to-purple-600/20' :
+                                'from-purple-600/20 to-gray-600/20'
+                              }`}></div>
+
+                              <div className="text-center space-y-4 relative z-10">
+                                <div className={`text-xl font-black font-mono ${
+                                  index === 0 ? 'text-yellow-400' :
+                                  index === 1 ? 'text-blue-400' :
+                                  index === 2 ? 'text-indigo-400' :
+                                  'text-purple-400'
+                                }`}>
                                   {zone.depth}
                                 </div>
-                                <div className="text-sm text-foreground/70 capitalize">
-                                  {index === 0 ? 'Sunlight Zone' :
-                                   index === 1 ? 'Twilight Zone' :
-                                   index === 2 ? 'Midnight Zone' : 'Abyssal Zone'}
+                                <div className="text-sm text-slate-400 font-mono font-bold uppercase tracking-wider">
+                                  {index === 0 ? 'SUNLIGHT_ZONE' :
+                                   index === 1 ? 'TWILIGHT_ZONE' :
+                                   index === 2 ? 'MIDNIGHT_ZONE' : 'ABYSSAL_ZONE'}
                                 </div>
-                                <div className="space-y-2">
-                                  <div className="text-2xl font-bold text-accent group-hover:animate-pulse">
+                                <div className="space-y-3">
+                                  <div className={`text-3xl font-black font-mono group-hover:animate-pulse ${
+                                    index === 0 ? 'text-orange-400' :
+                                    index === 1 ? 'text-indigo-400' :
+                                    index === 2 ? 'text-purple-400' :
+                                    'text-gray-400'
+                                  }`}>
                                     {zone.species}
                                   </div>
-                                  <div className="text-xs text-foreground/60">Species Count</div>
-                                  <div className="text-lg font-semibold text-orange-400">
+                                  <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Species Count</div>
+                                  <div className={`text-2xl font-black font-mono ${
+                                    index === 0 ? 'text-yellow-400' :
+                                    index === 1 ? 'text-blue-400' :
+                                    index === 2 ? 'text-indigo-400' :
+                                    'text-purple-400'
+                                  }`}>
                                     {zone.temp}°C
                                   </div>
-                                  <div className="text-xs text-foreground/60">Avg Temperature</div>
+                                  <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Avg Temperature</div>
 
-                                  {/* Species Diversity Indicator */}
-                                  <div className="mt-3">
-                                    <div className="text-sm font-medium text-green-400">
-                                      {index === 0 ? 'High' : index === 1 ? 'Medium' : index === 2 ? 'Low' : 'Very Low'}
+                                  {/* Enhanced Species Diversity Indicator */}
+                                  <div className="mt-4 space-y-2">
+                                    <div className={`text-sm font-black font-mono uppercase tracking-wider ${
+                                      index === 0 ? 'text-green-400' : index === 1 ? 'text-yellow-400' : index === 2 ? 'text-orange-400' : 'text-red-400'
+                                    }`}>
+                                      {index === 0 ? 'HIGH' : index === 1 ? 'MEDIUM' : index === 2 ? 'LOW' : 'VERY_LOW'}
                                     </div>
-                                    <div className="text-xs text-foreground/60">Biodiversity</div>
-                                    <div className="mt-1 h-2 bg-muted rounded-full">
+                                    <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Biodiversity</div>
+                                    <div className="mt-2 h-2 bg-black/60 border border-slate-600/30 rounded-full overflow-hidden">
                                       <div
-                                        className={`h-full rounded-full ${
-                                          index === 0 ? 'bg-green-400 w-4/5' :
-                                          index === 1 ? 'bg-yellow-400 w-3/5' :
-                                          index === 2 ? 'bg-orange-400 w-2/5' :
-                                          'bg-red-400 w-1/5'
+                                        className={`h-full rounded-full transition-all duration-500 group-hover:animate-pulse ${
+                                          index === 0 ? 'bg-gradient-to-r from-green-500 to-green-400 w-4/5' :
+                                          index === 1 ? 'bg-gradient-to-r from-yellow-500 to-yellow-400 w-3/5' :
+                                          index === 2 ? 'bg-gradient-to-r from-orange-500 to-orange-400 w-2/5' :
+                                          'bg-gradient-to-r from-red-500 to-red-400 w-1/5'
                                         }`}
                                       ></div>
                                     </div>
                                   </div>
                                 </div>
+                                {/* Zone indicator line */}
+                                <div className={`h-1 bg-gradient-to-r to-transparent rounded-full group-hover:opacity-100 transition-all duration-300 ${
+                                  index === 0 ? 'from-yellow-400/30 group-hover:from-yellow-400/60' :
+                                  index === 1 ? 'from-blue-400/30 group-hover:from-blue-400/60' :
+                                  index === 2 ? 'from-indigo-400/30 group-hover:from-indigo-400/60' :
+                                  'from-purple-400/30 group-hover:from-purple-400/60'
+                                }`}></div>
                               </div>
                             </div>
                           ))}
@@ -1191,13 +1463,21 @@ const DataVisualization = () => {
                       </CardContent>
                     </Card>
 
-                    {/* Marine Life Trends */}
-                    <Card className="glass-card">
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <TrendingUp className="h-5 w-5 text-accent" />
-                          Species Discovery Trends
+                    {/* Enhanced Marine Life Trends */}
+                    <Card className="relative bg-black/60 backdrop-blur-xl border border-emerald-400/30 hover:border-emerald-400/50 shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 overflow-hidden">
+                      {/* Glow effect background */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/10 via-transparent to-teal-900/5 opacity-40"></div>
+
+                      <CardHeader className="relative z-10">
+                        <CardTitle className="flex items-center gap-3">
+                          <div className="p-2 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-xl shadow-lg border border-emerald-400/30">
+                            <TrendingUp className="h-5 w-5 text-white" />
+                          </div>
+                          <span className="text-xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                            Species Discovery Trends
+                          </span>
                         </CardTitle>
+                        <p className="text-sm text-slate-400 font-mono mt-1">NEW species and endangered populations over time</p>
                       </CardHeader>
                       <CardContent>
                         <ResponsiveContainer width="100%" height={300}>
@@ -1210,12 +1490,12 @@ const DataVisualization = () => {
                               dataKey="month"
                               axisLine={false}
                               tickLine={false}
-                              tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                              tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }}
                             />
                             <YAxis
                               axisLine={false}
                               tickLine={false}
-                              tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                              tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }}
                             />
                             <Tooltip />
                             <Legend />
@@ -1250,15 +1530,26 @@ const DataVisualization = () => {
                     exit={{ opacity: 0, y: -20 }}
                     className="space-y-8"
                   >
-                    <Card className="glass-card">
-                      <CardHeader className="flex flex-row items-center justify-between">
-                        <CardTitle className="flex items-center gap-2">
-                          <TrendingUp className="h-5 w-5 text-accent" />
-                          Temperature vs Marine Life Correlation
-                        </CardTitle>
+                    <Card className="relative bg-black/60 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 shadow-xl hover:shadow-blue-500/20 transition-all duration-300 overflow-hidden">
+                      {/* Glow effect background */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-teal-900/5 opacity-40"></div>
+
+                      <CardHeader className="flex flex-row items-center justify-between relative z-10">
+                        <div>
+                          <CardTitle className="flex items-center gap-3">
+                            <div className="p-2 bg-gradient-to-r from-blue-600 to-teal-500 rounded-xl shadow-lg border border-blue-400/30">
+                              <TrendingUp className="h-5 w-5 text-white" />
+                            </div>
+                            <span className="text-xl font-black bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
+                              Temperature vs Marine Life Correlation
+                            </span>
+                          </CardTitle>
+                          <p className="text-sm text-slate-400 font-mono mt-2">CORRELATION analysis between temperature and species diversity</p>
+                        </div>
                         <Button
                           variant="ghost"
                           size="sm"
+                          className="bg-black/40 border border-blue-400/20 hover:border-blue-400/40 hover:bg-black/60 text-blue-300 hover:text-blue-200 transition-all duration-200"
                           onClick={() => setFullscreenChart({
                             title: 'Temperature vs Marine Life Correlation',
                             content: (
@@ -1287,14 +1578,14 @@ const DataVisualization = () => {
                               unit="°C"
                               axisLine={false}
                               tickLine={false}
-                              tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                              tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }}
                             />
                             <YAxis
                               dataKey="species"
                               name="Species Count"
                               axisLine={false}
                               tickLine={false}
-                              tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
+                              tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }}
                             />
                             <ZAxis dataKey="salinity" range={[50, 400]} />
                             <Tooltip
@@ -1303,12 +1594,12 @@ const DataVisualization = () => {
                                 if (active && payload && payload.length) {
                                   const data = payload[0].payload;
                                   return (
-                                    <div className="glass-card p-3 border border-border">
-                                      <p className="text-sm font-medium">Ocean Data Point</p>
-                                      <p className="text-xs text-muted-foreground">Temperature: {data.temp}°C</p>
-                                      <p className="text-xs text-muted-foreground">Species: {data.species}</p>
-                                      <p className="text-xs text-muted-foreground">Salinity: {data.salinity}‰</p>
-                                      <p className="text-xs text-muted-foreground">pH: {data.ph}</p>
+                                    <div className="bg-black/90 backdrop-blur-xl border border-blue-400/30 rounded-xl p-4 shadow-xl">
+                                      <p className="text-sm font-black text-blue-400 font-mono mb-2">OCEAN_DATA_POINT</p>
+                                      <p className="text-xs text-slate-300 font-mono">TEMP: {data.temp}°C</p>
+                                      <p className="text-xs text-slate-300 font-mono">SPECIES: {data.species}</p>
+                                      <p className="text-xs text-slate-300 font-mono">SALINITY: {data.salinity}‰</p>
+                                      <p className="text-xs text-slate-300 font-mono">pH: {data.ph}</p>
                                     </div>
                                   );
                                 }

@@ -83,20 +83,53 @@ const OceanLaunch = () => {
               Dive into the depths of ocean intelligence
             </motion.p>
 
-            {/* Clean Professional Button */}
+            {/* Enhanced Ocean-Themed Button */}
             <motion.div
-              className="mt-16"
+              className="mt-16 relative"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.5 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <Link to="/home">
+              {/* Glowing background effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-blue-400/30 to-cyan-400/20 rounded-2xl blur-xl animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <Link to="/home" className="relative group" aria-label="Navigate to main application">
                 <Button
-                  className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 backdrop-blur-sm px-8 py-3 text-base font-medium text-white hover:text-white shadow-sm hover:shadow-md transition-all duration-200 rounded-xl"
+                  className="relative overflow-hidden bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-400/30 hover:to-blue-400/30 border border-cyan-400/30 hover:border-cyan-300/60 backdrop-blur-md px-12 py-4 text-lg font-semibold text-white hover:text-cyan-100 shadow-xl hover:shadow-2xl hover:shadow-cyan-400/25 transition-all duration-300 rounded-2xl group focus:outline-none focus:ring-4 focus:ring-cyan-400/50 focus:ring-offset-2 focus:ring-offset-transparent"
                   size="lg"
+                  aria-label="Start exploring FloatChat ocean intelligence platform"
                 >
-                  <Waves className="h-4 w-4 mr-2" />
-                  Dive Deep
+                  {/* Animated background shimmer */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"></div>
+
+                  {/* Ripple effect on hover */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400/0 to-blue-400/0 group-hover:from-cyan-400/10 group-hover:to-blue-400/10 transition-all duration-300"></div>
+
+                  {/* Button content */}
+                  <div className="relative flex items-center justify-center">
+                    <motion.div
+                      className="mr-3"
+                      animate={{
+                        rotate: [0, 5, -5, 0],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatDelay: 3
+                      }}
+                    >
+                      <Waves className="h-5 w-5 text-cyan-300 drop-shadow-sm" />
+                    </motion.div>
+                    <span className="bg-gradient-to-r from-white to-cyan-100 bg-clip-text text-transparent font-bold tracking-wide drop-shadow-sm">
+                      Dive Deep
+                    </span>
+                  </div>
+
+                  {/* Bottom glow line */}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-all duration-500"></div>
                 </Button>
               </Link>
             </motion.div>

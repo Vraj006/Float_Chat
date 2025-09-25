@@ -268,20 +268,31 @@ const AIChatbot = () => {
     if (chartType === 'temperature') {
       const chartData = dynamicChartData.temperature.length > 0 ? dynamicChartData.temperature : tempData;
       return (
-        <Card className="glass-card mt-4 border-primary/20">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm flex items-center gap-2">
-              <Thermometer className="h-4 w-4 text-orange-500" />
-              Ocean Temperature Trends
+        <Card className="relative bg-black/60 backdrop-blur-xl border border-orange-400/30 shadow-lg hover:shadow-orange-500/20 transition-all duration-300 mt-4 overflow-hidden">
+          {/* Glow effect background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/10 via-transparent to-red-900/5 opacity-40"></div>
+
+          <CardHeader className="pb-2 relative z-10">
+            <CardTitle className="text-sm flex items-center gap-3">
+              <div className="p-1.5 bg-gradient-to-r from-orange-600 to-red-500 rounded-lg shadow-lg border border-orange-400/30">
+                <Thermometer className="h-4 w-4 text-white" />
+              </div>
+              <span className="text-white font-mono font-black">OCEAN_TEMPERATURE_TRENDS</span>
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="relative z-10">
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={chartData}>
-                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
-                <Tooltip />
-                <Line type="monotone" dataKey="temp" stroke="#FF6B35" strokeWidth={2} dot={{ fill: '#FF6B35', r: 3 }} />
+                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontFamily: 'monospace' }} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontFamily: 'monospace' }} />
+                <Tooltip contentStyle={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                  border: '1px solid rgba(251, 146, 60, 0.3)',
+                  borderRadius: '12px',
+                  color: '#ffffff',
+                  fontFamily: 'monospace'
+                }} />
+                <Line type="monotone" dataKey="temp" stroke="#fb7185" strokeWidth={3} dot={{ fill: '#fb7185', strokeWidth: 2, r: 4 }} />
               </LineChart>
             </ResponsiveContainer>
           </CardContent>
@@ -292,24 +303,35 @@ const AIChatbot = () => {
     if (chartType === 'species') {
       const chartData = dynamicChartData.species.length > 0 ? dynamicChartData.species : speciesData;
       return (
-        <Card className="glass-card mt-4 border-accent/20">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm flex items-center gap-2">
-              <Fish className="h-4 w-4 text-accent" />
-              Species Distribution by Depth
+        <Card className="relative bg-black/60 backdrop-blur-xl border border-emerald-400/30 shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 mt-4 overflow-hidden">
+          {/* Glow effect background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/10 via-transparent to-teal-900/5 opacity-40"></div>
+
+          <CardHeader className="pb-2 relative z-10">
+            <CardTitle className="text-sm flex items-center gap-3">
+              <div className="p-1.5 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-lg shadow-lg border border-emerald-400/30">
+                <Fish className="h-4 w-4 text-white" />
+              </div>
+              <span className="text-white font-mono font-black">SPECIES_DISTRIBUTION_BY_DEPTH</span>
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="relative z-10">
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={chartData}>
-                <XAxis dataKey="depth" axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
-                <Tooltip />
+                <XAxis dataKey="depth" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontFamily: 'monospace' }} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontFamily: 'monospace' }} />
+                <Tooltip contentStyle={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  borderRadius: '12px',
+                  color: '#ffffff',
+                  fontFamily: 'monospace'
+                }} />
                 <Bar dataKey="count" fill="url(#speciesGradient)" radius={[4, 4, 0, 0]} />
                 <defs>
                   <linearGradient id="speciesGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#00FFA3" stopOpacity={0.8} />
-                    <stop offset="100%" stopColor="#00D4FF" stopOpacity={0.6} />
+                    <stop offset="0%" stopColor="#10b981" stopOpacity={0.8} />
+                    <stop offset="100%" stopColor="#14b8a6" stopOpacity={0.6} />
                   </linearGradient>
                 </defs>
               </BarChart>
@@ -330,29 +352,34 @@ const AIChatbot = () => {
           ];
 
       return (
-        <Card className="glass-card mt-4 border-blue-500/20">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm flex items-center gap-2">
-              <BarChart3 className="h-4 w-4 text-blue-500" />
-              Ocean Data Table
+        <Card className="relative bg-black/60 backdrop-blur-xl border border-blue-400/30 shadow-lg hover:shadow-blue-500/20 transition-all duration-300 mt-4 overflow-hidden">
+          {/* Glow effect background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-teal-900/5 opacity-40"></div>
+
+          <CardHeader className="pb-2 relative z-10">
+            <CardTitle className="text-sm flex items-center gap-3">
+              <div className="p-1.5 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg shadow-lg border border-blue-400/30">
+                <BarChart3 className="h-4 w-4 text-white" />
+              </div>
+              <span className="text-white font-mono font-black">OCEAN_DATA_TABLE</span>
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="relative z-10">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-border/30">
-                    <th className="text-left py-2 px-3 font-semibold text-foreground">Category</th>
-                    <th className="text-left py-2 px-3 font-semibold text-foreground">Value</th>
-                    <th className="text-left py-2 px-3 font-semibold text-foreground">Description</th>
+                  <tr className="border-b border-blue-400/30">
+                    <th className="text-left py-2 px-3 font-black text-blue-400 font-mono">CATEGORY</th>
+                    <th className="text-left py-2 px-3 font-black text-teal-400 font-mono">VALUE</th>
+                    <th className="text-left py-2 px-3 font-black text-emerald-400 font-mono">DESCRIPTION</th>
                   </tr>
                 </thead>
                 <tbody>
                   {tableData.map((row, index) => (
-                    <tr key={index} className="border-b border-border/10 hover:bg-muted/20 transition-colors">
-                      <td className="py-3 px-3 font-medium text-primary">{row.column1}</td>
-                      <td className="py-3 px-3 text-orange-500 font-medium">{row.column2}</td>
-                      <td className="py-3 px-3 text-muted-foreground">{row.column3}</td>
+                    <tr key={index} className="border-b border-slate-500/20 hover:bg-blue-900/20 transition-colors">
+                      <td className="py-3 px-3 font-medium text-blue-400 font-mono">{row.column1}</td>
+                      <td className="py-3 px-3 text-orange-400 font-medium font-mono">{row.column2}</td>
+                      <td className="py-3 px-3 text-slate-300 font-mono">{row.column3}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -389,13 +416,28 @@ const AIChatbot = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-background/90 relative">
-      {/* Enhanced Background Effects */}
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Enhanced Ocean Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-radial from-primary/10 via-primary/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-radial from-accent/10 via-accent/5 to-transparent rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-blue-500/5 via-blue-400/3 to-transparent rounded-full blur-xl"></div>
+        {/* Ocean tech grid background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(90deg, transparent 98%, rgba(59, 130, 246, 0.1) 100%),
+              linear-gradient(180deg, transparent 98%, rgba(20, 184, 166, 0.1) 100())
+            `,
+            backgroundSize: '100px 100px'
+          }}></div>
+        </div>
+
+        {/* Floating ocean gradient orbs */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-900/20 via-transparent to-teal-900/10"></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-radial from-blue-600/15 via-blue-500/8 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-radial from-teal-600/12 via-emerald-500/6 to-transparent rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-emerald-600/8 via-teal-400/4 to-transparent rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+
+        {/* Ocean depth gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-teal-950/10"></div>
       </div>
 
       {/* Dynamic Header System */}
@@ -419,55 +461,56 @@ const AIChatbot = () => {
           >
             <div className="px-4 sm:px-6 py-3 sm:py-4">
               <div className="flex items-center justify-between">
-                {/* Enhanced AI Header Brand */}
+                {/* Enhanced Ocean AI Header Brand */}
                 <div className="flex items-center space-x-3">
                   <div className="relative">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary/30 to-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shadow-lg">
-                      <Bot className="h-5 w-5 text-primary" />
+                    {/* Glow effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 to-teal-500/20 rounded-xl blur-sm animate-pulse"></div>
+                    <div className="relative w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl flex items-center justify-center border border-blue-400/40 shadow-lg shadow-blue-500/25">
+                      <Bot className="h-5 w-5 text-white" />
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background animate-pulse"></div>
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full border-2 border-black animate-pulse shadow-lg shadow-emerald-400/50"></div>
                   </div>
                   <div>
-                    <h1 className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      AI Ocean Assistant
+                    <h1 className="text-lg font-black bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
+                      FloatChat AI
                     </h1>
-                    <p className="text-xs text-muted-foreground">Real-time marine intelligence</p>
+                    <p className="text-xs text-slate-400 font-mono font-bold">REAL-TIME ocean intelligence assistant</p>
                   </div>
                 </div>
 
-                {/* Navigation Controls */}
+                {/* Enhanced Navigation Controls */}
                 <div className="flex items-center space-x-2">
-                  {/* Chat Info Sidebar Toggle */}
+                  {/* Enhanced Chat Info Sidebar Toggle */}
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="flex items-center space-x-2 hover:bg-primary/10 hover:border-primary/20 transition-all duration-200"
+                    className="flex items-center space-x-2 bg-black/40 border border-blue-400/30 hover:border-blue-400/50 hover:bg-blue-900/20 text-blue-300 hover:text-blue-200 transition-all duration-200 font-mono font-bold uppercase tracking-wider"
                   >
-                    <Bot className="h-4 w-4 text-primary" />
-                    <span className="text-sm hidden sm:inline">Chat Info</span>
+                    <Bot className="h-4 w-4 text-blue-400" />
+                    <span className="text-sm hidden sm:inline">SESSION</span>
                   </Button>
 
-                  {/* Menu Sidebar Toggle */}
+                  {/* Enhanced Menu Sidebar Toggle */}
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => setMenuSidebarOpen(!menuSidebarOpen)}
-                    className="flex items-center space-x-2 hover:bg-accent/10 hover:border-accent/20 transition-all duration-200"
+                    className="flex items-center space-x-2 bg-black/40 border border-teal-400/30 hover:border-teal-400/50 hover:bg-teal-900/20 text-teal-300 hover:text-teal-200 transition-all duration-200 font-mono font-bold uppercase tracking-wider"
                   >
                     <div className="w-4 h-4 flex flex-col space-y-0.5">
                       <div className="w-full h-0.5 bg-current"></div>
                       <div className="w-full h-0.5 bg-current"></div>
                       <div className="w-full h-0.5 bg-current"></div>
                     </div>
-                    <span className="text-sm">Menu</span>
+                    <span className="text-sm">MENU</span>
                   </Button>
 
-
-                  {/* Chat Status */}
-                  <div className="hidden lg:flex items-center space-x-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full">
-                    <div className="w-2 h-2 bg-green-500 rounded-full status-pulse"></div>
-                    <span className="text-xs text-green-600 font-medium">Active Chat</span>
+                  {/* Enhanced Chat Status */}
+                  <div className="hidden lg:flex items-center space-x-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full backdrop-blur-sm">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span className="text-xs text-emerald-400 font-mono font-bold">ACTIVE_CHAT</span>
                   </div>
                 </div>
               </div>
@@ -561,7 +604,7 @@ const AIChatbot = () => {
         <AnimatePresence>
           {sidebarOpen && (
             <motion.div
-              className={`fixed left-0 bottom-0 w-80 lg:w-80 md:w-72 sm:w-full bg-background/95 backdrop-blur-xl border-r border-border/30 z-50 overflow-hidden shadow-2xl ${
+              className={`fixed left-0 bottom-0 w-80 lg:w-80 md:w-72 sm:w-full bg-black/90 backdrop-blur-xl border-r border-blue-400/30 z-50 overflow-hidden shadow-2xl shadow-blue-500/20 ${
                 isChatActive ? 'top-16' : 'top-20'
               }`}
               initial={{ x: -320, opacity: 0 }}
@@ -570,17 +613,17 @@ const AIChatbot = () => {
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
             >
             <div className="h-full flex flex-col">
-              {/* Sidebar Header */}
-              <div className="flex-shrink-0 p-4 bg-gradient-to-br from-primary/5 via-primary/3 to-accent/5 border-b border-border/20">
+              {/* Enhanced Sidebar Header */}
+              <div className="flex-shrink-0 p-4 bg-gradient-to-br from-blue-900/20 via-black/40 to-teal-900/20 border-b border-blue-400/30">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
-                      <History className="h-4 w-4 text-primary" />
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl flex items-center justify-center border border-blue-400/30 shadow-lg">
+                      <History className="h-4 w-4 text-white" />
                     </div>
-                    <h2 className="text-lg font-semibold text-foreground">Chat Session</h2>
+                    <h2 className="text-lg font-black text-white font-mono">CHAT_SESSION</h2>
                   </div>
-                  <Button variant="ghost" size="sm" onClick={() => setSidebarOpen(false)} className="hover:bg-red-500/10 rounded-full">
-                    <X className="h-4 w-4" />
+                  <Button variant="ghost" size="sm" onClick={() => setSidebarOpen(false)} className="hover:bg-red-500/10 rounded-full border border-red-400/20 hover:border-red-400/40">
+                    <X className="h-4 w-4 text-red-400" />
                   </Button>
                 </div>
               </div>
@@ -590,48 +633,52 @@ const AIChatbot = () => {
               <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {/* Current Session Info */}
                 <div className="space-y-3">
-                  <div className="flex items-center space-x-2 text-sm">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-muted-foreground">Current Topic:</span>
-                    <span className="font-medium text-foreground capitalize">{currentTopic}</span>
+                  <div className="flex items-center space-x-3 text-sm">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span className="text-slate-400 font-mono font-bold">CURRENT_TOPIC:</span>
+                    <span className="font-black text-emerald-400 capitalize font-mono">{currentTopic}</span>
                   </div>
 
-                  <div className="text-xs text-muted-foreground bg-muted/20 p-3 rounded-lg">
-                    <div className="flex items-center justify-between mb-1">
-                      <span>Messages</span>
-                      <span className="font-medium">{messages.length}</span>
+                  <div className="text-xs text-slate-300 bg-black/40 border border-blue-400/20 p-4 rounded-xl">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-mono font-bold">MESSAGES</span>
+                      <span className="font-black text-blue-400 font-mono">{messages.length}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span>Session Time</span>
-                      <span className="font-medium">
+                      <span className="font-mono font-bold">SESSION_TIME</span>
+                      <span className="font-black text-teal-400 font-mono">
                         {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Quick Actions */}
-                <Card className="bg-gradient-to-br from-card/80 to-card/60 border-border/30 shadow-sm">
+                {/* Enhanced Quick Actions */}
+                <Card className="bg-black/60 backdrop-blur-xl border border-slate-400/30 shadow-lg">
                   <CardContent className="p-4">
-                    <div className="text-sm font-semibold mb-3 flex items-center space-x-2">
-                      <Sparkles className="h-4 w-4 text-accent" />
-                      <span>Quick Actions</span>
+                    <div className="text-sm font-black mb-3 flex items-center space-x-3">
+                      <div className="p-1.5 bg-gradient-to-r from-slate-600 to-slate-500 rounded-lg">
+                        <Sparkles className="h-4 w-4 text-white" />
+                      </div>
+                      <span className="text-white font-mono">QUICK_ACTIONS</span>
                     </div>
                     <div className="space-y-2">
-                      <Button variant="ghost" size="sm" className="w-full justify-start hover:bg-accent/10 transition-all duration-200 text-xs">
+                      <Button variant="ghost" size="sm" className="w-full justify-start bg-black/40 border border-red-400/20 hover:border-red-400/40 hover:bg-red-900/20 text-red-300 hover:text-red-200 transition-all duration-200 text-xs font-mono font-bold">
                         <History className="h-4 w-4 mr-2" />
-                        Clear History
+                        CLEAR_HISTORY
                       </Button>
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* Suggested Topics */}
-                <Card className="bg-gradient-to-br from-accent/5 to-primary/5 border-border/20">
+                {/* Enhanced Suggested Topics */}
+                <Card className="bg-black/60 backdrop-blur-xl border border-teal-400/30 shadow-lg">
                   <CardContent className="p-4">
-                    <div className="text-sm font-semibold mb-3 flex items-center space-x-2">
-                      <Fish className="h-4 w-4 text-accent" />
-                      <span>Explore Topics</span>
+                    <div className="text-sm font-black mb-3 flex items-center space-x-3">
+                      <div className="p-1.5 bg-gradient-to-r from-teal-600 to-emerald-500 rounded-lg">
+                        <Fish className="h-4 w-4 text-white" />
+                      </div>
+                      <span className="text-white font-mono">EXPLORE_TOPICS</span>
                     </div>
                     <div className="space-y-2">
                       {[
@@ -646,36 +693,36 @@ const AIChatbot = () => {
                             setInputValue(`Tell me about ${item.topic.toLowerCase()}`);
                             setSidebarOpen(false);
                           }}
-                          className="flex items-center space-x-2 p-2 rounded-lg hover:bg-background/50 cursor-pointer transition-all w-full text-left group"
+                          className="flex items-center space-x-3 p-3 rounded-xl bg-black/40 border border-slate-400/20 hover:border-teal-400/40 hover:bg-teal-900/20 cursor-pointer transition-all w-full text-left group"
                         >
-                          <item.icon className={`w-3 h-3 ${item.color} group-hover:scale-110 transition-transform`} />
-                          <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">{item.topic}</span>
+                          <item.icon className={`w-4 h-4 ${item.color} group-hover:scale-110 transition-transform`} />
+                          <span className="text-xs text-slate-300 group-hover:text-teal-200 transition-colors font-mono font-bold">{item.topic}</span>
                         </button>
                       ))}
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* AI Capabilities */}
-                <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-border/20">
+                {/* Enhanced AI Capabilities */}
+                <Card className="bg-black/60 backdrop-blur-xl border border-emerald-400/30 shadow-lg">
                   <CardContent className="p-4">
-                    <div className="text-sm font-semibold mb-3">What I Can Help With</div>
-                    <div className="space-y-2 text-xs text-muted-foreground">
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1 h-1 bg-primary rounded-full mt-2"></div>
-                        <span>Ocean data analysis & visualization</span>
+                    <div className="text-sm font-black mb-3 text-white font-mono">AI_CAPABILITIES</div>
+                    <div className="space-y-3 text-xs text-slate-300">
+                      <div className="flex items-start space-x-3 p-2 rounded-lg bg-blue-900/20 border border-blue-400/20">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-1 animate-pulse"></div>
+                        <span className="font-mono">Ocean data analysis & visualization</span>
                       </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1 h-1 bg-accent rounded-full mt-2"></div>
-                        <span>Marine life identification & behavior</span>
+                      <div className="flex items-start space-x-3 p-2 rounded-lg bg-teal-900/20 border border-teal-400/20">
+                        <div className="w-2 h-2 bg-teal-400 rounded-full mt-1 animate-pulse"></div>
+                        <span className="font-mono">Marine life identification & behavior</span>
                       </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1 h-1 bg-primary rounded-full mt-2"></div>
-                        <span>Environmental pattern analysis</span>
+                      <div className="flex items-start space-x-3 p-2 rounded-lg bg-emerald-900/20 border border-emerald-400/20">
+                        <div className="w-2 h-2 bg-emerald-400 rounded-full mt-1 animate-pulse"></div>
+                        <span className="font-mono">Environmental pattern analysis</span>
                       </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1 h-1 bg-accent rounded-full mt-2"></div>
-                        <span>Research insights & trends</span>
+                      <div className="flex items-start space-x-3 p-2 rounded-lg bg-blue-900/20 border border-blue-400/20">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-1 animate-pulse"></div>
+                        <span className="font-mono">Research insights & trends</span>
                       </div>
                     </div>
                   </CardContent>
@@ -807,25 +854,39 @@ const AIChatbot = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                {/* Avatar */}
-                <div className={`flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ring-2 ${
+                {/* Enhanced Avatar */}
+                <div className={`flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg ring-2 relative ${
                   message.type === 'user'
-                    ? 'bg-gradient-to-br from-accent/30 to-accent/10 border border-accent/20 ring-accent/10'
-                    : 'bg-gradient-to-br from-primary/30 to-primary/10 border border-primary/20 ring-primary/10'
+                    ? 'bg-gradient-to-br from-teal-600 to-emerald-500 border border-teal-400/30 ring-teal-400/20'
+                    : 'bg-gradient-to-br from-blue-600 to-teal-500 border border-blue-400/30 ring-blue-400/20'
                 }`}>
-                  {message.type === 'user' ? (
-                    <User className="h-6 w-6 text-accent" />
-                  ) : (
-                    <Bot className="h-6 w-6 text-primary" />
-                  )}
+                  {/* Glow effect */}
+                  <div className={`absolute -inset-0.5 rounded-2xl blur opacity-75 ${
+                    message.type === 'user'
+                      ? 'bg-gradient-to-br from-teal-500 to-emerald-500'
+                      : 'bg-gradient-to-br from-blue-500 to-teal-500'
+                  }`}></div>
+                  <div className="relative">
+                    {message.type === 'user' ? (
+                      <User className="h-6 w-6 text-white" />
+                    ) : (
+                      <Bot className="h-6 w-6 text-white" />
+                    )}
+                  </div>
                 </div>
 
-                {/* Message Bubble */}
-                <div className={`max-w-[70%] lg:max-w-[60%] relative group message-bubble ${
+                {/* Enhanced Message Bubble */}
+                <div className={`max-w-[70%] lg:max-w-[60%] relative group message-bubble overflow-hidden ${
                   message.type === 'user'
-                    ? 'bg-gradient-to-br from-primary/25 to-primary/10 border border-primary/20'
-                    : 'bg-gradient-to-br from-card/90 to-card/70 border border-border/30'
-                } rounded-3xl px-6 py-4 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm`}>
+                    ? 'bg-gradient-to-br from-teal-900/40 to-emerald-900/20 border border-teal-400/30'
+                    : 'bg-black/60 backdrop-blur-xl border border-blue-400/30'
+                } rounded-3xl px-6 py-4 shadow-xl hover:shadow-2xl transition-all duration-300`}>
+                  {/* Glow effect background */}
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                    message.type === 'user'
+                      ? 'bg-gradient-to-br from-teal-600/10 to-emerald-600/5'
+                      : 'bg-gradient-to-br from-blue-600/10 to-teal-600/5'
+                  }`}></div>
 
                   {/* Attached File */}
                   {message.attachedFile && (
@@ -837,8 +898,8 @@ const AIChatbot = () => {
                     </div>
                   )}
 
-                  {/* Message Content */}
-                  <div className="text-base leading-relaxed whitespace-pre-line text-foreground font-medium">
+                  {/* Enhanced Message Content */}
+                  <div className="text-base leading-relaxed whitespace-pre-line text-white font-medium relative z-10">
                     {message.content}
                   </div>
 
@@ -856,12 +917,12 @@ const AIChatbot = () => {
                     </div>
                   )} */}
 
-                  {/* Suggestions */}
+                  {/* Enhanced Suggestions */}
                   {message.suggestions && (
-                    <div className="mt-5 p-4 bg-gradient-to-r from-muted/20 to-muted/10 rounded-2xl border border-border/20">
-                      <div className="text-sm text-muted-foreground mb-3 font-semibold flex items-center space-x-2">
-                        <Sparkles className="h-4 w-4 text-accent" />
-                        <span>Continue exploring:</span>
+                    <div className="mt-5 p-4 bg-black/40 backdrop-blur-sm rounded-2xl border border-emerald-400/20 relative z-10">
+                      <div className="text-sm text-emerald-400 mb-3 font-black flex items-center space-x-2 font-mono">
+                        <Sparkles className="h-4 w-4 text-emerald-400 animate-pulse" />
+                        <span>CONTINUE_EXPLORING:</span>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {message.suggestions.map((suggestion, index) => (
@@ -869,7 +930,7 @@ const AIChatbot = () => {
                             key={index}
                             variant="outline"
                             size="sm"
-                            className="text-sm h-auto py-2 px-4 hover:bg-primary/10 hover:border-primary/30 border-border/30 rounded-xl transition-all duration-200 font-medium"
+                            className="text-sm h-auto py-2 px-4 bg-black/40 border border-blue-400/20 hover:border-blue-400/40 hover:bg-blue-900/20 text-blue-300 hover:text-blue-200 rounded-xl transition-all duration-200 font-mono font-bold"
                             onClick={() => handleSuggestedQuestion(suggestion)}
                           >
                             {suggestion}
@@ -879,15 +940,15 @@ const AIChatbot = () => {
                     </div>
                   )}
 
-                  {/* Message Footer */}
-                  <div className="mt-4 pt-3 border-t border-border/10 flex items-center justify-between text-xs">
-                    <span className="text-muted-foreground font-medium">
+                  {/* Enhanced Message Footer */}
+                  <div className="mt-4 pt-3 border-t border-slate-500/20 flex items-center justify-between text-xs relative z-10">
+                    <span className="text-slate-400 font-mono font-bold">
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </span>
                     {message.type === 'bot' && (
-                      <div className="flex items-center space-x-1">
-                        <Sparkles className="h-3 w-3 text-accent animate-pulse" />
-                        <span className="text-accent font-semibold">AI</span>
+                      <div className="flex items-center space-x-2">
+                        <Sparkles className="h-3 w-3 text-blue-400 animate-pulse" />
+                        <span className="text-blue-400 font-mono font-black">FLOATCHAT_AI</span>
                       </div>
                     )}
                   </div>
@@ -904,14 +965,20 @@ const AIChatbot = () => {
                 exit={{ opacity: 0, y: -10, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-primary/30 to-primary/10 border border-primary/20 ring-2 ring-primary/10 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Bot className="h-6 w-6 text-primary animate-pulse" />
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-teal-500 border border-blue-400/30 ring-2 ring-blue-400/20 rounded-2xl flex items-center justify-center shadow-lg relative">
+                  {/* Glow effect */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-br from-blue-500 to-teal-500 rounded-2xl blur opacity-75"></div>
+                  <div className="relative">
+                    <Bot className="h-6 w-6 text-white animate-pulse" />
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-card/90 to-card/70 border border-border/30 rounded-3xl px-6 py-4 shadow-xl backdrop-blur-sm">
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-primary rounded-full animate-bounce"></div>
-                    <div className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="bg-black/60 backdrop-blur-xl border border-blue-400/30 rounded-3xl px-6 py-4 shadow-xl relative overflow-hidden">
+                  {/* Glow background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-teal-600/5 opacity-60"></div>
+                  <div className="flex space-x-2 relative z-10">
+                    <div className="w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
+                    <div className="w-3 h-3 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-3 h-3 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
                 </div>
               </motion.div>
@@ -924,17 +991,17 @@ const AIChatbot = () => {
         {/* Enhanced Suggested Questions */}
         {messages.length === 0 && (
           <motion.div
-            className="flex-shrink-0 border-t border-border/10 p-4 sm:p-6 bg-gradient-to-b from-background/30 to-background/60 backdrop-blur-sm"
+            className="flex-shrink-0 border-t border-blue-400/20 p-4 sm:p-6 bg-gradient-to-b from-black/40 to-black/70 backdrop-blur-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-base sm:text-lg font-bold text-foreground mb-4 sm:mb-6 text-center flex items-center justify-center space-x-2 sm:space-x-3">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full flex items-center justify-center">
-                  <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-accent" />
+              <h3 className="text-base sm:text-lg font-black text-white mb-4 sm:mb-6 text-center flex items-center justify-center space-x-3 sm:space-x-4 font-mono">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-600 to-teal-500 rounded-full flex items-center justify-center shadow-lg border border-blue-400/30">
+                  <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-white animate-pulse" />
                 </div>
-                <span>Explore Ocean Intelligence</span>
+                <span className="bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">EXPLORE_OCEAN_INTELLIGENCE</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 chat-mobile-grid">
                   {suggestedQuestions.map((question, index) => (
@@ -947,14 +1014,17 @@ const AIChatbot = () => {
                       <Button
                         variant="outline"
                         size="lg"
-                        className="w-full h-auto p-4 justify-start text-left hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:border-primary/40 border-border/30 rounded-2xl transition-all duration-300 group shadow-sm hover:shadow-md"
+                        className="w-full h-auto p-4 justify-start text-left bg-black/60 backdrop-blur-xl border border-blue-400/30 hover:border-blue-400/50 hover:bg-blue-900/20 text-white rounded-2xl transition-all duration-300 group shadow-lg hover:shadow-blue-500/20 relative overflow-hidden"
                         onClick={() => handleSuggestedQuestion(question)}
                       >
-                        <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                            <Sparkles className="h-5 w-5 text-primary group-hover:rotate-12 transition-transform duration-200" />
+                        {/* Glow effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-teal-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                        <div className="flex items-center space-x-4 relative z-10">
+                          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-lg border border-blue-400/30">
+                            <Sparkles className="h-5 w-5 text-white group-hover:rotate-12 transition-transform duration-200" />
                           </div>
-                          <span className="text-base font-medium">{question}</span>
+                          <span className="text-base font-mono font-bold">{question}</span>
                         </div>
                       </Button>
                     </motion.div>
@@ -964,9 +1034,9 @@ const AIChatbot = () => {
             </motion.div>
           )}
 
-        {/* Enhanced Input Area - FIXED AT BOTTOM */}
+        {/* Enhanced Ocean Input Area - FIXED AT BOTTOM */}
         <motion.div
-          className="flex-shrink-0 border-t border-border/20 bg-gradient-to-r from-background/95 via-background/90 to-background/95 backdrop-blur-xl fixed bottom-0 left-0 right-0 z-20"
+          className="flex-shrink-0 border-t border-blue-400/30 bg-gradient-to-r from-black/95 via-black/90 to-black/95 backdrop-blur-xl fixed bottom-0 left-0 right-0 z-20 shadow-2xl shadow-blue-500/10"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -977,7 +1047,7 @@ const AIChatbot = () => {
                 <AnimatePresence>
                   {attachedFile && (
                     <motion.div
-                      className="mb-4 p-4 bg-gradient-to-r from-muted/40 to-muted/20 rounded-2xl border border-border/30 shadow-sm"
+                      className="mb-4 p-4 bg-black/60 backdrop-blur-xl rounded-2xl border border-teal-400/30 shadow-lg"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
@@ -985,21 +1055,21 @@ const AIChatbot = () => {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
-                            <Upload className="h-5 w-5 text-primary" />
+                          <div className="w-10 h-10 bg-gradient-to-r from-teal-600 to-emerald-500 rounded-xl flex items-center justify-center border border-teal-400/30 shadow-lg">
+                            <Upload className="h-5 w-5 text-white" />
                           </div>
                           <div>
-                            <span className="text-sm font-semibold text-foreground">{attachedFile.name}</span>
-                            <p className="text-xs text-muted-foreground">Ready to analyze</p>
+                            <span className="text-sm font-black text-white font-mono">{attachedFile.name}</span>
+                            <p className="text-xs text-teal-400 font-mono">READY_TO_ANALYZE</p>
                           </div>
                         </div>
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={removeAttachedFile}
-                          className="h-8 w-8 p-0 hover:bg-red-500/10 rounded-full"
+                          className="h-8 w-8 p-0 hover:bg-red-500/10 rounded-full border border-red-400/20 hover:border-red-400/40"
                         >
-                          <X className="h-4 w-4" />
+                          <X className="h-4 w-4 text-red-400" />
                         </Button>
                       </div>
                     </motion.div>
@@ -1014,17 +1084,17 @@ const AIChatbot = () => {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
-                    placeholder="Ask me about ocean data, marine life, or environmental patterns..."
-                    className="min-h-[40px] sm:min-h-[44px] text-sm bg-background/80 border-border/40 focus:border-primary/60 focus:ring-2 focus:ring-primary/20 transition-all duration-300 pr-10 sm:pr-12 py-2 sm:py-3 px-3 sm:px-4 text-foreground placeholder:text-muted-foreground rounded-lg sm:rounded-xl shadow-lg backdrop-blur-sm resize-none chat-input chat-mobile-input"
+                    placeholder="Ask FloatChat AI about ocean data, marine life, or environmental patterns..."
+                    className="min-h-[40px] sm:min-h-[44px] text-sm bg-black/60 backdrop-blur-xl border border-blue-400/30 focus:border-blue-400/50 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 pr-10 sm:pr-12 py-2 sm:py-3 px-3 sm:px-4 text-white placeholder:text-slate-400 rounded-lg sm:rounded-xl shadow-lg resize-none chat-input chat-mobile-input font-mono"
                     disabled={isTyping}
                   />
                     <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center space-x-2">
-                      <Waves className="h-5 w-5 text-primary/40 animate-wave" />
+                      <Waves className="h-5 w-5 text-blue-400/60 animate-pulse" />
                       {inputValue.trim() && !isTyping && (
                         <motion.div
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="w-2 h-2 bg-green-500 rounded-full"
+                          className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
                         />
                       )}
                     </div>
@@ -1045,7 +1115,7 @@ const AIChatbot = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => fileInputRef.current?.click()}
-                    className="h-[40px] w-[40px] sm:h-[44px] sm:w-[44px] p-0 rounded-lg border-border/40 hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 shadow-md"
+                    className="h-[40px] w-[40px] sm:h-[44px] sm:w-[44px] p-0 rounded-lg bg-black/40 border border-teal-400/30 hover:border-teal-400/50 hover:bg-teal-900/20 text-teal-300 hover:text-teal-200 transition-all duration-200 shadow-md"
                     disabled={isTyping}
                     title="Upload file"
                   >
@@ -1058,8 +1128,8 @@ const AIChatbot = () => {
                     onClick={toggleListening}
                     className={`h-[40px] w-[40px] sm:h-[44px] sm:w-[44px] p-0 rounded-lg transition-all duration-200 shadow-md ${
                       isListening
-                        ? 'bg-accent text-accent-foreground border-accent/50 shadow-accent/20'
-                        : 'border-border/40 hover:border-accent/50 hover:bg-accent/5'
+                        ? 'bg-emerald-600 text-white border-emerald-400/50 shadow-emerald-500/20'
+                        : 'bg-black/40 border border-emerald-400/30 hover:border-emerald-400/50 hover:bg-emerald-900/20 text-emerald-300 hover:text-emerald-200'
                     }`}
                     disabled={isTyping}
                     title={isListening ? "Stop listening" : "Start voice input"}
@@ -1074,7 +1144,7 @@ const AIChatbot = () => {
                   <Button
                     onClick={handleSendMessage}
                     disabled={!inputValue.trim() || isTyping}
-                    className="h-[40px] px-3 sm:h-[44px] sm:px-4 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 disabled:opacity-40 rounded-lg group transition-all duration-300 shadow-md font-medium touch-target"
+                    className="h-[40px] px-3 sm:h-[44px] sm:px-4 bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-500 hover:to-teal-400 disabled:opacity-40 rounded-lg group transition-all duration-300 shadow-md font-mono font-bold touch-target border border-blue-400/30"
                     title="Send message"
                   >
                     <Send className="h-4 w-4 mr-1 sm:mr-2 group-hover:translate-x-1 transition-transform duration-200" />
@@ -1083,22 +1153,22 @@ const AIChatbot = () => {
                 </div>
                 </div>
 
-              {/* Input Stats - Compact */}
-              <div className="mt-1 sm:mt-2 flex items-center justify-between text-xs text-muted-foreground">
+              {/* Enhanced Input Stats - Compact */}
+              <div className="mt-1 sm:mt-2 flex items-center justify-between text-xs text-slate-400">
                 <div className="flex items-center space-x-2">
-                  <span className="hidden sm:block text-xs">Press Enter to send</span>
+                  <span className="hidden sm:block text-xs font-mono">PRESS_ENTER_TO_SEND</span>
                   {isListening && (
-                    <div className="flex items-center space-x-1 text-accent">
-                      <div className="w-1 h-1 bg-accent rounded-full animate-pulse"></div>
-                      <span className="text-xs">Listening...</span>
+                    <div className="flex items-center space-x-1 text-emerald-400">
+                      <div className="w-1 h-1 bg-emerald-400 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-mono font-bold">LISTENING...</span>
                     </div>
                   )}
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="text-xs">{inputValue.length}/1000</span>
-                  <div className="w-4 sm:w-6 h-1 bg-muted rounded-full">
+                  <span className="text-xs font-mono font-bold">{inputValue.length}/1000</span>
+                  <div className="w-4 sm:w-6 h-1 bg-slate-600 rounded-full border border-slate-500/30">
                     <div
-                      className="h-full bg-primary rounded-full transition-all duration-200"
+                      className="h-full bg-gradient-to-r from-blue-400 to-teal-400 rounded-full transition-all duration-200"
                       style={{ width: `${Math.min((inputValue.length / 1000) * 100, 100)}%` }}
                     />
                   </div>

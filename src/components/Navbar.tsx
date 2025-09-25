@@ -22,56 +22,78 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[9999] bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50 shadow-xl" style={{ pointerEvents: 'auto' }}>
+    <nav className="fixed top-0 left-0 right-0 z-[9999] bg-black/90 backdrop-blur-xl border-b border-blue-400/20 shadow-2xl" style={{ pointerEvents: 'auto' }}>
+      {/* Subtle animated top border */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
+
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/home" className="flex items-center space-x-3 group transition-all duration-200">
+          {/* Enhanced Logo */}
+          <Link to="/home" className="flex items-center space-x-4 group transition-all duration-300">
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-blue-600 to-cyan-500 p-3 rounded-xl border border-blue-400/30 group-hover:border-blue-300 group-hover:shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300">
+              {/* Glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-teal-500/20 rounded-xl blur-sm group-hover:blur-md transition-all duration-300"></div>
+              <div className="relative bg-gradient-to-br from-blue-600 to-teal-500 p-3 rounded-xl border border-blue-400/40 group-hover:border-blue-300 group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300">
                 <Waves className="h-6 w-6 text-white group-hover:text-blue-100 transition-colors duration-300" />
               </div>
             </div>
-            <span className="text-xl font-bold text-white text-headline tracking-tight group-hover:text-blue-200 transition-all duration-300">
-              FloatChat
-            </span>
+            <div>
+              <span className="text-xl font-bold text-white tracking-tight group-hover:text-blue-200 transition-all duration-300 bg-gradient-to-r from-blue-300 to-teal-300 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:to-teal-200">
+                FloatChat
+              </span>
+              <div className="text-xs text-slate-400 font-medium mt-0.5">Ocean Intelligence Platform</div>
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* Enhanced Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg",
+                  "relative px-5 py-2.5 text-sm font-semibold transition-all duration-300 rounded-xl backdrop-blur-sm group overflow-hidden",
                   location.pathname === item.path
-                    ? "text-white bg-blue-600 border border-blue-500 shadow-lg shadow-blue-600/25"
-                    : "text-slate-200 hover:text-white hover:bg-slate-800 hover:border hover:border-slate-600"
+                    ? "text-white bg-gradient-to-r from-blue-600/80 to-teal-600/80 border border-blue-400/50 shadow-lg shadow-blue-600/25"
+                    : "text-slate-200 hover:text-white hover:bg-black/40 hover:border hover:border-blue-400/30 hover:shadow-lg hover:shadow-blue-500/10"
                 )}
               >
-                {item.name}
+                {/* Active indicator */}
+                {location.pathname === item.path && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent animate-pulse"></div>
+                )}
+
+                {/* Hover effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
+
+                <span className="relative z-10">{item.name}</span>
               </Link>
             ))}
             {isAuthenticated ? (
-              <div className="relative">
+              <div className="relative ml-4">
                 <button
-                  className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-slate-800"
+                  className="flex items-center gap-3 text-sm text-slate-200 hover:text-white transition-all duration-300 px-4 py-2.5 rounded-xl bg-black/40 backdrop-blur-sm border border-blue-400/20 hover:border-blue-400/40 hover:bg-black/60 hover:shadow-lg hover:shadow-blue-500/10"
                   onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
                 >
-                  <User className="h-4 w-4" />
-                  {currentUser?.email?.split('@')[0]}
-                  <ChevronDown className="h-4 w-4" />
+                  <div className="w-7 h-7 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg flex items-center justify-center">
+                    <User className="h-4 w-4 text-white" />
+                  </div>
+                  <span className="font-medium">{currentUser?.email?.split('@')[0]}</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${profileDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {profileDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-600 rounded-lg shadow-lg z-50">
-                    <div className="py-1">
-                      <div className="px-4 py-2 text-sm text-slate-400 border-b border-slate-600">
-                        {currentUser?.email}
-                      </div>
+                  <div className="absolute right-0 mt-3 w-56 bg-black/90 backdrop-blur-xl border border-blue-400/30 rounded-xl shadow-2xl z-50">
+                    {/* Header */}
+                    <div className="px-4 py-3 border-b border-blue-400/20">
+                      <div className="text-sm text-blue-300 font-medium">Signed in as</div>
+                      <div className="text-white font-semibold truncate">{currentUser?.email}</div>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="py-2">
                       <button
-                        className="w-full text-left px-4 py-2 text-sm text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-2"
+                        className="w-full text-left px-4 py-3 text-sm text-slate-200 hover:bg-blue-500/10 hover:text-white flex items-center gap-3 transition-all duration-200 group"
                         onClick={async () => {
                           try {
                             await logOut();
@@ -82,7 +104,9 @@ const Navbar = () => {
                           }
                         }}
                       >
-                        <LogOut className="h-4 w-4" />
+                        <div className="w-6 h-6 bg-red-500/20 rounded-lg flex items-center justify-center group-hover:bg-red-500/30 transition-colors duration-200">
+                          <LogOut className="h-3 w-3 text-red-400" />
+                        </div>
                         Sign Out
                       </button>
                     </div>
@@ -90,14 +114,14 @@ const Navbar = () => {
                 )}
               </div>
             ) : (
-              <Button
-                variant="hero"
-                size="sm"
-                className="transition-all duration-300"
-                onClick={() => navigate('/auth')}
-              >
-                Sign In
-              </Button>
+              <div className="ml-4">
+                <Button
+                  className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 text-white font-semibold rounded-xl border border-blue-400/30 hover:border-blue-300 shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+                  onClick={() => navigate('/auth')}
+                >
+                  Sign In
+                </Button>
+              </div>
             )}
           </div>
 
