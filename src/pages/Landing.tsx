@@ -34,7 +34,7 @@ const Landing = () => {
             transition={{ duration: 1, delay: 1 }}
           >
             {/* Model Container with Title */}
-            <div className="relative rounded-xl overflow-hidden border border-blue-400/30 shadow-lg backdrop-blur-sm bg-black/30">
+            <div className="relative rounded-xl overflow-hidden border border-blue-400/30 shadow-lg bg-transparent backdrop-blur-md">
               {/* Enhanced Professional Header */}
               <div className="px-4 py-4 border-b border-blue-400/20 bg-gradient-to-r from-slate-800/60 to-blue-900/40">
                 <div className="flex items-center justify-between">
@@ -57,19 +57,21 @@ const Landing = () => {
               </div>
 
               {/* 3D Model */}
-              <iframe
-                title="Argo Float 3D Model"
-                src="https://sketchfab.com/models/439474c830744c95b48dc90cfff6fdbe/embed?autostart=1&controls=1&transparent=1&ui_watermark=0&ui_infos=0&ui_inspector=0&ui_stop=0&ui_hint=0&ui_ar=0&ui_settings=0&ui_fullscreen=0&ui_theatre=0&wireframe=0"
-                width="100%"
-                height="320"
-                frameBorder="0"
-                allowFullScreen
-                className="relative z-[200]"
-                style={{
-                  pointerEvents: 'auto',
-                  isolation: 'isolate'
-                }}
-              />
+              <div className="bg-white">
+                <iframe
+                  title="Argo Float 3D Model"
+                  src="https://sketchfab.com/models/439474c830744c95b48dc90cfff6fdbe/embed?autostart=1&controls=1&transparent=1&ui_watermark=0&ui_infos=0&ui_inspector=0&ui_stop=0&ui_hint=0&ui_ar=0&ui_settings=0&ui_fullscreen=0&ui_theatre=0&wireframe=0"
+                  width="100%"
+                  height="320"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="relative z-[200]"
+                  style={{
+                    pointerEvents: 'auto',
+                    isolation: 'isolate'
+                  }}
+                />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -225,7 +227,7 @@ const Landing = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Data Visualization Card */}
             <motion.div
-              className="group relative overflow-hidden rounded-2xl h-[420px] flex flex-col"
+              className="group relative overflow-hidden rounded-2xl h-[360px] flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -266,20 +268,10 @@ const Landing = () => {
                 <h4 className="text-xl font-bold text-blue-300 mb-3 font-mono">
                   OCEAN_ANALYTICS.sys
                 </h4>
-                <p className="text-slate-400 leading-relaxed mb-6 text-sm">
+                <p className="text-slate-400 leading-relaxed mb-1 text-sm">
                   Real-time oceanographic data visualization with advanced marine pattern analysis and predictive modeling
                 </p>
 
-                {/* Progress bar */}
-                <div className="mb-6 flex-1 flex flex-col justify-end">
-                  <div className="flex justify-between text-xs text-blue-400 mb-2">
-                    <span>Data Flow</span>
-                    <span>92%</span>
-                  </div>
-                  <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-blue-500 to-teal-400 rounded-full animate-pulse" style={{ width: '92%' }}></div>
-                  </div>
-                </div>
 
                 {/* Action button */}
                 <div className="mt-auto">
@@ -301,7 +293,7 @@ const Landing = () => {
 
             {/* AI Assistant Card */}
             <motion.div
-              className="group relative overflow-hidden rounded-2xl h-[420px] flex flex-col"
+              className="group relative overflow-hidden rounded-2xl h-[360px] flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -346,24 +338,6 @@ const Landing = () => {
                   Intelligent marine assistant with deep oceanographic knowledge and environmental analysis capabilities
                 </p>
 
-                {/* Neural activity indicator */}
-                <div className="mb-6 flex-1 flex flex-col justify-end">
-                  <div className="flex justify-between text-xs text-teal-400 mb-2">
-                    <span>AI Response</span>
-                    <span>98%</span>
-                  </div>
-                  <div className="flex space-x-1 h-8">
-                    {[...Array(10)].map((_, i) => (
-                      <div key={i} className={`flex-1 rounded-full animate-pulse`}
-                           style={{
-                             backgroundColor: `rgb(20, 184, 166, ${0.3 + (i * 0.07)})`,
-                             animationDelay: `${i * 0.1}s`,
-                             height: `${20 + (i % 3) * 10}px`
-                           }}></div>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Action button */}
                 <div className="mt-auto">
                   <Link to="/ai-chat">
@@ -384,7 +358,7 @@ const Landing = () => {
 
             {/* Ocean Explorer Card */}
             <motion.div
-              className="group relative overflow-hidden rounded-2xl h-[420px] flex flex-col"
+              className="group relative overflow-hidden rounded-2xl h-[360px] flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -428,24 +402,6 @@ const Landing = () => {
                 <p className="text-slate-400 leading-relaxed mb-6 text-sm">
                   Interactive 3D ocean environment with real-time current patterns and marine ecosystem visualization
                 </p>
-
-                {/* Wave activity indicator */}
-                <div className="mb-6 flex-1 flex flex-col justify-end">
-                  <div className="flex justify-between text-xs text-slate-400 mb-2">
-                    <span>Current Flow</span>
-                    <span>Active</span>
-                  </div>
-                  <div className="h-8 bg-slate-800 rounded-lg overflow-hidden flex items-end space-x-1 px-2">
-                    {[...Array(8)].map((_, i) => (
-                      <div key={i} className="flex-1 bg-gradient-to-t from-slate-600 to-blue-500 rounded-t animate-bounce"
-                           style={{
-                             height: `${20 + Math.sin(i) * 15}px`,
-                             animationDelay: `${i * 0.2}s`,
-                             animationDuration: '2s'
-                           }}></div>
-                    ))}
-                  </div>
-                </div>
 
                 {/* Action button */}
                 <div className="mt-auto">

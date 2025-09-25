@@ -9,6 +9,24 @@ import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Tool
 // import ragService from "@/services/ragService";
 // import RagPlotDisplay from "@/components/RagPlotDisplay";
 import mistralService from "@/services/mistralService";
+import { useAuth } from "@/lib/auth-context";
+import { createNewChat, listChats, saveMessage as saveChatMessage, loadMessages as loadChatMessages, clearChatMessages, deleteChat, type ChatThread } from "@/services/chatService";
+import { toast } from "@/components/ui/sonner";
+
+// helper to switch chat threads
+const useChatThreadLoader = (currentUser, setMessages, setIsChatActive) => {
+  return async (chatId: string) => {
+    if (!currentUser) return;
+    try {
+      const msgs = await loadChatMessages(currentUser.uid, chatId);
+      setMessages(msgs.map(m => ({ ...m, timestamp: (m as any).timestamp?.toDate ? (m as any).timestamp.toDate() : m.timestamp })));
+      setIsChatActive(msgs.length > 0);
+    } catch (e: any) {
+      console.error('Failed to load messages', e);
+      toast.error(e?.message || 'Failed to load messages');
+    }
+  };
+};
 
 const AIChatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -24,12 +42,16 @@ const AIChatbot = () => {
   const [isChatActive, setIsChatActive] = useState(false);
   const [showMainNav, setShowMainNav] = useState(false);
   const [headerTransition, setHeaderTransition] = useState('idle'); // idle, transitioning, active
-  const [dynamicChartData, setDynamicChartData] = useState({ temp: [], species: [], table: [] }); // Dynamic chart data
+  const [dynamicChartData, setDynamicChartData] = useState({ temperature: [], species: [], table: [] }); // Dynamic chart data
   // const [ragPlotData, setRagPlotData] = useState([]); // RAG plot data from backend
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
   const hasMountedRef = useRef(false);
   const recognitionRef = useRef(null);
+  const { currentUser } = useAuth();
+  const [chatThreads, setChatThreads] = useState<ChatThread[]>([]);
+  const [currentChatId, setCurrentChatId] = useState<string | null>(null);
+  const loadThreadMessages = useChatThreadLoader(currentUser, setMessages, setIsChatActive);
 
   // Sample data for charts
   const tempData = [
@@ -49,6 +71,29 @@ const AIChatbot = () => {
     "How does depth affect marine life?",
     "Explain ocean current patterns"
   ];
+
+  useEffect(() => {
+    const initUserChats = async () => {
+      if (!currentUser) return;
+      try {
+        const threads = await listChats(currentUser.uid);
+        setChatThreads(threads);
+        if (threads.length > 0) {
+          setCurrentChatId(threads[0].id);
+          await loadThreadMessages(threads[0].id);
+        } else {
+          // Do not auto-create; first prompt will create a new chat
+          setCurrentChatId(null);
+          setMessages([]);
+          setIsChatActive(false);
+        }
+      } catch (e: any) {
+        console.error('Failed to load chats', e);
+        toast.error(e?.message || 'Failed to load chats');
+      }
+    };
+    initUserChats();
+  }, [currentUser]);
 
   // Scroll only when new messages are added after initial mount
   useEffect(() => {
@@ -86,7 +131,7 @@ const AIChatbot = () => {
   // Voice recognition functions
   const startListening = () => {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
       const recognition = new SpeechRecognition();
 
       recognition.continuous = false;
@@ -183,15 +228,25 @@ const AIChatbot = () => {
       setConversationHistory(newConversationHistory.slice(-10)); // Keep last 10 messages for context
 
       // Add bot message
-      setMessages(prev => [...prev, {
+      const botMsg = {
         id: Date.now().toString(),
-        type: 'bot',
+        type: 'bot' as const,
         content: response,
         hasChart: chartInfo.hasChart,
         chartType: chartInfo.chartType,
         suggestions: suggestions,
         timestamp: new Date()
-      }]);
+      };
+      setMessages(prev => [...prev, botMsg]);
+      // Persist bot message
+      try {
+        if (currentUser && currentChatId) {
+          await saveChatMessage(currentUser.uid, currentChatId, botMsg as any);
+        }
+      } catch (e: any) {
+        console.warn('Failed to save bot message', e);
+        toast.error(e?.message || 'Failed to save bot message');
+      }
 
     } catch (error) {
       console.error('Error generating AI response:', error);
@@ -233,18 +288,17 @@ const AIChatbot = () => {
     }
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
 
     const newMessage = {
       id: Date.now().toString(),
-      type: 'user',
+      type: 'user' as const,
       content: inputValue,
       timestamp: new Date(),
       attachedFile: attachedFile?.name
     };
 
-    // Trigger header transition on first message (before adding message)
     if (messages.length === 0 && !isChatActive) {
       setHeaderTransition('transitioning');
       setTimeout(() => {
@@ -254,6 +308,38 @@ const AIChatbot = () => {
     }
 
     setMessages(prev => [...prev, newMessage]);
+
+    try {
+      if (currentUser) {
+        let chatId = currentChatId;
+        // If no chat selected (fresh entry), always create a new chat and title it by first prompt
+        if (!chatId) {
+          const title = inputValue.slice(0, 30) || 'New Chat';
+          const created = await createNewChat(currentUser.uid, title);
+          chatId = created.id;
+          setCurrentChatId(chatId);
+          const threads = await listChats(currentUser.uid);
+          setChatThreads(threads);
+        } else {
+          // If first prompt of this selected thread (empty), update title
+          if (messages.length === 0) {
+            const title = inputValue.slice(0, 30) || 'New Chat';
+            try {
+              const { updateChatTitle } = await import('@/services/chatService');
+              await updateChatTitle(currentUser.uid, chatId, title);
+              const threads = await listChats(currentUser.uid);
+              setChatThreads(threads);
+            } catch {}
+          }
+        }
+        if (chatId) {
+          await saveChatMessage(currentUser.uid, chatId, newMessage as any);
+        }
+      }
+    } catch (e: any) {
+      console.warn('Failed to persist user message', e);
+      toast.error(e?.message || 'Failed to save message');
+    }
 
     generateAIResponse(inputValue);
     setInputValue('');
@@ -358,7 +444,7 @@ const AIChatbot = () => {
 
           <CardHeader className="pb-2 relative z-10">
             <CardTitle className="text-sm flex items-center gap-3">
-              <div className="p-1.5 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg shadow-lg border border-blue-400/30">
+              <div className="p-1.5 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg">
                 <BarChart3 className="h-4 w-4 text-white" />
               </div>
               <span className="text-white font-mono font-black">OCEAN_DATA_TABLE</span>
@@ -393,11 +479,11 @@ const AIChatbot = () => {
     return null;
   };
 
-  const handleSuggestedQuestion = (question) => {
+  const handleSuggestedQuestion = async (question) => {
     setInputValue(question);
     const newMessage = {
       id: Date.now().toString(),
-      type: 'user',
+      type: 'user' as const,
       content: question,
       timestamp: new Date()
     };
@@ -412,6 +498,39 @@ const AIChatbot = () => {
     }
 
     setMessages(prev => [...prev, newMessage]);
+
+    try {
+      if (currentUser) {
+        let chatId = currentChatId;
+        // If no chat selected (fresh entry), always create a new chat and title it by first prompt
+        if (!chatId) {
+          const title = question.slice(0, 30) || 'New Chat';
+          const created = await createNewChat(currentUser.uid, title);
+          chatId = created.id;
+          setCurrentChatId(chatId);
+          const threads = await listChats(currentUser.uid);
+          setChatThreads(threads);
+        } else {
+          // If first prompt of this selected thread (empty), update title
+          if (messages.length === 0) {
+            const title = question.slice(0, 30) || 'New Chat';
+            try {
+              const { updateChatTitle } = await import('@/services/chatService');
+              await updateChatTitle(currentUser.uid, chatId, title);
+              const threads = await listChats(currentUser.uid);
+              setChatThreads(threads);
+            } catch {}
+          }
+        }
+        if (chatId) {
+          await saveChatMessage(currentUser.uid, chatId, newMessage as any);
+        }
+      }
+    } catch (e: any) {
+      console.warn('Failed to persist user message', e);
+      toast.error(e?.message || 'Failed to save message');
+    }
+
     generateAIResponse(question);
   };
 
@@ -600,6 +719,7 @@ const AIChatbot = () => {
         isChatActive ? 'top-16 chat-activation' : 'top-20'
       }`}>
 
+
         {/* Chat Info Sidebar (Left) */}
         <AnimatePresence>
           {sidebarOpen && (
@@ -653,6 +773,65 @@ const AIChatbot = () => {
                   </div>
                 </div>
 
+                {/* Threads List */}
+                <Card className="bg-black/60 backdrop-blur-xl border border-blue-400/30 shadow-lg">
+                  <CardContent className="p-4">
+                    <div className="text-sm font-black mb-3 flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        <div className="p-1.5 bg-gradient-to-r from-blue-600 to-teal-500 rounded-lg">
+                          <History className="h-4 w-4 text-white" />
+                        </div>
+                        <span className="text-white font-mono">YOUR_CHATS</span>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-[10px] bg-black/40 border border-red-400/20 hover:border-red-400/40 hover:bg-red-900/20 text-red-300 hover:text-red-200 rounded-lg"
+                        onClick={async () => {
+                          try {
+                            if (!currentUser) return;
+                            const { deleteAllChats } = await import('@/services/chatService');
+                            await deleteAllChats(currentUser.uid);
+                            const threads = await listChats(currentUser.uid);
+                            setChatThreads(threads);
+                            setCurrentChatId(null);
+                            setMessages([]);
+                            setIsChatActive(false);
+                            toast.success('All chats cleared');
+                          } catch (e: any) {
+                            console.error('Failed to clear all chats', e);
+                            toast.error(e?.message || 'Failed to clear all chats');
+                          }
+                        }}
+                      >
+                        CLEAR ALL
+                      </Button>
+                    </div>
+                    <div className="space-y-2 max-h-64 overflow-auto">
+                      {chatThreads.length === 0 && (
+                        <div className="text-xs text-slate-400">No chats yet. Start one by sending a message.</div>
+                      )}
+                      {chatThreads.map((thread) => (
+                        <button
+                          key={thread.id}
+                          className={`w-full text-left p-3 rounded-xl border text-xs font-mono transition-all ${
+                            currentChatId === thread.id
+                              ? 'bg-blue-900/20 border-blue-400/40 text-blue-200'
+                              : 'bg-black/40 border-slate-400/20 hover:border-blue-400/30 hover:bg-blue-900/10 text-slate-300'
+                          }`}
+                          onClick={async () => {
+                            setCurrentChatId(thread.id);
+                            await loadThreadMessages(thread.id);
+                          }}
+                        >
+                          <div className="font-bold truncate">{thread.title || 'Untitled'}</div>
+                          <div className="text-[10px] opacity-70 truncate">{(thread as any).lastMessagePreview || ''}</div>
+                        </button>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
                 {/* Enhanced Quick Actions */}
                 <Card className="bg-black/60 backdrop-blur-xl border border-slate-400/30 shadow-lg">
                   <CardContent className="p-4">
@@ -663,7 +842,20 @@ const AIChatbot = () => {
                       <span className="text-white font-mono">QUICK_ACTIONS</span>
                     </div>
                     <div className="space-y-2">
-                      <Button variant="ghost" size="sm" className="w-full justify-start bg-black/40 border border-red-400/20 hover:border-red-400/40 hover:bg-red-900/20 text-red-300 hover:text-red-200 transition-all duration-200 text-xs font-mono font-bold">
+                      <Button variant="ghost" size="sm" className="w-full justify-start bg-black/40 border border-red-400/20 hover:border-red-400/40 hover:bg-red-900/20 text-red-300 hover:text-red-200 transition-all duration-200 text-xs font-mono font-bold"
+                        onClick={async () => {
+                          try {
+                            if (currentUser && currentChatId) {
+                              await clearChatMessages(currentUser.uid, currentChatId);
+                              await loadThreadMessages(currentChatId);
+                            }
+                            setMessages([]);
+                          } catch (e: any) {
+                            console.error('Failed to clear history', e);
+                            toast.error(e?.message || 'Failed to clear history');
+                          }
+                        }}
+                      >
                         <History className="h-4 w-4 mr-2" />
                         CLEAR_HISTORY
                       </Button>
@@ -801,9 +993,20 @@ const AIChatbot = () => {
                       variant="ghost"
                       size="sm"
                       className="w-full justify-start hover:bg-primary/10 transition-all duration-200 text-xs"
-                      onClick={() => {
-                        setMessages([]);
-                        setMenuSidebarOpen(false);
+                      onClick={async () => {
+                        try {
+                          if (currentUser) {
+                            const created = await createNewChat(currentUser.uid, 'New Chat');
+                            setCurrentChatId(created.id);
+                            const threads = await listChats(currentUser.uid);
+                            setChatThreads(threads);
+                          }
+                          setMessages([]);
+                          setMenuSidebarOpen(false);
+                          setIsChatActive(false);
+                        } catch (e) {
+                          console.error('Failed to start new chat', e);
+                        }
                       }}
                     >
                       <History className="h-4 w-4 mr-2" />
