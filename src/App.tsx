@@ -14,6 +14,7 @@ import TestSupabase from "./pages/TestSupabase";
 import DataInspection from "./pages/DataInspection";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import Pricing from "./pages/Pricing";
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
 
@@ -84,6 +85,7 @@ const AnimatedRoutes = () => {
             <DataInspection />
           </ProtectedRoute>
         } />
+        <Route path="/pricing" element={<Pricing />} />
 
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />

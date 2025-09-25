@@ -18,6 +18,7 @@ const Navbar = () => {
     { name: "Home", path: "/home", icon: Waves },
     { name: "Data Viz", path: "/data-viz", icon: Waves },
     { name: "AI Chat", path: "/ai-chat", icon: Waves },
+    { name: "Pricing", path: "/pricing", icon: Waves },
     // { name: "Ocean Explorer", path: "/ocean-explorer", icon: Waves },
   ];
 
