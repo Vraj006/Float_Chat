@@ -31,7 +31,7 @@ class MistralService {
 
   constructor() {
     this.apiKey = import.meta.env.VITE_MISTRAL_API_KEY || '';
-    console.log('Mistral API Key from env:', this.apiKey ? 'Found' : 'Missing');
+    console.log('Mistral API Key from env:', this.apiKey ? `Found (${this.apiKey.substring(0, 10)}...)` : 'Missing');
     if (!this.apiKey) {
       console.warn('Mistral API key not found. Please set VITE_MISTRAL_API_KEY in your environment variables.');
     }
@@ -49,23 +49,17 @@ class MistralService {
   }
 
   private getSystemPrompt(): string {
-    return `You are an expert ocean and marine science AI assistant for FloatChat, a professional oceanographic data platform. Your role is to:
+    return `You are FloatChat's ocean AI assistant. Be concise and scientific.
 
-1. Provide accurate, scientific information about oceans, marine life, and oceanographic data
-2. Focus on topics like: ocean temperature, marine biodiversity, ocean currents, depth zones, climate change impacts, and oceanographic research
-3. Use real scientific knowledge and cite reputable sources when possible
-4. Keep responses informative but accessible to both professionals and enthusiasts
-5. When discussing data, mention that FloatChat provides real-time ocean monitoring capabilities
-6. If asked about non-ocean topics, politely redirect to marine science topics
-7. Be concise but comprehensive - aim for responses that are informative yet easy to read
+Rules:
+- Keep responses under 100 words
+- Focus on ocean/marine topics only
+- Use bullet points, no tables or | | | formatting
+- Include 1-2 relevant emojis
+- Provide accurate oceanographic data
+- Be engaging but brief
 
-Format your responses with:
-- Clear, structured information
-- Use bullet points for lists
-- Include relevant emojis sparingly for visual appeal
-- Provide follow-up suggestions when appropriate
-
-Remember: You represent a professional oceanographic platform, so maintain scientific accuracy while being engaging.`;
+Format: Short paragraphs + bullet points when needed.`;
   }
 
   // Clean response text by removing markdown and special characters while preserving formatting
@@ -83,6 +77,10 @@ Remember: You represent a professional oceanographic platform, so maintain scien
       .replace(/`([^`]+)`/g, '$1')
       // Remove links [text](url) but keep the text
       .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      // Remove table formatting (| | |) and convert to bullet points
+      .replace(/^\|.*\|$/gm, '')
+      .replace(/^\s*[-:]+\s*\|/gm, '')
+      .replace(/\|/g, ' - ')
       // Keep line breaks and paragraph spacing
       .replace(/\n{3,}/g, '\n\n')
       .trim();
@@ -113,11 +111,11 @@ Remember: You represent a professional oceanographic platform, so maintain scien
           'Authorization': `Bearer ${this.apiKey}`,
         },
         body: JSON.stringify({
-          model: 'mistral-large-latest', // Using the latest and most capable model
+          model: 'mistral-large-latest',
           messages: messages,
-          temperature: 0.7, // Balanced between creativity and accuracy
-          max_tokens: 1000, // Reasonable limit for chat responses
-          top_p: 1,
+          temperature: 0.5, // Lower for concise responses
+          max_tokens: 150, // Much lower for short responses
+          top_p: 0.9,
           stream: false
         }),
       });
@@ -160,6 +158,11 @@ Remember: You represent a professional oceanographic platform, so maintain scien
         } else if (error.message.includes('401')) {
           return `Authentication failed: Invalid API key. Please check your Mistral API key is correct.`;
         } else if (error.message.includes('429')) {
+          // Check if this is a predefined question and provide fallback
+          const fallbackResponse = this.getFallbackResponse(userMessage);
+          if (fallbackResponse) {
+            return fallbackResponse;
+          }
           return `Rate limit exceeded: Too many requests. Please wait a moment and try again.`;
         } else {
           return `API Error (${error.message}): Please try rephrasing your question or try again later.`;
@@ -174,10 +177,11 @@ Remember: You represent a professional oceanographic platform, so maintain scien
   shouldIncludeChart(userMessage: string): { hasChart: boolean; chartType?: string } {
     const lowerMessage = userMessage.toLowerCase();
 
-    if (lowerMessage.includes('zones') || lowerMessage.includes('regions') ||
-        lowerMessage.includes('table') || lowerMessage.includes('comparison')) {
-      return { hasChart: true, chartType: 'table' };
-    }
+    // Disabled table charts for presentation
+    // if (lowerMessage.includes('zones') || lowerMessage.includes('regions') ||
+    //     lowerMessage.includes('table') || lowerMessage.includes('comparison')) {
+    //   return { hasChart: true, chartType: 'table' };
+    // }
 
     if (lowerMessage.includes('temperature') || lowerMessage.includes('temp')) {
       return { hasChart: true, chartType: 'temperature' };
@@ -194,44 +198,60 @@ Remember: You represent a professional oceanographic platform, so maintain scien
   // Generate chart data using Mistral API
   async generateChartData(userMessage: string, chartType: string): Promise<any[]> {
     if (!this.apiKey) {
-      // Return fallback data if API is not available
+      console.warn('No Mistral API key available, using fallback data');
       return this.getFallbackChartData(chartType);
     }
 
     try {
+      console.log(`Generating ${chartType} chart data for: ${userMessage}`);
       let prompt = '';
 
-      if (chartType === 'table') {
-        prompt = `Based on the user's question about "${userMessage}", generate realistic ocean data in table format.
+      if (chartType === 'temperature') {
+        prompt = `Based on the user's question about "${userMessage}", generate realistic ocean temperature data for a line chart.
 
-Return ONLY a JSON array where each object represents a table row with 3 columns. Format should be:
-- column1: string (first column data like zone names, regions, etc.)
-- column2: string (second column data like temperature ranges, depths, etc.)
-- column3: string (third column data like descriptions, features, characteristics, etc.)
+Context: This is for an oceanographic visualization showing temperature trends. Consider factors like:
+- Geographic location (if mentioned)
+- Seasonal variations
+- Depth considerations
+- Climate patterns
+- Current ocean conditions
 
-Example format: [{"column1":"Tropical Zone","column2":"25-30°C","column3":"High biodiversity and coral reefs"}...]
+Return ONLY a valid JSON array with exactly 6 data points representing monthly ocean temperature data:
+[{"month":"Jan","temp":18.5},{"month":"Feb","temp":19.2},{"month":"Mar","temp":20.1},{"month":"Apr","temp":21.8},{"month":"May","temp":23.4},{"month":"Jun","temp":25.1}]
 
-Generate 4-6 realistic data rows that scientifically answer the user's question about ocean zones, regions, or comparisons.`;
-      } else if (chartType === 'temperature') {
-        prompt = `Based on the user's question about "${userMessage}", generate realistic ocean temperature data for visualization.
-
-Return ONLY a JSON array with exactly 6 data points representing monthly ocean temperature averages. Each point should have:
+Requirements:
 - month: string (Jan, Feb, Mar, Apr, May, Jun)
-- temp: number (realistic ocean temperature in Celsius, typically 15-25°C for surface waters)
+- temp: number (realistic ocean temperature in Celsius, typically 12-30°C depending on location)
+- Values should show realistic seasonal progression
+- Consider the context of the user's question to make temperatures scientifically accurate
 
-Example format: [{"month":"Jan","temp":18.5},{"month":"Feb","temp":19.2}...]
+Return ONLY the JSON array, no additional text.`;
 
-Make the data scientifically realistic and relevant to the user's question about ocean temperatures.`;
       } else if (chartType === 'species') {
-        prompt = `Based on the user's question about "${userMessage}", generate realistic marine species distribution data by depth zones.
+        prompt = `Based on the user's question about "${userMessage}", generate realistic marine species distribution data for a bar chart.
 
-Return ONLY a JSON array with exactly 4 data points representing species count by depth zone:
-- depth: string (depth zone like "0-50m", "50-200m", "200-1000m", "1000m+")
-- count: number (realistic species count, decreasing with depth)
+Context: This shows biodiversity patterns in ocean depth zones. Consider:
+- Marine biodiversity decreases with depth
+- Surface waters (0-50m) have highest species count
+- Deep sea (1000m+) has lowest species count
+- Geographic location affects absolute numbers
+- User's specific question context
 
-Example format: [{"depth":"0-50m","count":342},{"depth":"50-200m","count":189}...]
+Return ONLY a valid JSON array with exactly 4 data points:
+[{"depth":"0-50m","count":342},{"depth":"50-200m","count":189},{"depth":"200-1000m","count":67},{"depth":"1000m+","count":23}]
 
-Make the data scientifically realistic showing how biodiversity generally decreases with ocean depth.`;
+Requirements:
+- depth: string (exactly "0-50m", "50-200m", "200-1000m", "1000m+")
+- count: number (realistic species count, should decrease with depth)
+- Numbers should reflect the specific context of the user's question
+- Consider geographic region if mentioned
+
+Return ONLY the JSON array, no additional text.`;
+      }
+
+      if (!prompt) {
+        console.log('No chart generation needed for this type');
+        return this.getFallbackChartData(chartType);
       }
 
       const response = await fetch(this.apiUrl, {
@@ -243,27 +263,49 @@ Make the data scientifically realistic showing how biodiversity generally decrea
         body: JSON.stringify({
           model: 'mistral-large-latest',
           messages: [
-            { role: 'system', content: 'You are a data scientist specializing in oceanographic data. Return only valid JSON arrays as requested, no additional text or formatting.' },
+            {
+              role: 'system',
+              content: 'You are an oceanographic data scientist. Generate realistic, scientifically accurate ocean data. Return ONLY valid JSON arrays as requested, with no additional text, formatting, or explanations.'
+            },
             { role: 'user', content: prompt }
           ],
-          temperature: 0.3, // Lower temperature for more consistent data generation
-          max_tokens: 500,
+          temperature: 0.1, // Very low for consistent data
+          max_tokens: 100, // Much smaller for just JSON data
         }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to generate chart data');
+        console.error(`Mistral API error: ${response.status}`);
+        throw new Error(`Failed to generate chart data: ${response.status}`);
       }
 
       const data = await response.json();
-      const content = data.choices[0].message.content;
+      let content = data.choices[0].message.content.trim();
+
+      console.log('Raw Mistral response for chart data:', content);
+
+      // Clean the response to extract JSON
+      // Remove any markdown formatting
+      content = content.replace(/```json\s*/, '').replace(/```\s*$/, '');
+      // Remove any leading/trailing text
+      const jsonMatch = content.match(/\[[\s\S]*\]/);
+      if (jsonMatch) {
+        content = jsonMatch[0];
+      }
 
       // Parse the JSON response
       try {
         const chartData = JSON.parse(content);
-        return Array.isArray(chartData) ? chartData : this.getFallbackChartData(chartType);
+        if (Array.isArray(chartData) && chartData.length > 0) {
+          console.log(`Generated ${chartData.length} data points for ${chartType} chart`);
+          return chartData;
+        } else {
+          console.warn('Invalid chart data structure from Mistral');
+          return this.getFallbackChartData(chartType);
+        }
       } catch (parseError) {
         console.warn('Failed to parse chart data from Mistral:', parseError);
+        console.warn('Content was:', content);
         return this.getFallbackChartData(chartType);
       }
 
@@ -295,6 +337,64 @@ Make the data scientifically realistic showing how biodiversity generally decrea
       ];
     }
     return [];
+  }
+
+  // Get fallback response for predefined questions when rate limited
+  private getFallbackResponse(userMessage: string): string | null {
+    const lowerMessage = userMessage.toLowerCase();
+
+    if (lowerMessage.includes('what affects ocean temperature')) {
+      return `🌊 **Ocean Temperature Factors**
+
+Key drivers:
+• Solar radiation (primary heat source)
+• Ocean currents (redistribute heat globally)
+• Atmospheric circulation patterns
+• Seasonal variations (winter/summer cycles)
+• Geographic latitude (equator vs poles)
+• Ocean depth (thermocline effects)
+
+Current global average: ~17°C surface temperature 🌡️`;
+    }
+
+    if (lowerMessage.includes('marine biodiversity')) {
+      return `🐠 **Marine Biodiversity Overview**
+
+Ocean life distribution:
+• Surface waters (0-200m): Highest diversity
+• Coral reefs: 25% of marine species
+• Deep sea (>1000m): Unique adaptations
+• Polar regions: Specialized cold-water species
+• Open ocean: Large migratory species
+
+Estimated 2+ million marine species worldwide! 🌊`;
+    }
+
+    if (lowerMessage.includes('depth affect marine life')) {
+      return `🏊 **Ocean Depth & Marine Life**
+
+Depth zones:
+• Sunlight zone (0-200m): Photosynthesis, highest life
+• Twilight zone (200-1000m): Limited light, predators
+• Midnight zone (1000-4000m): No light, bioluminescence
+• Abyssal zone (4000m+): Extreme pressure adaptations
+
+Each zone has unique species adapted to pressure, light, and temperature! 🌊`;
+    }
+
+    if (lowerMessage.includes('ocean current patterns')) {
+      return `🌀 **Ocean Current Patterns**
+
+Major systems:
+• Gulf Stream: Warms North Atlantic
+• Kuroshio Current: Pacific "Gulf Stream"
+• Antarctic Circumpolar: Largest current system
+• Thermohaline circulation: Global "conveyor belt"
+
+Currents transport heat, nutrients, and marine life globally! 🌊`;
+    }
+
+    return null; // No fallback available
   }
 
   // Generate relevant follow-up suggestions based on the conversation

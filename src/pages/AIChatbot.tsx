@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Tooltip } from "recharts";
+// import ragService from "@/services/ragService";
+// import RagPlotDisplay from "@/components/RagPlotDisplay";
 import mistralService from "@/services/mistralService";
 
 const AIChatbot = () => {
@@ -23,6 +25,7 @@ const AIChatbot = () => {
   const [showMainNav, setShowMainNav] = useState(false);
   const [headerTransition, setHeaderTransition] = useState('idle'); // idle, transitioning, active
   const [dynamicChartData, setDynamicChartData] = useState({ temp: [], species: [], table: [] }); // Dynamic chart data
+  // const [ragPlotData, setRagPlotData] = useState([]); // RAG plot data from backend
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
   const hasMountedRef = useRef(false);
@@ -845,6 +848,13 @@ const AIChatbot = () => {
                       <AIChart chartType={message.chartType} />
                     </div>
                   )}
+
+                  {/* RAG Plots - Commented out for presentation */}
+                  {/* {message.hasRagPlots && message.ragPlots && (
+                    <div className="mt-5">
+                      <RagPlotDisplay plots={message.ragPlots} />
+                    </div>
+                  )} */}
 
                   {/* Suggestions */}
                   {message.suggestions && (

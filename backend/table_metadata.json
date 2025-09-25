@@ -1,0 +1,754 @@
+[
+  {
+    "table": "bgc_4900482",
+    "summary": "Table bgc_4900482: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4900476",
+    "summary": "Table bgc_4900476: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4900485",
+    "summary": "Table bgc_4900485: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902367",
+    "summary": "Table bgc_1902367: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4900484",
+    "summary": "Table bgc_4900484: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=15."
+  },
+  {
+    "table": "bgc_4900477",
+    "summary": "Table bgc_4900477: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=12."
+  },
+  {
+    "table": "bgc_4900483",
+    "summary": "Table bgc_4900483: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_3902554",
+    "summary": "Table bgc_3902554: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903831",
+    "summary": "Table bgc_2903831: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4903744",
+    "summary": "Table bgc_4903744: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=22."
+  },
+  {
+    "table": "bgc_2903451",
+    "summary": "Table bgc_2903451: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=42."
+  },
+  {
+    "table": "bgc_2903467",
+    "summary": "Table bgc_2903467: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2904014",
+    "summary": "Table bgc_2904014: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=2."
+  },
+  {
+    "table": "bgc_2903854",
+    "summary": "Table bgc_2903854: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1900722",
+    "summary": "Table bgc_1900722: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903865",
+    "summary": "Table bgc_2903865: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903466",
+    "summary": "Table bgc_2903466: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4903745",
+    "summary": "Table bgc_4903745: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903468",
+    "summary": "Table bgc_2903468: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903864",
+    "summary": "Table bgc_2903864: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903870",
+    "summary": "Table bgc_2903870: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902459",
+    "summary": "Table bgc_1902459: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=34."
+  },
+  {
+    "table": "bgc_2903472",
+    "summary": "Table bgc_2903472: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902457",
+    "summary": "Table bgc_1902457: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4903751",
+    "summary": "Table bgc_4903751: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903885",
+    "summary": "Table bgc_2903885: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4903750",
+    "summary": "Table bgc_4903750: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902456",
+    "summary": "Table bgc_1902456: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902494",
+    "summary": "Table bgc_1902494: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=26."
+  },
+  {
+    "table": "bgc_2903473",
+    "summary": "Table bgc_2903473: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=12."
+  },
+  {
+    "table": "bgc_1902458",
+    "summary": "Table bgc_1902458: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903966",
+    "summary": "Table bgc_2903966: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=2."
+  },
+  {
+    "table": "bgc_1902372",
+    "summary": "Table bgc_1902372: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_3902345",
+    "summary": "Table bgc_3902345: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=2."
+  },
+  {
+    "table": "bgc_1902373",
+    "summary": "Table bgc_1902373: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2900128",
+    "summary": "Table bgc_2900128: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=4."
+  },
+  {
+    "table": "bgc_2903915",
+    "summary": "Table bgc_2903915: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4900475",
+    "summary": "Table bgc_4900475: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_3902557",
+    "summary": "Table bgc_3902557: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4900474",
+    "summary": "Table bgc_4900474: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4900487",
+    "summary": "Table bgc_4900487: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_4903747",
+    "summary": "Table bgc_4903747: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903464",
+    "summary": "Table bgc_2903464: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903869",
+    "summary": "Table bgc_2903869: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903465",
+    "summary": "Table bgc_2903465: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902643",
+    "summary": "Table bgc_1902643: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=34."
+  },
+  {
+    "table": "bgc_2903453",
+    "summary": "Table bgc_2903453: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902650",
+    "summary": "Table bgc_1902650: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903829",
+    "summary": "Table bgc_2903829: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902491",
+    "summary": "Table bgc_1902491: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902453",
+    "summary": "Table bgc_1902453: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902454",
+    "summary": "Table bgc_1902454: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_1902455",
+    "summary": "Table bgc_1902455: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903470",
+    "summary": "Table bgc_2903470: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=34."
+  },
+  {
+    "table": "bgc_1902651",
+    "summary": "Table bgc_1902651: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2903872",
+    "summary": "Table bgc_2903872: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=50."
+  },
+  {
+    "table": "bgc_2900114",
+    "summary": "Table bgc_2900114: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=45."
+  },
+  {
+    "table": "bgc_2900125",
+    "summary": "Table bgc_2900125: columns=['profile_id', 'latitude', 'longitude', 'time', 'doxy', 'doxy_adjusted', 'doxy_qc', 'doxy_adjusted_qc', 'chla', 'nitrate', 'ph_in_situ_total', 'platform_type', 'project_name', 'vertical_sampling_scheme'], sample_count=30."
+  },
+  {
+    "table": "argo_1900693",
+    "summary": "Table argo_1900693: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900694",
+    "summary": "Table argo_1900694: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900053",
+    "summary": "Table argo_1900053: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900408",
+    "summary": "Table argo_1900408: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900266",
+    "summary": "Table argo_1900266: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900054",
+    "summary": "Table argo_1900054: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900406",
+    "summary": "Table argo_1900406: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900439",
+    "summary": "Table argo_1900439: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=3."
+  },
+  {
+    "table": "argo_1900268",
+    "summary": "Table argo_1900268: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900695",
+    "summary": "Table argo_1900695: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900692",
+    "summary": "Table argo_1900692: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900269",
+    "summary": "Table argo_1900269: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900407",
+    "summary": "Table argo_1900407: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900438",
+    "summary": "Table argo_1900438: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900055",
+    "summary": "Table argo_1900055: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=29."
+  },
+  {
+    "table": "argo_1900267",
+    "summary": "Table argo_1900267: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900052",
+    "summary": "Table argo_1900052: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900409",
+    "summary": "Table argo_1900409: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900747",
+    "summary": "Table argo_1900747: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900575",
+    "summary": "Table argo_1900575: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900145",
+    "summary": "Table argo_1900145: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=1."
+  },
+  {
+    "table": "argo_1900187",
+    "summary": "Table argo_1900187: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900722",
+    "summary": "Table argo_1900722: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900180",
+    "summary": "Table argo_1900180: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900573",
+    "summary": "Table argo_1900573: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900746",
+    "summary": "Table argo_1900746: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900181",
+    "summary": "Table argo_1900181: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900723",
+    "summary": "Table argo_1900723: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900172",
+    "summary": "Table argo_1900172: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=42."
+  },
+  {
+    "table": "argo_1900186",
+    "summary": "Table argo_1900186: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900144",
+    "summary": "Table argo_1900144: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900143",
+    "summary": "Table argo_1900143: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900188",
+    "summary": "Table argo_1900188: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=38."
+  },
+  {
+    "table": "argo_1900195",
+    "summary": "Table argo_1900195: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900161",
+    "summary": "Table argo_1900161: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900353",
+    "summary": "Table argo_1900353: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900159",
+    "summary": "Table argo_1900159: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900354",
+    "summary": "Table argo_1900354: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900192",
+    "summary": "Table argo_1900192: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900362",
+    "summary": "Table argo_1900362: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900150",
+    "summary": "Table argo_1900150: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900157",
+    "summary": "Table argo_1900157: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900365",
+    "summary": "Table argo_1900365: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900701",
+    "summary": "Table argo_1900701: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900169",
+    "summary": "Table argo_1900169: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=38."
+  },
+  {
+    "table": "argo_1900364",
+    "summary": "Table argo_1900364: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900156",
+    "summary": "Table argo_1900156: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900700",
+    "summary": "Table argo_1900700: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900151",
+    "summary": "Table argo_1900151: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900363",
+    "summary": "Table argo_1900363: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900158",
+    "summary": "Table argo_1900158: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900193",
+    "summary": "Table argo_1900193: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900355",
+    "summary": "Table argo_1900355: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900160",
+    "summary": "Table argo_1900160: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900194",
+    "summary": "Table argo_1900194: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900414",
+    "summary": "Table argo_1900414: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900048",
+    "summary": "Table argo_1900048: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=26."
+  },
+  {
+    "table": "argo_1900413",
+    "summary": "Table argo_1900413: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900273",
+    "summary": "Table argo_1900273: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900046",
+    "summary": "Table argo_1900046: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900274",
+    "summary": "Table argo_1900274: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=38."
+  },
+  {
+    "table": "argo_1900686",
+    "summary": "Table argo_1900686: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900440",
+    "summary": "Table argo_1900440: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=1."
+  },
+  {
+    "table": "argo_1900047",
+    "summary": "Table argo_1900047: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900272",
+    "summary": "Table argo_1900272: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900049",
+    "summary": "Table argo_1900049: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=13."
+  },
+  {
+    "table": "argo_1900412",
+    "summary": "Table argo_1900412: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900441",
+    "summary": "Table argo_1900441: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900050",
+    "summary": "Table argo_1900050: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900697",
+    "summary": "Table argo_1900697: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900200",
+    "summary": "Table argo_1900200: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900699",
+    "summary": "Table argo_1900699: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900051",
+    "summary": "Table argo_1900051: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900435",
+    "summary": "Table argo_1900435: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900432",
+    "summary": "Table argo_1900432: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900056",
+    "summary": "Table argo_1900056: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900698",
+    "summary": "Table argo_1900698: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900691",
+    "summary": "Table argo_1900691: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900201",
+    "summary": "Table argo_1900201: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900696",
+    "summary": "Table argo_1900696: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=34."
+  },
+  {
+    "table": "argo_1900146",
+    "summary": "Table argo_1900146: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900183",
+    "summary": "Table argo_1900183: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900148",
+    "summary": "Table argo_1900148: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900184",
+    "summary": "Table argo_1900184: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900170",
+    "summary": "Table argo_1900170: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900786",
+    "summary": "Table argo_1900786: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900578",
+    "summary": "Table argo_1900578: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900788",
+    "summary": "Table argo_1900788: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900576",
+    "summary": "Table argo_1900576: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=20."
+  },
+  {
+    "table": "argo_1900171",
+    "summary": "Table argo_1900171: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900185",
+    "summary": "Table argo_1900185: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900182",
+    "summary": "Table argo_1900182: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900149",
+    "summary": "Table argo_1900149: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900147",
+    "summary": "Table argo_1900147: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900577",
+    "summary": "Table argo_1900577: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900579",
+    "summary": "Table argo_1900579: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900787",
+    "summary": "Table argo_1900787: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900760",
+    "summary": "Table argo_1900760: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900165",
+    "summary": "Table argo_1900165: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=5."
+  },
+  {
+    "table": "argo_1900357",
+    "summary": "Table argo_1900357: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900191",
+    "summary": "Table argo_1900191: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900196",
+    "summary": "Table argo_1900196: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900162",
+    "summary": "Table argo_1900162: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900154",
+    "summary": "Table argo_1900154: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900198",
+    "summary": "Table argo_1900198: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=32."
+  },
+  {
+    "table": "argo_1900153",
+    "summary": "Table argo_1900153: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900199",
+    "summary": "Table argo_1900199: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900152",
+    "summary": "Table argo_1900152: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900358",
+    "summary": "Table argo_1900358: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900155",
+    "summary": "Table argo_1900155: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900163",
+    "summary": "Table argo_1900163: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=20."
+  },
+  {
+    "table": "argo_1900197",
+    "summary": "Table argo_1900197: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900190",
+    "summary": "Table argo_1900190: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900356",
+    "summary": "Table argo_1900356: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900164",
+    "summary": "Table argo_1900164: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900647",
+    "summary": "Table argo_1900647: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=26."
+  },
+  {
+    "table": "argo_1900685",
+    "summary": "Table argo_1900685: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900443",
+    "summary": "Table argo_1900443: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900649",
+    "summary": "Table argo_1900649: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900410",
+    "summary": "Table argo_1900410: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900045",
+    "summary": "Table argo_1900045: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900042",
+    "summary": "Table argo_1900042: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900270",
+    "summary": "Table argo_1900270: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900683",
+    "summary": "Table argo_1900683: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900442",
+    "summary": "Table argo_1900442: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900684",
+    "summary": "Table argo_1900684: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900271",
+    "summary": "Table argo_1900271: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=2."
+  },
+  {
+    "table": "argo_1900043",
+    "summary": "Table argo_1900043: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900044",
+    "summary": "Table argo_1900044: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  },
+  {
+    "table": "argo_1900411",
+    "summary": "Table argo_1900411: columns=['profile_id', 'latitude', 'longitude', 'date', 'time', 'pressure_dbar', 'temperature_c', 'salinity_psu'], sample_count=50."
+  }
+]
