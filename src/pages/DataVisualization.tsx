@@ -15,6 +15,50 @@ import {
   transformDataForScatter,
   getDataStatistics
 } from "@/services/dataTransform";
+// Define fallback data with proper types
+const fallbackHeatmapData = [
+  { depth: "0-50m", region: "north", temp: 22 },
+  { depth: "0-50m", region: "central", temp: 24 },
+  { depth: "0-50m", region: "south", temp: 26 },
+  { depth: "50-200m", region: "north", temp: 18 },
+  { depth: "50-200m", region: "central", temp: 20 },
+  { depth: "50-200m", region: "south", temp: 22 },
+  { depth: "200m+", region: "north", temp: 12 },
+  { depth: "200m+", region: "central", temp: 14 },
+  { depth: "200m+", region: "south", temp: 16 }
+];
+
+const fallbackSpeciesDistribution = [
+  { name: "Fish", value: 45, color: "#00FFA3" },
+  { name: "Plankton", value: 30, color: "#00D4FF" },
+  { name: "Coral", value: 15, color: "#FF6B9D" },
+  { name: "Mammals", value: 10, color: "#FFB800" }
+];
+
+const fallbackMarineLifeData = [
+  { depth: "0-50m", species: 850, temp: 24 },
+  { depth: "50-200m", species: 620, temp: 18 },
+  { depth: "200-1000m", species: 340, temp: 12 },
+  { depth: "1000m+", species: 180, temp: 6 }
+];
+
+const fallbackTemperatureData = [
+  { month: "Jan", temp: 22.5 },
+  { month: "Feb", temp: 23.1 },
+  { month: "Mar", temp: 24.2 },
+  { month: "Apr", temp: 25.8 },
+  { month: "May", temp: 26.9 },
+  { month: "Jun", temp: 27.5 }
+];
+
+const fallbackScatterData = [
+  { temp: 22, species: 850, salinity: 35.2, ph: 8.1 },
+  { temp: 24, species: 920, salinity: 35.4, ph: 8.0 },
+  { temp: 18, species: 620, salinity: 34.8, ph: 7.9 },
+  { temp: 20, species: 740, salinity: 35.0, ph: 8.0 },
+  { temp: 26, species: 1080, salinity: 35.6, ph: 8.2 },
+  { temp: 16, species: 480, salinity: 34.6, ph: 7.8 }
+];
 
 const DataVisualization = () => {
   // Filter and control states (moved here first)
@@ -50,7 +94,7 @@ const DataVisualization = () => {
 
   // Dashboard state
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [fullscreenChart, setFullscreenChart] = useState(null);
+  const [fullscreenChart, setFullscreenChart] = useState<FullscreenChart | null>(null);
   const [activeTab, setActiveTab] = useState('map');
 
   // Check if data is loading
@@ -128,22 +172,37 @@ const DataVisualization = () => {
       }
     }
   };
+  interface FullscreenChart {
+  title: string;
+  content: React.ReactNode;
+}
+
+interface FilterSelectProps {
+  label: string;
+  value: string;
+  options: Array<{ value: string; label: string }>;
+  onChange: (value: string) => void;
+}
+interface HeatmapChartProps {
+  data: Array<{ depth: string; region: string; temp: number }>;
+  title: string;
+}
 
   // Filter components
-  const FilterSelect = ({ label, value, options, onChange }) => (
-    <div className="flex flex-col gap-1">
-      <label className="text-xs text-muted-foreground">{label}</label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="bg-background border border-border rounded px-2 py-1 text-sm text-foreground"
-      >
-        {options.map(option => (
-          <option key={option.value} value={option.value}>{option.label}</option>
-        ))}
-      </select>
-    </div>
-  );
+  const FilterSelect: React.FC<FilterSelectProps> = ({ label, value, options, onChange }) => (
+  <div className="flex flex-col gap-1">
+    <label className="text-xs text-muted-foreground">{label}</label>
+    <select
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="bg-background border border-border rounded px-2 py-1 text-sm text-foreground"
+    >
+      {options.map(option => (
+        <option key={option.value} value={option.value}>{option.label}</option>
+      ))}
+    </select>
+  </div>
+);
 
   // Live data indicator component
   const LiveDataIndicator = () => (
@@ -159,7 +218,7 @@ const DataVisualization = () => {
   );
 
   // Custom Heatmap Component
-  const HeatmapChart = ({ data, title }) => {
+  const HeatmapChart: React.FC<HeatmapChartProps> = ({ data, title }) => {
     const depths = [...new Set(data.map(d => d.depth))];
     const regions = [...new Set(data.map(d => d.region))];
 
@@ -394,13 +453,13 @@ const DataVisualization = () => {
                         {isLiveData ? 'LIVE' : 'PAUSED'}
                       </button>
 
-                      <button
+                      {/* <button
                         onClick={() => setSidebarOpen(!sidebarOpen)}
                         className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-black/40 backdrop-blur-sm border border-blue-400/20 hover:border-blue-400/40 hover:bg-black/60 text-blue-300 hover:text-blue-200 font-mono text-sm uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
                       >
                         <Menu className="h-4 w-4" />
                         DETAILS
-                      </button>
+                      </button> */}
 
                       <div className="relative">
                         <button
@@ -1209,7 +1268,7 @@ const DataVisualization = () => {
                               <Fish className="h-5 w-5 text-white" />
                             </div>
                             <span className="text-xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                              Species Distribution
+                              Ocean Health Indicators
                             </span>
                           </CardTitle>
                           <Button
@@ -1288,7 +1347,7 @@ const DataVisualization = () => {
                               <Activity className="h-5 w-5 text-white" />
                             </div>
                             <span className="text-xl font-black bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                              Life by Depth Zone
+                              Depth & Diversity
                             </span>
                           </CardTitle>
                           <Button
@@ -1373,7 +1432,7 @@ const DataVisualization = () => {
                             <Waves className="h-6 w-6 text-white" />
                           </div>
                           <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
-                            Marine Ecosystem Zones
+                            Ecosystem Layers
                           </span>
                         </CardTitle>
                         <p className="text-sm text-slate-400 font-mono mt-2">BIODIVERSITY analysis across ocean depth layers</p>
@@ -1474,7 +1533,7 @@ const DataVisualization = () => {
                             <TrendingUp className="h-5 w-5 text-white" />
                           </div>
                           <span className="text-xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                            Species Discovery Trends
+                            Discovery Timeline
                           </span>
                         </CardTitle>
                         <p className="text-sm text-slate-400 font-mono mt-1">NEW species and endangered populations over time</p>
@@ -1505,7 +1564,7 @@ const DataVisualization = () => {
                               stroke="#00FFA3"
                               strokeWidth={3}
                               dot={{ fill: '#00FFA3', strokeWidth: 2, r: 4 }}
-                              name="New Discoveries"
+                              name="Latest Discoveries"
                             />
                             <Line
                               type="monotone"
@@ -1513,7 +1572,7 @@ const DataVisualization = () => {
                               stroke="#FF6B9D"
                               strokeWidth={3}
                               dot={{ fill: '#FF6B9D', strokeWidth: 2, r: 4 }}
-                              name="Endangered Species"
+                              name="At Risk"
                             />
                           </LineChart>
                         </ResponsiveContainer>

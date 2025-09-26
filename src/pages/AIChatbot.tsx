@@ -36,12 +36,12 @@ const AIChatbot = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [conversationHistory, setConversationHistory] = useState([]); // For Mistral API context
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [menuSidebarOpen, setMenuSidebarOpen] = useState(false);
+  // const [menuSidebarOpen, setMenuSidebarOpen] = useState(false);
   const [currentTopic, setCurrentTopic] = useState('general');
   const [attachedFile, setAttachedFile] = useState(null);
   const [isChatActive, setIsChatActive] = useState(false);
-  const [showMainNav, setShowMainNav] = useState(false);
-  const [headerTransition, setHeaderTransition] = useState('idle'); // idle, transitioning, active
+  // const [showMainNav, setShowMainNav] = useState(false);
+  // const [headerTransition, setHeaderTransition] = useState('idle'); // idle, transitioning, active
   const [dynamicChartData, setDynamicChartData] = useState({ temperature: [], species: [], table: [] }); // Dynamic chart data
   // const [ragPlotData, setRagPlotData] = useState([]); // RAG plot data from backend
   const messagesEndRef = useRef(null);
@@ -63,7 +63,6 @@ const AIChatbot = () => {
     { depth: '0-50m', count: 342 }, { depth: '50-200m', count: 189 },
     { depth: '200-1000m', count: 67 }, { depth: '1000m+', count: 23 }
   ];
-
 
   const suggestedQuestions = [
     "What affects ocean temperature?",
@@ -299,13 +298,7 @@ const AIChatbot = () => {
       attachedFile: attachedFile?.name
     };
 
-    if (messages.length === 0 && !isChatActive) {
-      setHeaderTransition('transitioning');
-      setTimeout(() => {
-        setIsChatActive(true);
-        setHeaderTransition('active');
-      }, 300);
-    }
+    
 
     setMessages(prev => [...prev, newMessage]);
 
@@ -488,14 +481,7 @@ const AIChatbot = () => {
       timestamp: new Date()
     };
 
-    // Trigger header transition on first message (before adding message)
-    if (messages.length === 0 && !isChatActive) {
-      setHeaderTransition('transitioning');
-      setTimeout(() => {
-        setIsChatActive(true);
-        setHeaderTransition('active');
-      }, 300);
-    }
+    
 
     setMessages(prev => [...prev, newMessage]);
 
@@ -559,87 +545,21 @@ const AIChatbot = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-teal-950/10"></div>
       </div>
 
-      {/* Dynamic Header System */}
-      <AnimatePresence mode="wait">
-        {!isChatActive ? (
-          <motion.div
-            key="main-nav"
-            initial={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -80 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          >
-            <Navbar />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="ai-nav"
-            initial={{ opacity: 0, y: -80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
-            className="fixed top-0 left-0 right-0 z-50 glass-header-transition"
-          >
-            <div className="px-4 sm:px-6 py-3 sm:py-4">
-              <div className="flex items-center justify-between">
-                {/* Enhanced Ocean AI Header Brand */}
-                <div className="flex items-center space-x-3">
-                  <div className="relative">
-                    {/* Glow effect */}
-                    <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 to-teal-500/20 rounded-xl blur-sm animate-pulse"></div>
-                    <div className="relative w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl flex items-center justify-center border border-blue-400/40 shadow-lg shadow-blue-500/25">
-                      <Bot className="h-5 w-5 text-white" />
-                    </div>
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full border-2 border-black animate-pulse shadow-lg shadow-emerald-400/50"></div>
-                  </div>
-                  <div>
-                    <h1 className="text-lg font-black bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
-                      FloatChat AI
-                    </h1>
-                    <p className="text-xs text-slate-400 font-mono font-bold">REAL-TIME ocean intelligence assistant</p>
-                  </div>
-                </div>
-
-                {/* Enhanced Navigation Controls */}
-                <div className="flex items-center space-x-2">
-                  {/* Enhanced Chat Info Sidebar Toggle */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="flex items-center space-x-2 bg-black/40 border border-blue-400/30 hover:border-blue-400/50 hover:bg-blue-900/20 text-blue-300 hover:text-blue-200 transition-all duration-200 font-mono font-bold uppercase tracking-wider"
-                  >
-                    <Bot className="h-4 w-4 text-blue-400" />
-                    <span className="text-sm hidden sm:inline">SESSION</span>
-                  </Button>
-
-                  {/* Enhanced Menu Sidebar Toggle */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setMenuSidebarOpen(!menuSidebarOpen)}
-                    className="flex items-center space-x-2 bg-black/40 border border-teal-400/30 hover:border-teal-400/50 hover:bg-teal-900/20 text-teal-300 hover:text-teal-200 transition-all duration-200 font-mono font-bold uppercase tracking-wider"
-                  >
-                    <div className="w-4 h-4 flex flex-col space-y-0.5">
-                      <div className="w-full h-0.5 bg-current"></div>
-                      <div className="w-full h-0.5 bg-current"></div>
-                      <div className="w-full h-0.5 bg-current"></div>
-                    </div>
-                    <span className="text-sm">MENU</span>
-                  </Button>
-
-                  {/* Enhanced Chat Status */}
-                  <div className="hidden lg:flex items-center space-x-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full backdrop-blur-sm">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-emerald-400 font-mono font-bold">ACTIVE_CHAT</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <div className="fixed top-0 left-0 right-0 z-50 glass-header-transition">
+      <Navbar 
+        showSessionHistory={true}
+        sessionHistory={chatThreads}
+        currentSessionId={currentChatId}
+        onSessionSelect={async (sessionId) => {
+          setCurrentChatId(sessionId);
+          await loadThreadMessages(sessionId);
+        }}
+        onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+      />
+    </div>
 
       {/* Main Navigation Overlay */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {showMainNav && isChatActive && (
           <motion.div
             className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl"
@@ -668,10 +588,10 @@ const AIChatbot = () => {
                   >
                     <X className="h-5 w-5" />
                   </Button>
-                </div>
+                </div> */}
 
                 {/* Navigation Links */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
                     { name: 'Home', icon: '🏠', href: '/' },
                     { name: 'Ocean Explorer', icon: '🌊', href: '/ocean-explorer' },
@@ -712,21 +632,16 @@ const AIChatbot = () => {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* Chat Page Container */}
-      <div className={`fixed left-0 right-0 bottom-0 flex flex-col relative z-10 page-transition ${
-        isChatActive ? 'top-16 chat-activation' : 'top-20'
-      }`}>
-
+      <div className="fixed left-0 right-0 bottom-0 top-20 flex flex-col relative z-10 page-transition">
 
         {/* Chat Info Sidebar (Left) */}
         <AnimatePresence>
           {sidebarOpen && (
             <motion.div
-              className={`fixed left-0 bottom-0 w-80 lg:w-80 md:w-72 sm:w-full bg-black/90 backdrop-blur-xl border-r border-blue-400/30 z-50 overflow-hidden shadow-2xl shadow-blue-500/20 ${
-                isChatActive ? 'top-16' : 'top-20'
-              }`}
+              className="fixed left-0 bottom-0 top-20 w-80 lg:w-80 md:w-72 sm:w-full bg-black/90 backdrop-blur-xl border-r border-blue-400/30 z-50 overflow-hidden shadow-2xl shadow-blue-500/20"
               initial={{ x: -320, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -320, opacity: 0 }}
@@ -740,14 +655,13 @@ const AIChatbot = () => {
                     <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl flex items-center justify-center border border-blue-400/30 shadow-lg">
                       <History className="h-4 w-4 text-white" />
                     </div>
-                    <h2 className="text-lg font-black text-white font-mono">CHAT_SESSION</h2>
+                    {/* <h2 className="text-lg font-black text-white font-mono">CHAT_SESSION</h2> */}
                   </div>
                   <Button variant="ghost" size="sm" onClick={() => setSidebarOpen(false)} className="hover:bg-red-500/10 rounded-full border border-red-400/20 hover:border-red-400/40">
                     <X className="h-4 w-4 text-red-400" />
                   </Button>
                 </div>
               </div>
-
 
               {/* Enhanced Sidebar Content */}
               <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -864,7 +778,7 @@ const AIChatbot = () => {
                 </Card>
 
                 {/* Enhanced Suggested Topics */}
-                <Card className="bg-black/60 backdrop-blur-xl border border-teal-400/30 shadow-lg">
+                {/* <Card className="bg-black/60 backdrop-blur-xl border border-teal-400/30 shadow-lg">
                   <CardContent className="p-4">
                     <div className="text-sm font-black mb-3 flex items-center space-x-3">
                       <div className="p-1.5 bg-gradient-to-r from-teal-600 to-emerald-500 rounded-lg">
@@ -893,10 +807,10 @@ const AIChatbot = () => {
                       ))}
                     </div>
                   </CardContent>
-                </Card>
+                </Card> */}
 
                 {/* Enhanced AI Capabilities */}
-                <Card className="bg-black/60 backdrop-blur-xl border border-emerald-400/30 shadow-lg">
+                {/* <Card className="bg-black/60 backdrop-blur-xl border border-emerald-400/30 shadow-lg">
                   <CardContent className="p-4">
                     <div className="text-sm font-black mb-3 text-white font-mono">AI_CAPABILITIES</div>
                     <div className="space-y-3 text-xs text-slate-300">
@@ -918,122 +832,19 @@ const AIChatbot = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
+                </Card> */}
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Menu Sidebar (Right) */}
-      <AnimatePresence>
-        {menuSidebarOpen && (
-          <motion.div
-            className={`fixed right-0 bottom-0 w-80 lg:w-80 md:w-72 sm:w-full bg-background/95 backdrop-blur-xl border-l border-border/30 z-50 overflow-hidden shadow-2xl ${
-              isChatActive ? 'top-16' : 'top-20'
-            }`}
-            initial={{ x: 320, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 320, opacity: 0 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          >
-            <div className="h-full flex flex-col">
-              {/* Menu Header */}
-              <div className="flex-shrink-0 p-4 bg-gradient-to-br from-accent/5 via-accent/3 to-primary/5 border-b border-border/20">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center border border-accent/20">
-                      <div className="w-4 h-4 flex flex-col space-y-0.5">
-                        <div className="w-full h-0.5 bg-accent"></div>
-                        <div className="w-full h-0.5 bg-accent"></div>
-                        <div className="w-full h-0.5 bg-accent"></div>
-                      </div>
-                    </div>
-                    <h2 className="text-lg font-semibold text-foreground">Navigation Menu</h2>
-                  </div>
-                  <Button variant="ghost" size="sm" onClick={() => setMenuSidebarOpen(false)} className="hover:bg-red-500/10 rounded-full">
-                    <X className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-
-              {/* Menu Content */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                {/* Navigation Links */}
-                <div className="space-y-3">
-                  <h3 className="text-sm font-semibold text-foreground mb-3">Navigation</h3>
-                  <div className="space-y-2">
-                    {[
-                      { name: 'Home', icon: '🏠', href: '/home' },
-                      { name: 'Data Visualization', icon: '📊', href: '/data-viz' },
-                      { name: 'AI Chat', icon: '🤖', href: '/ai-chat', active: true },
-                    ].map((item, index) => (
-                      <a
-                        key={index}
-                        href={item.href}
-                        className={`flex items-center space-x-3 p-3 rounded-xl border transition-all duration-200 hover:shadow-md ${
-                          item.active
-                            ? 'bg-accent/10 border-accent/20 text-accent'
-                            : 'bg-card/50 border-border/20 hover:bg-card/80'
-                        }`}
-                        onClick={() => setMenuSidebarOpen(false)}
-                      >
-                        <span className="text-xl">{item.icon}</span>
-                        <span className="font-medium text-sm">{item.name}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Quick Actions */}
-                <div className="space-y-3">
-                  <h3 className="text-sm font-semibold text-foreground mb-3">Quick Actions</h3>
-                  <div className="space-y-2">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full justify-start hover:bg-primary/10 transition-all duration-200 text-xs"
-                      onClick={async () => {
-                        try {
-                          if (currentUser) {
-                            const created = await createNewChat(currentUser.uid, 'New Chat');
-                            setCurrentChatId(created.id);
-                            const threads = await listChats(currentUser.uid);
-                            setChatThreads(threads);
-                          }
-                          setMessages([]);
-                          setMenuSidebarOpen(false);
-                          setIsChatActive(false);
-                        } catch (e) {
-                          console.error('Failed to start new chat', e);
-                        }
-                      }}
-                    >
-                      <History className="h-4 w-4 mr-2" />
-                      New Chat Session
-                    </Button>
-                  </div>
-                </div>
-
-                {/* App Info */}
-                <div className="mt-6 p-4 bg-muted/20 rounded-xl border border-border/20">
-                  <p className="text-sm text-muted-foreground text-center">
-                    AI Ocean Assistant - Real-time marine intelligence and data analysis
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      
 
         {/* Main Chat Container - Enhanced Full Screen */}
-        <div className={`flex-1 flex flex-col min-h-0 transition-all duration-500 ease-in-out ${
-          sidebarOpen ? 'lg:ml-80 md:ml-72 sm:ml-0' : 'ml-0'
-        } ${
-          menuSidebarOpen ? 'lg:mr-80 md:mr-72 sm:mr-0' : 'mr-0'
-        } relative z-10 pb-20`}>
-
+            <div className={`flex-1 flex flex-col min-h-0 transition-all duration-500 ease-in-out ${
+      sidebarOpen ? 'lg:ml-80 md:ml-72 sm:ml-0' : 'ml-0'
+    } relative z-10 pb-20`}>
 
         {/* Enhanced Chat Messages Area - FIXED SCROLLING */}
         <div className="flex-1 flex flex-col min-h-0 relative">
@@ -1049,7 +860,7 @@ const AIChatbot = () => {
           <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6 relative z-10 chat-scroll-container">
             <div className="space-y-4 sm:space-y-6 max-w-none">
 
-            {messages.map((message) => (
+           {messages.map((message) => (
               <motion.div
                 key={message.id}
                 className="flex items-end space-x-3 justify-center"
@@ -1079,7 +890,9 @@ const AIChatbot = () => {
                 </div>
 
                 {/* Enhanced Message Bubble */}
-                <div className={`max-w-[70%] lg:max-w-[60%] relative group message-bubble overflow-hidden ${
+                <div className={`${
+                  message.type === 'user' ? 'order-first max-w-[60%]' : 'max-w-[70%]'
+                } lg:max-w-[60%] relative group message-bubble overflow-hidden ${
                   message.type === 'user'
                     ? 'bg-gradient-to-br from-teal-900/40 to-emerald-900/20 border border-teal-400/30'
                     : 'bg-black/60 backdrop-blur-xl border border-blue-400/30'
@@ -1224,7 +1037,8 @@ const AIChatbot = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-teal-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                         <div className="flex items-center space-x-4 relative z-10">
-                          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-lg border border-blue-400/30">
+                          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-500 rounded-xl flex items-center justify-center group-hover:scale-110
+transition-transform duration-200 shadow-lg border border-blue-400/30">
                             <Sparkles className="h-5 w-5 text-white group-hover:rotate-12 transition-transform duration-200" />
                           </div>
                           <span className="text-base font-mono font-bold">{question}</span>

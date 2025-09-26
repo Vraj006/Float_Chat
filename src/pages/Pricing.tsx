@@ -89,18 +89,16 @@ const Pricing = () => {
       exit={{ opacity: 0, scale: 1.02 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      {/* Hyperspeed Animation Background */}
-      <Hyperspeed />
-
-      {/* Dark overlay for better readability */}
-      <div className="fixed inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 pointer-events-none" style={{ zIndex: 5 }}></div>
+      {/* Static background instead of moving lines */}
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-black"></div>
 
       <div className="relative z-10">
         <Navbar />
 
+      
         {/* Hero Section */}
-        <section className="relative pt-32 pb-16 px-6">
-          <div className="container mx-auto text-center">
+        <section className="relative pt-32 pb-4 px-6 flex items-center justify-center min-h-[50vh]">
+          <div className="container mx-auto text-center max-w-6xl">
             <motion.div
               className="space-y-8"
               initial={{ opacity: 0, y: 30 }}
@@ -130,34 +128,34 @@ const Pricing = () => {
         </section>
 
         {/* Market Analysis Content */}
-        <section className="py-12 px-6">
-          <div className="container mx-auto">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <div className="mb-8">
-                <TabsList className="grid w-full grid-cols-3 bg-slate-900/95 backdrop-blur-xl border-2 border-blue-400/30 rounded-xl p-3 shadow-2xl h-16">
+<section className="py-12 px-6">
+  <div className="container mx-auto max-w-7xl">
+    <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+      <div className="mb-8 flex justify-center">
+        <TabsList className="grid grid-cols-3 bg-slate-900/95 backdrop-blur-xl border-2 border-blue-400/30 rounded-xl p-2 shadow-2xl h-16 w-full max-w-4xl">
                   <TabsTrigger 
                     value="overview" 
-                    className="relative overflow-hidden data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600/90 data-[state=active]:to-blue-500/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-blue-500/30 text-gray-300 hover:text-white transition-all duration-300 rounded-lg font-semibold h-12 flex items-center justify-center"
+                    className="relative overflow-hidden data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600/90 data-[state=active]:to-blue-500/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-blue-500/30 text-gray-300 hover:text-white transition-all duration-300 rounded-lg font-semibold h-full flex items-center justify-center"
                   >
-                    <div className="flex items-center justify-center space-x-2 w-full">
+                    <div className="flex items-center justify-center space-x-2">
                       <TrendingUp className="h-4 w-4" />
                       <span>Market Overview</span>
                     </div>
                   </TabsTrigger>
                   <TabsTrigger 
                     value="api" 
-                    className="relative overflow-hidden data-[state=active]:bg-gradient-to-r data-[state=active]:from-teal-600/90 data-[state=active]:to-emerald-500/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-teal-500/30 text-gray-300 hover:text-white transition-all duration-300 rounded-lg font-semibold h-12 flex items-center justify-center"
+                    className="relative overflow-hidden data-[state=active]:bg-gradient-to-r data-[state=active]:from-teal-600/90 data-[state=active]:to-emerald-500/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-teal-500/30 text-gray-300 hover:text-white transition-all duration-300 rounded-lg font-semibold h-full flex items-center justify-center"
                   >
-                    <div className="flex items-center justify-center space-x-2 w-full">
+                    <div className="flex items-center justify-center space-x-2">
                       <Database className="h-4 w-4" />
                       <span>API Pricing</span>
                     </div>
                   </TabsTrigger>
                   <TabsTrigger 
                     value="guide" 
-                    className="relative overflow-hidden data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600/90 data-[state=active]:to-indigo-500/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-purple-500/30 text-gray-300 hover:text-white transition-all duration-300 rounded-lg font-semibold h-12 flex items-center justify-center"
+                    className="relative overflow-hidden data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600/90 data-[state=active]:to-indigo-500/90 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-purple-500/30 text-gray-300 hover:text-white transition-all duration-300 rounded-lg font-semibold h-full flex items-center justify-center"
                   >
-                    <div className="flex items-center justify-center space-x-2 w-full">
+                    <div className="flex items-center justify-center space-x-2">
                       <Code className="h-4 w-4" />
                       <span>Implementation Guide</span>
                     </div>

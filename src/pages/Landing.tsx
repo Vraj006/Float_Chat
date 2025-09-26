@@ -149,35 +149,38 @@ const Landing = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.5 }}
             >
-              <Link to="/ocean-explorer">
-                <Button className="group relative overflow-hidden bg-gradient-to-r from-blue-600/80 to-blue-500/80 hover:from-blue-500 hover:to-blue-400 border-2 border-blue-400/50 hover:border-blue-300 transition-all duration-300 px-8 py-3 text-white shadow-xl hover:shadow-blue-500/30 transform hover:scale-105">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  <div className="relative flex items-center space-x-2">
-                    <Anchor className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-                    <span>Ocean Explorer</span>
-                  </div>
-                </Button>
-              </Link>
+            <Link 
+              to="/ocean-explorer"
+              className="group relative overflow-hidden bg-gradient-to-r from-blue-600/80 to-blue-500/80 hover:from-blue-500 hover:to-blue-400 border-2 border-blue-400/50 hover:border-blue-300 transition-all duration-300 px-8 py-3 text-white shadow-xl hover:shadow-blue-500/30 transform hover:scale-105 rounded-lg inline-flex items-center cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <div className="relative flex items-center space-x-2">
+                <Anchor className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                <span>Ocean Explorer</span>
+              </div>
+            </Link>
 
-              <Link to="/data-viz">
-                <Button className="group relative overflow-hidden bg-gradient-to-r from-teal-600/80 to-teal-500/80 hover:from-teal-500 hover:to-teal-400 border-2 border-teal-400/50 hover:border-teal-300 transition-all duration-300 px-8 py-3 text-white shadow-xl hover:shadow-teal-500/30 transform hover:scale-105">
-                  <div className="absolute inset-0 bg-gradient-to-r from-teal-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  <div className="relative flex items-center space-x-2">
-                    <BarChart3 className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                    <span>Data Analytics</span>
-                  </div>
-                </Button>
-              </Link>
+            <Link 
+              to="/data-viz"
+              className="group relative overflow-hidden bg-gradient-to-r from-teal-600/80 to-teal-500/80 hover:from-teal-500 hover:to-teal-400 border-2 border-teal-400/50 hover:border-teal-300 transition-all duration-300 px-8 py-3 text-white shadow-xl hover:shadow-teal-500/30 transform hover:scale-105 rounded-lg inline-flex items-center cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <div className="relative flex items-center space-x-2">
+                <BarChart3 className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>Data Analytics</span>
+              </div>
+            </Link>
 
-              <Link to="/ai-chat">
-                <Button className="group relative overflow-hidden bg-gradient-to-r from-emerald-600/80 to-emerald-500/80 hover:from-emerald-500 hover:to-emerald-400 border-2 border-emerald-400/50 hover:border-emerald-300 transition-all duration-300 px-8 py-3 text-white shadow-xl hover:shadow-emerald-500/30 transform hover:scale-105">
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  <div className="relative flex items-center space-x-2">
-                    <MessageSquare className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                    <span>AI Assistant</span>
-                  </div>
-                </Button>
-              </Link>
+            <Link 
+              to="/ai-chat"
+              className="group relative overflow-hidden bg-gradient-to-r from-emerald-600/80 to-emerald-500/80 hover:from-emerald-500 hover:to-emerald-400 border-2 border-emerald-400/50 hover:border-emerald-300 transition-all duration-300 px-8 py-3 text-white shadow-xl hover:shadow-emerald-500/30 transform hover:scale-105 rounded-lg inline-flex items-center cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <div className="relative flex items-center space-x-2">
+                <MessageSquare className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>AI Assistant</span>
+              </div>
+            </Link>
             </motion.div>
           </motion.div>
 
@@ -212,11 +215,8 @@ const Landing = () => {
             <div className="relative inline-block mb-6">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-teal-500/20 to-emerald-500/20 rounded-2xl blur-xl"></div>
               <h3 className="relative text-3xl md:text-5xl font-black bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
-                OCEAN INTELLIGENCE MATRIX
+                Ocean Insights
               </h3>
-              {/* Wave effect bars */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-teal-500 opacity-60 animate-pulse"></div>
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-emerald-500 opacity-60 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
             </div>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Advanced deep-sea monitoring platform with AI-powered marine data analysis
@@ -383,7 +383,7 @@ const Landing = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="relative">
                     <div className="w-16 h-16 bg-gradient-to-br from-slate-500/20 to-blue-600/20 rounded-xl flex items-center justify-center border border-slate-400/30 group-hover:shadow-lg group-hover:shadow-slate-500/20 transition-all duration-300">
-                      <Waves className="h-8 w-8 text-slate-400 group-hover:text-slate-300 transition-colors duration-300 animate-pulse" />
+                      <Waves className="h-8 w-8 text-slate-400 group-hover:text-slate-300 transition-colors duration-300" />
                     </div>
                     {/* Flow indicator */}
                     <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-400 rounded-full animate-pulse border-2 border-black"></div>

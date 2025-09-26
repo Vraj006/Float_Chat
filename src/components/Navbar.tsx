@@ -1,18 +1,27 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Waves, Menu, X, LogOut, User, ChevronDown } from "lucide-react";
+import { Waves, Menu, X, LogOut, User, ChevronDown, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/lib/auth-context";
 import { logOut } from "@/lib/firebase";
 import { toast } from "@/components/ui/sonner";
 
-const Navbar = () => {
+
+const Navbar = ({ 
+  showSessionHistory = false, 
+  sessionHistory = [], 
+  currentSessionId = null, 
+  onSessionSelect = (sessionId: any) => {}, 
+  onToggleSidebar = () => {} 
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [sessionDropdownOpen, setSessionDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { currentUser, isAuthenticated } = useAuth();
+
 
   const navItems = [
     { name: "Home", path: "/home", icon: Waves },
@@ -22,10 +31,12 @@ const Navbar = () => {
     // { name: "Ocean Explorer", path: "/ocean-explorer", icon: Waves },
   ];
 
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-[9999] bg-black/90 backdrop-blur-xl border-b border-blue-400/20 shadow-2xl" style={{ pointerEvents: 'auto' }}>
       {/* Subtle animated top border */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
+
 
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -46,6 +57,7 @@ const Navbar = () => {
             </div>
           </Link>
 
+
           {/* Enhanced Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
@@ -64,12 +76,100 @@ const Navbar = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent animate-pulse"></div>
                 )}
 
+
                 {/* Hover effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
+
 
                 <span className="relative z-10">{item.name}</span>
               </Link>
             ))}
+
+
+            {/* Session History - Only show on AI Chat page */}
+            {showSessionHistory && location.pathname === "/ai-chat" && (
+              <div className="relative ml-2">
+                <button
+                  className="flex items-center gap-2 text-sm text-slate-200 hover:text-white transition-all duration-300 px-4 py-2.5 rounded-xl bg-black/40 backdrop-blur-sm border border-purple-400/20 hover:border-purple-400/40 hover:bg-black/60 hover:shadow-lg hover:shadow-purple-500/10"
+                  onClick={() => setSessionDropdownOpen(!sessionDropdownOpen)}
+                >
+                  <div className="w-7 h-7 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center">
+                    <History className="h-4 w-4 text-white" />
+                  </div>
+                  <span className="font-medium">Sessions</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${sessionDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+
+                {sessionDropdownOpen && (
+                  <div className="absolute right-0 mt-3 w-80 bg-black/90 backdrop-blur-xl border border-purple-400/30 rounded-xl shadow-2xl z-50 max-h-96 overflow-hidden">
+                    {/* Header */}
+                    <div className="px-4 py-3 border-b border-purple-400/20">
+                      <div className="text-sm text-purple-300 font-medium">Chat Sessions</div>
+                      <div className="text-xs text-slate-400">Switch between conversations</div>
+                    </div>
+
+
+                    {/* Sessions List */}
+                    <div className="py-2 max-h-80 overflow-y-auto">
+                      {sessionHistory.length === 0 ? (
+                        <div className="px-4 py-8 text-center text-slate-400 text-sm">
+                          No chat sessions yet
+                        </div>
+                      ) : (
+                        sessionHistory.map((session) => (
+                          <button
+                            key={session.id}
+                            className={`w-full text-left px-4 py-3 text-sm hover:bg-purple-500/10 hover:text-white flex items-start gap-3 transition-all duration-200 group border-l-2 ${
+                              currentSessionId === session.id 
+                                ? 'border-l-purple-400 bg-purple-500/20 text-white' 
+                                : 'border-l-transparent text-slate-200'
+                            }`}
+                            onClick={() => {
+                              onSessionSelect(session.id);
+                              setSessionDropdownOpen(false);
+                            }}
+                          >
+                            <div className={`w-2 h-2 rounded-full mt-2 ${
+                              currentSessionId === session.id 
+                                ? 'bg-purple-400' 
+                                : 'bg-slate-500 group-hover:bg-purple-400'
+                            }`}></div>
+                            <div className="flex-1 min-w-0">
+                              <div className="font-medium truncate">
+                                {session.title || 'Untitled Chat'}
+                              </div>
+                              <div className="text-xs text-slate-400 truncate">
+                                {session.lastMessagePreview || 'No messages yet'}
+                              </div>
+                              <div className="text-xs text-slate-500">
+                                {session.updatedAt && new Date(session.updatedAt.toDate()).toLocaleDateString()}
+                              </div>
+                            </div>
+                          </button>
+                        ))
+                      )}
+                    </div>
+
+
+                    {/* Footer Actions */}
+                    <div className="border-t border-purple-400/20 px-4 py-2">
+                      <button
+                        className="text-xs text-purple-300 hover:text-purple-200 transition-colors duration-200"
+                        onClick={() => {
+                          onToggleSidebar();
+                          setSessionDropdownOpen(false);
+                        }}
+                      >
+                        View All Sessions
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+
             {isAuthenticated ? (
               <div className="relative ml-4">
                 <button
@@ -83,6 +183,7 @@ const Navbar = () => {
                   <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${profileDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
+
                 {profileDropdownOpen && (
                   <div className="absolute right-0 mt-3 w-56 bg-black/90 backdrop-blur-xl border border-blue-400/30 rounded-xl shadow-2xl z-50">
                     {/* Header */}
@@ -90,6 +191,7 @@ const Navbar = () => {
                       <div className="text-sm text-blue-300 font-medium">Signed in as</div>
                       <div className="text-white font-semibold truncate">{currentUser?.email}</div>
                     </div>
+
 
                     {/* Actions */}
                     <div className="py-2">
@@ -126,6 +228,7 @@ const Navbar = () => {
             )}
           </div>
 
+
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
@@ -136,6 +239,7 @@ const Navbar = () => {
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
+
 
         {/* Mobile Navigation */}
         {isOpen && (
@@ -156,6 +260,40 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+
+
+              {/* Mobile Session History - Only show on AI Chat page */}
+              {showSessionHistory && location.pathname === "/ai-chat" && (
+                <div className="border-t border-purple-400/20 pt-4">
+                  <div className="px-4 py-2 text-sm text-purple-300 font-medium">Chat Sessions</div>
+                  <div className="max-h-48 overflow-y-auto">
+                    {sessionHistory.length === 0 ? (
+                      <div className="px-4 py-2 text-xs text-slate-400">No sessions yet</div>
+                    ) : (
+                      sessionHistory.slice(0, 5).map((session) => (
+                        <button
+                          key={session.id}
+                          className={`w-full text-left px-4 py-2 text-sm rounded-lg mb-1 transition-all duration-200 ${
+                            currentSessionId === session.id 
+                              ? 'bg-purple-500/20 text-white border border-purple-400/30' 
+                              : 'text-slate-300 hover:bg-purple-500/10 hover:text-white'
+                          }`}
+                          onClick={() => {
+                            onSessionSelect(session.id);
+                            setIsOpen(false);
+                          }}
+                        >
+                          <div className="font-medium truncate">
+                            {session.title || 'Untitled Chat'}
+                          </div>
+                        </button>
+                      ))
+                    )}
+                  </div>
+                </div>
+              )}
+
+
               {isAuthenticated ? (
                 <div className="border-t border-slate-600 pt-4">
                   <div className="px-4 py-2 text-sm text-slate-400">
@@ -197,5 +335,6 @@ const Navbar = () => {
     </nav>
   );
 };
+
 
 export default Navbar;
