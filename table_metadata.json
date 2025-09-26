@@ -1,0 +1,3170 @@
+[
+  {
+    "table": "bgc_1902367",
+    "summary": "Table bgc_1902367: BGC Float 1902367, deployed in Indian Ocean, latitude bounds 3.67°N to 5.28°N, longitude bounds 88.84°E to 91.04°E, average position 4.48°N, 89.94°E, localized movement 1.6° lat × 2.2° lon span, equatorial tropical waters, measuring dissolved oxygen mean 49.1 μmol/kg, oxygen range 18.5 to 188.5 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean 0.124 mg/m³, peak chlorophyll 1.095 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC, using SOLO_BGC_MRV platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903870",
+    "summary": "Table bgc_2903870: BGC Float 2903870, deployed in Indian Ocean, latitude bounds 59.97°S to 56.54°S, longitude bounds 83.74°E to 95.81°E, average position 58.25°S, 89.78°E, extensive mobility 3.4° lat × 12.1° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 228.1 μmol/kg, oxygen range 161.5 to 321.6 μmol/kg, oxygen-saturated surface waters, chlorophyll-a mean 0.305 mg/m³, peak chlorophyll 4.285 mg/m³, comprehensive coverage with 68 profiles, part of UW,SOCCOM,Argoequivalent, using APEX platform.",
+    "row_count": 68,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903865",
+    "summary": "Table bgc_2903865: BGC Float 2903865, deployed in Indian Ocean, latitude bounds 50.20°S to 46.87°S, longitude bounds 89.23°E to 117.06°E, average position 48.53°S, 103.15°E, extensive mobility 3.3° lat × 27.8° lon span, temperate oceanic zone, measuring dissolved oxygen mean 234.7 μmol/kg, oxygen range 160.1 to 295.6 μmol/kg, chlorophyll-a mean 0.299 mg/m³, peak chlorophyll 4.249 mg/m³, eutrophic high-productivity waters, comprehensive coverage with 100 profiles, part of GO-BGC, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900483",
+    "summary": "Table bgc_4900483: BGC Float 4900483, deployed in Indian Ocean, latitude bounds 40.89°S to 30.38°S, longitude bounds 84.13°E to 103.87°E, average position 35.63°S, 94.00°E, extensive mobility 10.5° lat × 19.7° lon span, temperate oceanic zone, measuring dissolved oxygen mean 200.5 μmol/kg, oxygen range 125.0 to 264.2 μmol/kg, comprehensive coverage with 100 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900477",
+    "summary": "Table bgc_4900477: BGC Float 4900477, deployed in Indian Ocean, latitude bounds 59.91°S to 56.08°S, longitude bounds 84.22°E to 90.03°E, average position 58.00°S, 87.13°E, moderate drift 3.8° lat × 5.8° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 212.9 μmol/kg, oxygen range 166.4 to 318.1 μmol/kg, oxygen-saturated surface waters, 12 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 12,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902457",
+    "summary": "Table bgc_1902457: BGC Float 1902457, deployed in Indian Ocean, latitude bounds 5.30°N to 7.76°N, longitude bounds 65.59°E to 69.53°E, average position 6.53°N, 67.56°E, localized movement 2.5° lat × 3.9° lon span, equatorial tropical waters, measuring dissolved oxygen mean 52.0 μmol/kg, oxygen range 5.0 to 199.9 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean 0.089 mg/m³, peak chlorophyll 1.479 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903854",
+    "summary": "Table bgc_2903854: BGC Float 2903854, deployed in Indian Ocean, latitude bounds 33.34°S to 29.42°S, longitude bounds 108.65°E to 115.10°E, average position 31.38°S, 111.88°E, moderate drift 3.9° lat × 6.4° lon span, temperate oceanic zone, measuring dissolved oxygen mean 210.5 μmol/kg, oxygen range 128.5 to 243.8 μmol/kg, chlorophyll-a mean 0.112 mg/m³, peak chlorophyll 1.332 mg/m³, mesotrophic moderate-productivity, comprehensive coverage with 100 profiles, part of UW,GO-BGC, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900484",
+    "summary": "Table bgc_4900484: BGC Float 4900484, deployed in Indian Ocean, latitude bounds 40.56°S to 37.28°S, longitude bounds 94.84°E to 104.51°E, average position 38.92°S, 99.67°E, moderate drift 3.3° lat × 9.7° lon span, temperate oceanic zone, measuring dissolved oxygen mean 218.0 μmol/kg, oxygen range 8.3 to 538.5 μmol/kg, severe hypoxic zones (O2 < 20), 15 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 15,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1900722",
+    "summary": "Table bgc_1900722: BGC Float 1900722, deployed in Indian Ocean, latitude bounds 41.88°S to 36.19°S, longitude bounds 73.08°E to 87.35°E, average position 39.03°S, 80.22°E, extensive mobility 5.7° lat × 14.3° lon span, temperate oceanic zone, measuring dissolved oxygen mean 198.6 μmol/kg, oxygen range 139.6 to 253.3 μmol/kg, comprehensive coverage with 100 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903831",
+    "summary": "Table bgc_2903831: BGC Float 2903831, deployed in Indian Ocean, latitude bounds 16.48°N to 17.92°N, longitude bounds 87.72°E to 89.79°E, average position 17.20°N, 88.75°E, localized movement 1.4° lat × 2.1° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 35.3 μmol/kg, oxygen range 1.8 to 202.4 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean 0.100 mg/m³, peak chlorophyll 0.792 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC, using SOLO_BGC_MRV platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900476",
+    "summary": "Table bgc_4900476: BGC Float 4900476, deployed in Indian Ocean, latitude bounds 51.29°S to 45.02°S, longitude bounds 90.57°E to 145.32°E, average position 48.16°S, 117.94°E, extensive mobility 6.3° lat × 54.8° lon span, temperate oceanic zone, measuring dissolved oxygen mean 225.1 μmol/kg, oxygen range 160.4 to 295.7 μmol/kg, comprehensive coverage with 100 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903468",
+    "summary": "Table bgc_2903468: BGC Float 2903468, deployed in Indian Ocean, latitude bounds 21.25°S to 17.45°S, longitude bounds 93.51°E to 102.94°E, average position 19.35°S, 98.23°E, moderate drift 3.8° lat × 9.4° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 167.3 μmol/kg, oxygen range 87.6 to 227.0 μmol/kg, low oxygen zones (O2 < 100), chlorophyll-a mean 0.070 mg/m³, peak chlorophyll 1.716 mg/m³, comprehensive coverage with 100 profiles, part of UW,GO-BGC, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_3902554",
+    "summary": "Table bgc_3902554: BGC Float 3902554, deployed in Indian Ocean, latitude bounds 41.60°S to 32.52°S, longitude bounds 27.91°E to 51.48°E, average position 37.06°S, 39.69°E, extensive mobility 9.1° lat × 23.6° lon span, temperate oceanic zone, measuring dissolved oxygen mean 202.2 μmol/kg, oxygen range 137.3 to 260.5 μmol/kg, chlorophyll-a mean 0.247 mg/m³, peak chlorophyll 2.923 mg/m³, eutrophic high-productivity waters, comprehensive coverage with 100 profiles, part of UW,GO-BGC, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903451",
+    "summary": "Table bgc_2903451: BGC Float 2903451, deployed in North Pacific, latitude bounds 0.83°N to 2.11°N, longitude bounds 141.29°E to 146.82°E, average position 1.47°N, 144.06°E, moderate drift 1.3° lat × 5.5° lon span, equatorial tropical waters, measuring dissolved oxygen mean 118.5 μmol/kg, oxygen range 79.3 to 194.2 μmol/kg, low oxygen zones (O2 < 100), chlorophyll-a mean 0.083 mg/m³, peak chlorophyll 1.206 mg/m³, 42 profiles, part of UW,GOBGC,Argoequivalent, using NAVIS_A platform.",
+    "row_count": 42,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900485",
+    "summary": "Table bgc_4900485: BGC Float 4900485, deployed in Indian Ocean, latitude bounds 38.41°S to 31.46°S, longitude bounds 75.02°E to 96.36°E, average position 34.93°S, 85.69°E, extensive mobility 6.9° lat × 21.3° lon span, temperate oceanic zone, measuring dissolved oxygen mean 199.0 μmol/kg, oxygen range 135.8 to 257.8 μmol/kg, comprehensive coverage with 100 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4903744",
+    "summary": "Table bgc_4903744: BGC Float 4903744, deployed in Indian Ocean, latitude bounds 45.80°S to 42.57°S, longitude bounds 20.13°E to 23.18°E, average position 44.19°S, 21.65°E, localized movement 3.2° lat × 3.0° lon span, temperate oceanic zone, measuring dissolved oxygen mean 218.2 μmol/kg, oxygen range 159.0 to 279.3 μmol/kg, chlorophyll-a mean 0.136 mg/m³, peak chlorophyll 1.761 mg/m³, mesotrophic moderate-productivity, 22 profiles, part of UW,GO-BGC, using NAVIS_A platform.",
+    "row_count": 22,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4903745",
+    "summary": "Table bgc_4903745: BGC Float 4903745, deployed in Indian Ocean, latitude bounds 34.97°S to 30.94°S, longitude bounds 77.38°E to 84.11°E, average position 32.96°S, 80.74°E, moderate drift 4.0° lat × 6.7° lon span, temperate oceanic zone, measuring dissolved oxygen mean 215.1 μmol/kg, oxygen range 139.8 to 254.2 μmol/kg, chlorophyll-a mean 0.137 mg/m³, peak chlorophyll 2.197 mg/m³, eutrophic high-productivity waters, comprehensive coverage with 100 profiles, part of UW,SOCCOM, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2904014",
+    "summary": "Table bgc_2904014: BGC Float 2904014, deployed in Indian Ocean, latitude bounds 6.73°S to 6.73°S, longitude bounds 59.50°E to 59.50°E, average position 6.73°S, 59.50°E, stationary deployment 0.0° lat × 0.0° lon span, equatorial tropical waters, measuring dissolved oxygen mean 90.3 μmol/kg, oxygen range 65.0 to 194.9 μmol/kg, low oxygen zones (O2 < 100), chlorophyll-a mean 0.125 mg/m³, peak chlorophyll 1.567 mg/m³, 2 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 2,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903467",
+    "summary": "Table bgc_2903467: BGC Float 2903467, deployed in Indian Ocean, latitude bounds 10.98°S to 7.84°S, longitude bounds 85.40°E to 92.16°E, average position 9.41°S, 88.78°E, moderate drift 3.1° lat × 6.8° lon span, equatorial tropical waters, measuring dissolved oxygen mean 83.1 μmol/kg, oxygen range 50.1 to 220.4 μmol/kg, low oxygen zones (O2 < 100), chlorophyll-a mean 0.090 mg/m³, peak chlorophyll 1.887 mg/m³, comprehensive coverage with 100 profiles, part of UW,GO-BGC, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900482",
+    "summary": "Table bgc_4900482: BGC Float 4900482, deployed in Indian Ocean, latitude bounds 50.49°S to 43.39°S, longitude bounds 95.30°E to 145.34°E, average position 46.94°S, 120.32°E, extensive mobility 7.1° lat × 50.0° lon span, temperate oceanic zone, measuring dissolved oxygen mean 230.4 μmol/kg, oxygen range 162.5 to 278.7 μmol/kg, comprehensive coverage with 54 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 54,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903466",
+    "summary": "Table bgc_2903466: BGC Float 2903466, deployed in Indian Ocean, latitude bounds 0.89°S to 2.65°N, longitude bounds 64.52°E to 84.58°E, average position 0.88°N, 74.55°E, extensive mobility 3.5° lat × 20.1° lon span, equatorial tropical waters, measuring dissolved oxygen mean 67.7 μmol/kg, oxygen range 13.6 to 199.9 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean 0.096 mg/m³, peak chlorophyll 1.514 mg/m³, comprehensive coverage with 100 profiles, part of UW,GO-BGC, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902459",
+    "summary": "Table bgc_1902459: BGC Float 1902459, deployed in Indian Ocean, latitude bounds 27.84°S to 25.96°S, longitude bounds 46.19°E to 53.75°E, average position 26.90°S, 49.97°E, moderate drift 1.9° lat × 7.6° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 198.8 μmol/kg, oxygen range 139.3 to 225.8 μmol/kg, chlorophyll-a mean 0.064 mg/m³, peak chlorophyll 1.903 mg/m³, mesotrophic moderate-productivity, 34 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 34,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902456",
+    "summary": "Table bgc_1902456: BGC Float 1902456, deployed in Indian Ocean, latitude bounds 27.12°S to 23.00°S, longitude bounds 51.17°E to 64.47°E, average position 25.06°S, 57.82°E, extensive mobility 4.1° lat × 13.3° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 199.9 μmol/kg, oxygen range 134.0 to 238.8 μmol/kg, chlorophyll-a mean 0.055 mg/m³, peak chlorophyll 1.243 mg/m³, mesotrophic moderate-productivity, comprehensive coverage with 100 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903472",
+    "summary": "Table bgc_2903472: BGC Float 2903472, deployed in Indian Ocean, latitude bounds 41.89°S to 32.14°S, longitude bounds 20.36°E to 46.08°E, average position 37.02°S, 33.22°E, extensive mobility 9.8° lat × 25.7° lon span, temperate oceanic zone, measuring dissolved oxygen mean 202.5 μmol/kg, oxygen range 148.2 to 260.3 μmol/kg, chlorophyll-a mean 0.255 mg/m³, peak chlorophyll 3.949 mg/m³, eutrophic high-productivity waters, comprehensive coverage with 100 profiles, part of UW,SOCCOM, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4903750",
+    "summary": "Table bgc_4903750: BGC Float 4903750, deployed in Indian Ocean, latitude bounds 57.07°S to 51.04°S, longitude bounds 114.79°E to 139.63°E, average position 54.05°S, 127.21°E, extensive mobility 6.0° lat × 24.8° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 241.0 μmol/kg, oxygen range 159.4 to 309.4 μmol/kg, oxygen-saturated surface waters, chlorophyll-a mean 0.280 mg/m³, peak chlorophyll 4.212 mg/m³, comprehensive coverage with 100 profiles, part of UW,SOCCOM,Argoequivalent, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903473",
+    "summary": "Table bgc_2903473: BGC Float 2903473, deployed in Indian Ocean, latitude bounds 47.18°S to 45.87°S, longitude bounds 20.18°E to 25.53°E, average position 46.52°S, 22.86°E, moderate drift 1.3° lat × 5.3° lon span, temperate oceanic zone, measuring dissolved oxygen mean 238.1 μmol/kg, oxygen range 158.2 to 283.9 μmol/kg, chlorophyll-a mean 0.221 mg/m³, peak chlorophyll 0.766 mg/m³, oligotrophic low-productivity, 12 profiles, part of UW,SOCCOM, using APEX platform.",
+    "row_count": 12,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902494",
+    "summary": "Table bgc_1902494: BGC Float 1902494, deployed in Indian Ocean, latitude bounds 49.77°S to 46.87°S, longitude bounds 20.22°E to 37.71°E, average position 48.32°S, 28.97°E, extensive mobility 2.9° lat × 17.5° lon span, temperate oceanic zone, measuring dissolved oxygen mean 224.8 μmol/kg, oxygen range 163.1 to 300.4 μmol/kg, oxygen-saturated surface waters, chlorophyll-a mean 0.101 mg/m³, peak chlorophyll 0.834 mg/m³, 26 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 26,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903966",
+    "summary": "Table bgc_2903966: BGC Float 2903966, deployed in Indian Ocean, latitude bounds 4.28°S to 4.28°S, longitude bounds 66.55°E to 66.55°E, average position 4.28°S, 66.55°E, stationary deployment 0.0° lat × 0.0° lon span, equatorial tropical waters, measuring dissolved oxygen mean 86.2 μmol/kg, oxygen range 58.7 to 186.2 μmol/kg, low oxygen zones (O2 < 100), chlorophyll-a mean 0.108 mg/m³, peak chlorophyll 1.041 mg/m³, 2 profiles, part of GO-BGC, using NAVIS_A platform.",
+    "row_count": 2,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903864",
+    "summary": "Table bgc_2903864: BGC Float 2903864, deployed in Indian Ocean, latitude bounds 47.51°S to 43.92°S, longitude bounds 94.80°E to 117.82°E, average position 45.72°S, 106.31°E, extensive mobility 3.6° lat × 23.0° lon span, temperate oceanic zone, measuring dissolved oxygen mean 231.6 μmol/kg, oxygen range 155.7 to 272.7 μmol/kg, chlorophyll-a mean 0.324 mg/m³, peak chlorophyll 2.081 mg/m³, eutrophic high-productivity waters, comprehensive coverage with 100 profiles, part of GO-BGC, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4903751",
+    "summary": "Table bgc_4903751: BGC Float 4903751, deployed in Indian Ocean, latitude bounds 40.39°S to 36.93°S, longitude bounds 85.63°E to 94.98°E, average position 38.66°S, 90.30°E, moderate drift 3.5° lat × 9.3° lon span, temperate oceanic zone, measuring dissolved oxygen mean 220.2 μmol/kg, oxygen range 144.5 to 252.8 μmol/kg, chlorophyll-a mean 0.255 mg/m³, peak chlorophyll 1.858 mg/m³, mesotrophic moderate-productivity, comprehensive coverage with 100 profiles, part of GO-BGC, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902372",
+    "summary": "Table bgc_1902372: BGC Float 1902372, deployed in Indian Ocean, latitude bounds 0.27°S to 0.53°N, longitude bounds 92.92°E to 94.75°E, average position 0.13°N, 93.83°E, localized movement 0.8° lat × 1.8° lon span, equatorial tropical waters, measuring dissolved oxygen mean 70.7 μmol/kg, oxygen range 34.6 to 187.1 μmol/kg, hypoxic conditions (O2 < 50), chlorophyll-a mean 0.144 mg/m³, peak chlorophyll 4.117 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC, using SOLO_BGC_MRV platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903885",
+    "summary": "Table bgc_2903885: BGC Float 2903885, deployed in Indian Ocean, latitude bounds 11.99°S to 9.63°S, longitude bounds 87.28°E to 95.06°E, average position 10.81°S, 91.17°E, moderate drift 2.4° lat × 7.8° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 83.0 μmol/kg, oxygen range 51.7 to 190.6 μmol/kg, low oxygen zones (O2 < 100), chlorophyll-a mean 0.123 mg/m³, peak chlorophyll 1.329 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC, using SOLO_BGC_MRV platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902373",
+    "summary": "Table bgc_1902373: BGC Float 1902373, deployed in Indian Ocean, latitude bounds 14.09°N to 16.19°N, longitude bounds 88.46°E to 90.27°E, average position 15.14°N, 89.37°E, localized movement 2.1° lat × 1.8° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 31.1 μmol/kg, oxygen range 3.9 to 196.3 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean 0.120 mg/m³, peak chlorophyll 1.117 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC, using SOLO_BGC_MRV platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903915",
+    "summary": "Table bgc_2903915: BGC Float 2903915, deployed in Indian Ocean, latitude bounds 4.97°S to 3.37°S, longitude bounds 92.84°E to 95.28°E, average position 4.17°S, 94.06°E, localized movement 1.6° lat × 2.4° lon span, equatorial tropical waters, measuring dissolved oxygen mean 76.3 μmol/kg, oxygen range 50.9 to 196.6 μmol/kg, low oxygen zones (O2 < 100), chlorophyll-a mean 0.120 mg/m³, peak chlorophyll 1.132 mg/m³, comprehensive coverage with 91 profiles, part of GO-BGC, using SOLO_BGC_MRV platform.",
+    "row_count": 91,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900475",
+    "summary": "Table bgc_4900475: BGC Float 4900475, deployed in Indian Ocean, latitude bounds 50.80°S to 44.87°S, longitude bounds 90.83°E to 145.80°E, average position 47.83°S, 118.32°E, extensive mobility 5.9° lat × 55.0° lon span, temperate oceanic zone, measuring dissolved oxygen mean 222.4 μmol/kg, oxygen range 68.8 to 279.3 μmol/kg, low oxygen zones (O2 < 100), comprehensive coverage with 80 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 80,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2900128",
+    "summary": "Table bgc_2900128: BGC Float 2900128, deployed in Indian Ocean, latitude bounds 59.78°S to 59.73°S, longitude bounds 97.88°E to 99.75°E, average position 59.76°S, 98.82°E, localized movement 0.1° lat × 1.9° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 184.2 μmol/kg, oxygen range 157.5 to 292.0 μmol/kg, 4 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 4,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900474",
+    "summary": "Table bgc_4900474: BGC Float 4900474, deployed in Indian Ocean, latitude bounds 53.95°S to 45.41°S, longitude bounds 87.41°E to 145.76°E, average position 49.68°S, 116.59°E, extensive mobility 8.5° lat × 58.3° lon span, temperate oceanic zone, measuring dissolved oxygen mean 214.8 μmol/kg, oxygen range 152.9 to 304.7 μmol/kg, oxygen-saturated surface waters, comprehensive coverage with 92 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 92,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4900487",
+    "summary": "Table bgc_4900487: BGC Float 4900487, deployed in Indian Ocean, latitude bounds 32.61°S to 25.04°S, longitude bounds 92.55°E to 103.71°E, average position 28.83°S, 98.13°E, extensive mobility 7.6° lat × 11.2° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 192.2 μmol/kg, oxygen range 115.8 to 251.1 μmol/kg, comprehensive coverage with 100 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_4903747",
+    "summary": "Table bgc_4903747: BGC Float 4903747, deployed in Indian Ocean, latitude bounds 31.02°S to 23.88°S, longitude bounds 103.95°E to 110.74°E, average position 27.45°S, 107.35°E, moderate drift 7.1° lat × 6.8° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 201.0 μmol/kg, oxygen range 105.2 to 236.7 μmol/kg, chlorophyll-a mean 0.128 mg/m³, peak chlorophyll 1.226 mg/m³, mesotrophic moderate-productivity, comprehensive coverage with 100 profiles, part of UW,SOCCOM, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902458",
+    "summary": "Table bgc_1902458: BGC Float 1902458, deployed in Indian Ocean, latitude bounds 11.16°N to 14.14°N, longitude bounds 65.72°E to 69.79°E, average position 12.65°N, 67.75°E, localized movement 3.0° lat × 4.1° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 27.1 μmol/kg, oxygen range 2.5 to 206.3 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean 0.113 mg/m³, peak chlorophyll 2.200 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_3902345",
+    "summary": "Table bgc_3902345: BGC Float 3902345, deployed in North Pacific, latitude bounds 13.83°N to 13.83°N, longitude bounds 145.99°E to 145.99°E, average position 13.83°N, 145.99°E, stationary deployment 0.0° lat × 0.0° lon span, subtropical oceanic zone, measuring dissolved oxygen mean 106.6 μmol/kg, oxygen range 59.0 to 199.7 μmol/kg, low oxygen zones (O2 < 100), chlorophyll-a mean 0.066 mg/m³, peak chlorophyll 0.546 mg/m³, 2 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 2,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903464",
+    "summary": "Table bgc_2903464: BGC Float 2903464, deployed in Indian Ocean, latitude bounds 1.80°N to 4.24°N, longitude bounds 75.52°E to 85.91°E, average position 3.02°N, 80.72°E, extensive mobility 2.4° lat × 10.4° lon span, equatorial tropical waters, measuring dissolved oxygen mean 52.0 μmol/kg, oxygen range 10.2 to 193.8 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean 0.107 mg/m³, peak chlorophyll 4.038 mg/m³, comprehensive coverage with 100 profiles, part of UW,GO-BGC, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_3902557",
+    "summary": "Table bgc_3902557: BGC Float 3902557, deployed in Indian Ocean, latitude bounds 59.99°S to 57.95°S, longitude bounds 105.21°E to 124.19°E, average position 58.97°S, 114.70°E, extensive mobility 2.0° lat × 19.0° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 220.1 μmol/kg, oxygen range 155.6 to 319.4 μmol/kg, oxygen-saturated surface waters, chlorophyll-a mean 0.226 mg/m³, peak chlorophyll 2.657 mg/m³, comprehensive coverage with 76 profiles, part of UW,SOCCOM,Argoequivalent, using APEX platform.",
+    "row_count": 76,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902643",
+    "summary": "Table bgc_1902643: BGC Float 1902643, deployed in Indian Ocean, latitude bounds 50.23°S to 45.19°S, longitude bounds 115.08°E to 146.26°E, average position 47.71°S, 130.67°E, extensive mobility 5.0° lat × 31.2° lon span, temperate oceanic zone, measuring dissolved oxygen mean 233.8 μmol/kg, oxygen range 155.5 to 275.0 μmol/kg, chlorophyll-a mean 0.224 mg/m³, peak chlorophyll 1.402 mg/m³, mesotrophic moderate-productivity, 34 profiles, part of UW,SOCCOM,Argoequivalent, using APEX platform.",
+    "row_count": 34,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903465",
+    "summary": "Table bgc_2903465: BGC Float 2903465, deployed in Indian Ocean, latitude bounds 5.84°S to 3.50°S, longitude bounds 82.23°E to 94.55°E, average position 4.67°S, 88.39°E, extensive mobility 2.3° lat × 12.3° lon span, equatorial tropical waters, measuring dissolved oxygen mean 72.7 μmol/kg, oxygen range 43.1 to 193.2 μmol/kg, hypoxic conditions (O2 < 50), chlorophyll-a mean 0.108 mg/m³, peak chlorophyll 4.270 mg/m³, comprehensive coverage with 100 profiles, part of UW,GO-BGC, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902650",
+    "summary": "Table bgc_1902650: BGC Float 1902650, deployed in Indian Ocean, latitude bounds 56.62°S to 52.59°S, longitude bounds 80.42°E to 94.69°E, average position 54.61°S, 87.55°E, extensive mobility 4.0° lat × 14.3° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 199.9 μmol/kg, oxygen range 139.2 to 277.8 μmol/kg, chlorophyll-a mean 0.226 mg/m³, peak chlorophyll 3.175 mg/m³, eutrophic high-productivity waters, comprehensive coverage with 100 profiles, part of UW,SOCCOM,Argoequivalent, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903453",
+    "summary": "Table bgc_2903453: BGC Float 2903453, deployed in Indian Ocean, latitude bounds 58.98°S to 53.67°S, longitude bounds 143.32°E to 146.88°E, average position 56.33°S, 145.10°E, moderate drift 5.3° lat × 3.6° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 223.0 μmol/kg, oxygen range 157.6 to 326.0 μmol/kg, oxygen-saturated surface waters, chlorophyll-a mean 0.273 mg/m³, peak chlorophyll 3.876 mg/m³, comprehensive coverage with 56 profiles, part of UW,SOCCOM, using APEX platform.",
+    "row_count": 56,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903869",
+    "summary": "Table bgc_2903869: BGC Float 2903869, deployed in Indian Ocean, latitude bounds 36.41°S to 28.81°S, longitude bounds 40.58°E to 53.49°E, average position 32.61°S, 47.04°E, extensive mobility 7.6° lat × 12.9° lon span, temperate oceanic zone, measuring dissolved oxygen mean 202.8 μmol/kg, oxygen range 148.0 to 236.1 μmol/kg, chlorophyll-a mean 0.172 mg/m³, peak chlorophyll 4.380 mg/m³, eutrophic high-productivity waters, comprehensive coverage with 100 profiles, part of UW,SOCCOM, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902453",
+    "summary": "Table bgc_1902453: BGC Float 1902453, deployed in Indian Ocean, latitude bounds 3.96°S to 1.33°N, longitude bounds 62.63°E to 78.49°E, average position 1.31°S, 70.56°E, extensive mobility 5.3° lat × 15.9° lon span, equatorial tropical waters, measuring dissolved oxygen mean 79.3 μmol/kg, oxygen range 37.0 to 195.6 μmol/kg, hypoxic conditions (O2 < 50), chlorophyll-a mean 0.104 mg/m³, peak chlorophyll 2.429 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903829",
+    "summary": "Table bgc_2903829: BGC Float 2903829, deployed in Indian Ocean, latitude bounds 7.89°N to 10.05°N, longitude bounds 85.79°E to 87.50°E, average position 8.97°N, 86.65°E, localized movement 2.2° lat × 1.7° lon span, equatorial tropical waters, measuring dissolved oxygen mean 40.0 μmol/kg, oxygen range 3.7 to 195.0 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean -0.002 mg/m³, peak chlorophyll 0.737 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC, using SOLO_BGC_MRV platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902455",
+    "summary": "Table bgc_1902455: BGC Float 1902455, deployed in Indian Ocean, latitude bounds 1.34°N to 3.50°N, longitude bounds 62.06°E to 77.13°E, average position 2.42°N, 69.59°E, extensive mobility 2.2° lat × 15.1° lon span, equatorial tropical waters, measuring dissolved oxygen mean 65.6 μmol/kg, oxygen range 12.7 to 195.0 μmol/kg, severe hypoxic zones (O2 < 20), chlorophyll-a mean 0.099 mg/m³, peak chlorophyll 2.176 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903470",
+    "summary": "Table bgc_2903470: BGC Float 2903470, deployed in Indian Ocean, latitude bounds 46.93°S to 45.23°S, longitude bounds 20.18°E to 24.72°E, average position 46.08°S, 22.45°E, localized movement 1.7° lat × 4.5° lon span, temperate oceanic zone, measuring dissolved oxygen mean 238.3 μmol/kg, oxygen range 158.6 to 284.2 μmol/kg, chlorophyll-a mean 0.213 mg/m³, peak chlorophyll 1.066 mg/m³, mesotrophic moderate-productivity, 34 profiles, part of UW,SOCCOM, using APEX platform.",
+    "row_count": 34,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902454",
+    "summary": "Table bgc_1902454: BGC Float 1902454, deployed in Indian Ocean, latitude bounds 1.67°N to 4.77°N, longitude bounds 54.50°E to 66.41°E, average position 3.22°N, 60.45°E, extensive mobility 3.1° lat × 11.9° lon span, equatorial tropical waters, measuring dissolved oxygen mean 69.0 μmol/kg, oxygen range 29.4 to 206.0 μmol/kg, hypoxic conditions (O2 < 50), chlorophyll-a mean 0.109 mg/m³, peak chlorophyll 5.637 mg/m³, comprehensive coverage with 100 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_1902651",
+    "summary": "Table bgc_1902651: BGC Float 1902651, deployed in Indian Ocean, latitude bounds 43.23°S to 38.63°S, longitude bounds 113.31°E to 115.94°E, average position 40.93°S, 114.63°E, localized movement 4.6° lat × 2.6° lon span, temperate oceanic zone, measuring dissolved oxygen mean 228.3 μmol/kg, oxygen range 148.7 to 261.3 μmol/kg, chlorophyll-a mean 0.283 mg/m³, peak chlorophyll 2.506 mg/m³, eutrophic high-productivity waters, comprehensive coverage with 100 profiles, part of UW,SOCCOM,Argoequivalent, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2903872",
+    "summary": "Table bgc_2903872: BGC Float 2903872, deployed in Indian Ocean, latitude bounds 59.36°S to 56.11°S, longitude bounds 112.97°E to 123.53°E, average position 57.73°S, 118.25°E, extensive mobility 3.2° lat × 10.6° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 230.5 μmol/kg, oxygen range 158.6 to 329.5 μmol/kg, oxygen-saturated surface waters, chlorophyll-a mean 0.271 mg/m³, peak chlorophyll 4.075 mg/m³, comprehensive coverage with 100 profiles, part of UW,SOCCOM,Argoequivalent, using APEX platform.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2900125",
+    "summary": "Table bgc_2900125: BGC Float 2900125, deployed in Indian Ocean, latitude bounds 59.92°S to 58.66°S, longitude bounds 107.72°E to 113.00°E, average position 59.29°S, 110.36°E, moderate drift 1.3° lat × 5.3° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 204.1 μmol/kg, oxygen range 159.1 to 324.7 μmol/kg, oxygen-saturated surface waters, 30 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 30,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "bgc_2900114",
+    "summary": "Table bgc_2900114: BGC Float 2900114, deployed in Indian Ocean, latitude bounds 59.80°S to 55.54°S, longitude bounds 83.30°E to 105.48°E, average position 57.67°S, 94.39°E, extensive mobility 4.3° lat × 22.2° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 192.8 μmol/kg, oxygen range 163.4 to 323.7 μmol/kg, oxygen-saturated surface waters, 45 profiles, part of USARGOPROJECT, using APEX platform.",
+    "row_count": 45,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "argo_1900694",
+    "summary": "Table argo_1900694: BGC Float 1900694, deployed in Indian Ocean, latitude bounds 42.06°S to 21.94°S, longitude bounds 38.25°E to 73.17°E, average position 32.00°S, 55.71°E, extensive mobility 20.1° lat × 34.9° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900693",
+    "summary": "Table argo_1900693: BGC Float 1900693, deployed in Indian Ocean, latitude bounds 32.06°S to 22.80°S, longitude bounds 47.18°E to 66.85°E, average position 27.43°S, 57.02°E, extensive mobility 9.3° lat × 19.7° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "bgc_1902491",
+    "summary": "Table bgc_1902491: BGC Float 1902491, deployed in Indian Ocean, latitude bounds 55.83°S to 50.48°S, longitude bounds 20.13°E to 48.22°E, average position 53.15°S, 34.17°E, extensive mobility 5.4° lat × 28.1° lon span, subpolar oceanic waters, measuring dissolved oxygen mean 198.4 μmol/kg, oxygen range 160.2 to 321.0 μmol/kg, oxygen-saturated surface waters, chlorophyll-a mean 0.179 mg/m³, peak chlorophyll 7.739 mg/m³, comprehensive coverage with 74 profiles, part of GO-BGC,WHOI, using NAVIS_A platform.",
+    "row_count": 74,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "time",
+      "doxy",
+      "doxy_adjusted",
+      "doxy_qc",
+      "doxy_adjusted_qc",
+      "chla",
+      "nitrate",
+      "ph_in_situ_total",
+      "platform_type",
+      "project_name",
+      "vertical_sampling_scheme"
+    ]
+  },
+  {
+    "table": "argo_1900406",
+    "summary": "Table argo_1900406: BGC Float 1900406, deployed in Indian Ocean, latitude bounds 40.08°S to 31.09°S, longitude bounds 100.07°E to 115.19°E, average position 35.58°S, 107.63°E, extensive mobility 9.0° lat × 15.1° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900266",
+    "summary": "Table argo_1900266: BGC Float 1900266, deployed in Indian Ocean, latitude bounds 42.50°S to 20.61°S, longitude bounds 29.12°E to 77.52°E, average position 31.56°S, 53.32°E, extensive mobility 21.9° lat × 48.4° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900054",
+    "summary": "Table argo_1900054: BGC Float 1900054, deployed in Indian Ocean, latitude bounds 35.97°S to 14.58°S, longitude bounds 25.08°E to 75.51°E, average position 25.28°S, 50.29°E, extensive mobility 21.4° lat × 50.4° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900053",
+    "summary": "Table argo_1900053: BGC Float 1900053, deployed in Indian Ocean, latitude bounds 41.24°S to 14.06°S, longitude bounds 21.13°E to 69.09°E, average position 27.65°S, 45.11°E, extensive mobility 27.2° lat × 48.0° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900408",
+    "summary": "Table argo_1900408: BGC Float 1900408, deployed in Indian Ocean, latitude bounds 31.13°S to 17.83°S, longitude bounds 36.12°E to 60.42°E, average position 24.48°S, 48.27°E, extensive mobility 13.3° lat × 24.3° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900692",
+    "summary": "Table argo_1900692: BGC Float 1900692, deployed in Indian Ocean, latitude bounds 40.82°S to 19.90°S, longitude bounds 21.33°E to 71.54°E, average position 30.36°S, 46.44°E, extensive mobility 20.9° lat × 50.2° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900439",
+    "summary": "Table argo_1900439: BGC Float 1900439, deployed in Indian Ocean, latitude bounds 13.29°N to 13.94°N, longitude bounds 48.62°E to 49.62°E, average position 13.62°N, 49.12°E, localized movement 0.6° lat × 1.0° lon span, subtropical oceanic zone, 3 profiles.",
+    "row_count": 3,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900695",
+    "summary": "Table argo_1900695: BGC Float 1900695, deployed in Indian Ocean, latitude bounds 32.28°S to 26.65°S, longitude bounds 55.38°E to 64.57°E, average position 29.47°S, 59.98°E, moderate drift 5.6° lat × 9.2° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900438",
+    "summary": "Table argo_1900438: BGC Float 1900438, deployed in Indian Ocean, latitude bounds 7.28°S to 17.47°N, longitude bounds 40.67°E to 68.90°E, average position 5.09°N, 54.78°E, extensive mobility 24.8° lat × 28.2° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900267",
+    "summary": "Table argo_1900267: BGC Float 1900267, deployed in Indian Ocean, latitude bounds 30.92°S to 19.12°S, longitude bounds 68.82°E to 85.40°E, average position 25.02°S, 77.11°E, extensive mobility 11.8° lat × 16.6° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900407",
+    "summary": "Table argo_1900407: BGC Float 1900407, deployed in Indian Ocean, latitude bounds 42.32°S to 33.19°S, longitude bounds 100.88°E to 120.78°E, average position 37.75°S, 110.83°E, extensive mobility 9.1° lat × 19.9° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900268",
+    "summary": "Table argo_1900268: BGC Float 1900268, deployed in Indian Ocean, latitude bounds 16.55°S to 2.16°S, longitude bounds 40.72°E to 68.04°E, average position 9.36°S, 54.38°E, extensive mobility 14.4° lat × 27.3° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900409",
+    "summary": "Table argo_1900409: BGC Float 1900409, deployed in Indian Ocean, latitude bounds 30.53°S to 7.57°S, longitude bounds 36.26°E to 62.15°E, average position 19.05°S, 49.20°E, extensive mobility 23.0° lat × 25.9° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900052",
+    "summary": "Table argo_1900052: BGC Float 1900052, deployed in Indian Ocean, latitude bounds 41.70°S to 7.68°S, longitude bounds 21.13°E to 58.71°E, average position 24.69°S, 39.92°E, extensive mobility 34.0° lat × 37.6° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900269",
+    "summary": "Table argo_1900269: BGC Float 1900269, deployed in Indian Ocean, latitude bounds 22.21°S to 10.57°S, longitude bounds 35.69°E to 63.92°E, average position 16.39°S, 49.80°E, extensive mobility 11.6° lat × 28.2° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900747",
+    "summary": "Table argo_1900747: BGC Float 1900747, deployed in Indian Ocean, latitude bounds 49.75°S to 36.40°S, longitude bounds 20.24°E to 82.41°E, average position 43.08°S, 51.33°E, extensive mobility 13.3° lat × 62.2° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900145",
+    "summary": "Table argo_1900145: BGC Float 1900145, deployed in Indian Ocean, latitude bounds 47.09°S to 47.09°S, longitude bounds 76.69°E to 76.69°E, average position 47.09°S, 76.69°E, stationary deployment 0.0° lat × 0.0° lon span, temperate oceanic zone, 1 profiles.",
+    "row_count": 1,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900055",
+    "summary": "Table argo_1900055: BGC Float 1900055, deployed in Indian Ocean, latitude bounds 13.68°S to 11.64°S, longitude bounds 61.57°E to 71.39°E, average position 12.66°S, 66.48°E, moderate drift 2.0° lat × 9.8° lon span, subtropical oceanic zone, 29 profiles.",
+    "row_count": 29,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900573",
+    "summary": "Table argo_1900573: BGC Float 1900573, deployed in Indian Ocean, latitude bounds 59.54°S to 49.56°S, longitude bounds 21.03°E to 111.97°E, average position 54.55°S, 66.50°E, extensive mobility 10.0° lat × 90.9° lon span, subpolar oceanic waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900746",
+    "summary": "Table argo_1900746: BGC Float 1900746, deployed in Indian Ocean, latitude bounds 42.21°S to 33.57°S, longitude bounds 20.36°E to 54.34°E, average position 37.89°S, 37.35°E, extensive mobility 8.6° lat × 34.0° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900181",
+    "summary": "Table argo_1900181: BGC Float 1900181, deployed in Indian Ocean, latitude bounds 12.91°S to 2.91°N, longitude bounds 40.16°E to 59.88°E, average position 5.00°S, 50.02°E, extensive mobility 15.8° lat × 19.7° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900180",
+    "summary": "Table argo_1900180: BGC Float 1900180, deployed in Indian Ocean, latitude bounds 27.49°S to 5.53°S, longitude bounds 33.53°E to 45.75°E, average position 16.51°S, 39.64°E, extensive mobility 22.0° lat × 12.2° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900575",
+    "summary": "Table argo_1900575: BGC Float 1900575, deployed in Indian Ocean, latitude bounds 41.42°S to 30.74°S, longitude bounds 23.27°E to 66.95°E, average position 36.08°S, 45.11°E, extensive mobility 10.7° lat × 43.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900723",
+    "summary": "Table argo_1900723: BGC Float 1900723, deployed in Indian Ocean, latitude bounds 44.27°S to 36.46°S, longitude bounds 74.14°E to 92.87°E, average position 40.37°S, 83.51°E, extensive mobility 7.8° lat × 18.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900187",
+    "summary": "Table argo_1900187: BGC Float 1900187, deployed in Indian Ocean, latitude bounds 4.37°S to 11.39°N, longitude bounds 43.19°E to 87.62°E, average position 3.51°N, 65.40°E, extensive mobility 15.8° lat × 44.4° lon span, equatorial tropical waters, comprehensive coverage with 90 profiles.",
+    "row_count": 90,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900722",
+    "summary": "Table argo_1900722: BGC Float 1900722, deployed in Indian Ocean, latitude bounds 41.88°S to 36.19°S, longitude bounds 73.16°E to 87.34°E, average position 39.03°S, 80.25°E, extensive mobility 5.7° lat × 14.2° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900186",
+    "summary": "Table argo_1900186: BGC Float 1900186, deployed in Indian Ocean, latitude bounds 6.74°S to 2.05°S, longitude bounds 42.77°E to 55.99°E, average position 4.40°S, 49.38°E, extensive mobility 4.7° lat × 13.2° lon span, equatorial tropical waters, comprehensive coverage with 52 profiles.",
+    "row_count": 52,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900144",
+    "summary": "Table argo_1900144: BGC Float 1900144, deployed in Indian Ocean, latitude bounds 12.32°S to 4.90°S, longitude bounds 75.78°E to 94.44°E, average position 8.61°S, 85.11°E, extensive mobility 7.4° lat × 18.7° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900143",
+    "summary": "Table argo_1900143: BGC Float 1900143, deployed in Indian Ocean, latitude bounds 10.14°S to 2.99°S, longitude bounds 67.83°E to 95.60°E, average position 6.56°S, 81.72°E, extensive mobility 7.1° lat × 27.8° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900188",
+    "summary": "Table argo_1900188: BGC Float 1900188, deployed in Indian Ocean, latitude bounds 5.07°S to 5.37°N, longitude bounds 41.28°E to 97.06°E, average position 0.15°N, 69.17°E, extensive mobility 10.4° lat × 55.8° lon span, equatorial tropical waters, 38 profiles.",
+    "row_count": 38,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900161",
+    "summary": "Table argo_1900161: BGC Float 1900161, deployed in Indian Ocean, latitude bounds 0.51°N to 14.35°N, longitude bounds 48.47°E to 71.98°E, average position 7.43°N, 60.23°E, extensive mobility 13.8° lat × 23.5° lon span, equatorial tropical waters, comprehensive coverage with 76 profiles.",
+    "row_count": 76,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900159",
+    "summary": "Table argo_1900159: BGC Float 1900159, deployed in Indian Ocean, latitude bounds 2.99°S to 0.89°S, longitude bounds 56.37°E to 70.76°E, average position 1.94°S, 63.56°E, extensive mobility 2.1° lat × 14.4° lon span, equatorial tropical waters, comprehensive coverage with 66 profiles.",
+    "row_count": 66,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900195",
+    "summary": "Table argo_1900195: BGC Float 1900195, deployed in Indian Ocean, latitude bounds 40.98°S to 30.41°S, longitude bounds 25.80°E to 58.47°E, average position 35.70°S, 42.14°E, extensive mobility 10.6° lat × 32.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900354",
+    "summary": "Table argo_1900354: BGC Float 1900354, deployed in Indian Ocean, latitude bounds 18.64°S to 8.45°S, longitude bounds 42.02°E to 76.15°E, average position 13.55°S, 59.09°E, extensive mobility 10.2° lat × 34.1° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900192",
+    "summary": "Table argo_1900192: BGC Float 1900192, deployed in Indian Ocean, latitude bounds 51.70°S to 32.64°S, longitude bounds 33.81°E to 80.22°E, average position 42.17°S, 57.01°E, extensive mobility 19.1° lat × 46.4° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900150",
+    "summary": "Table argo_1900150: BGC Float 1900150, deployed in Indian Ocean, latitude bounds 43.03°S to 29.14°S, longitude bounds 47.04°E to 78.07°E, average position 36.09°S, 62.56°E, extensive mobility 13.9° lat × 31.0° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900353",
+    "summary": "Table argo_1900353: BGC Float 1900353, deployed in Indian Ocean, latitude bounds 14.20°S to 7.96°S, longitude bounds 59.67°E to 67.37°E, average position 11.08°S, 63.52°E, moderate drift 6.2° lat × 7.7° lon span, subtropical oceanic zone, comprehensive coverage with 68 profiles.",
+    "row_count": 68,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900157",
+    "summary": "Table argo_1900157: BGC Float 1900157, deployed in Indian Ocean, latitude bounds 1.71°S to 5.69°N, longitude bounds 47.20°E to 67.41°E, average position 1.99°N, 57.30°E, extensive mobility 7.4° lat × 20.2° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900365",
+    "summary": "Table argo_1900365: BGC Float 1900365, deployed in Indian Ocean, latitude bounds 43.73°S to 27.54°S, longitude bounds 20.22°E to 42.62°E, average position 35.64°S, 31.42°E, extensive mobility 16.2° lat × 22.4° lon span, temperate oceanic zone, comprehensive coverage with 81 profiles.",
+    "row_count": 81,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900169",
+    "summary": "Table argo_1900169: BGC Float 1900169, deployed in Indian Ocean, latitude bounds 0.64°S to 13.61°N, longitude bounds 46.99°E to 80.72°E, average position 6.48°N, 63.85°E, extensive mobility 14.3° lat × 33.7° lon span, equatorial tropical waters, 38 profiles.",
+    "row_count": 38,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900156",
+    "summary": "Table argo_1900156: BGC Float 1900156, deployed in Indian Ocean, latitude bounds 3.07°N to 21.45°N, longitude bounds 49.58°E to 71.80°E, average position 12.26°N, 60.69°E, extensive mobility 18.4° lat × 22.2° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900362",
+    "summary": "Table argo_1900362: BGC Float 1900362, deployed in Indian Ocean, latitude bounds 47.07°S to 35.63°S, longitude bounds 21.13°E to 80.19°E, average position 41.35°S, 50.66°E, extensive mobility 11.4° lat × 59.1° lon span, temperate oceanic zone, comprehensive coverage with 92 profiles.",
+    "row_count": 92,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900701",
+    "summary": "Table argo_1900701: BGC Float 1900701, deployed in Indian Ocean, latitude bounds 44.60°S to 31.60°S, longitude bounds 75.00°E to 95.16°E, average position 38.10°S, 85.08°E, extensive mobility 13.0° lat × 20.2° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900700",
+    "summary": "Table argo_1900700: BGC Float 1900700, deployed in Indian Ocean, latitude bounds 48.75°S to 37.02°S, longitude bounds 55.27°E to 129.93°E, average position 42.89°S, 92.60°E, extensive mobility 11.7° lat × 74.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900364",
+    "summary": "Table argo_1900364: BGC Float 1900364, deployed in Indian Ocean, latitude bounds 52.70°S to 34.76°S, longitude bounds 20.76°E to 88.88°E, average position 43.73°S, 54.82°E, extensive mobility 17.9° lat × 68.1° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900172",
+    "summary": "Table argo_1900172: BGC Float 1900172, deployed in Indian Ocean, latitude bounds 7.10°S to 4.18°S, longitude bounds 45.68°E to 53.90°E, average position 5.64°S, 49.79°E, moderate drift 2.9° lat × 8.2° lon span, equatorial tropical waters, 42 profiles.",
+    "row_count": 42,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900193",
+    "summary": "Table argo_1900193: BGC Float 1900193, deployed in Indian Ocean, latitude bounds 53.01°S to 49.30°S, longitude bounds 33.69°E to 69.24°E, average position 51.16°S, 51.47°E, extensive mobility 3.7° lat × 35.5° lon span, subpolar oceanic waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900355",
+    "summary": "Table argo_1900355: BGC Float 1900355, deployed in Indian Ocean, latitude bounds 10.68°S to 3.14°S, longitude bounds 53.08°E to 81.65°E, average position 6.91°S, 67.37°E, extensive mobility 7.5° lat × 28.6° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900158",
+    "summary": "Table argo_1900158: BGC Float 1900158, deployed in Indian Ocean, latitude bounds 17.07°S to 3.72°N, longitude bounds 63.92°E to 103.42°E, average position 6.68°S, 83.67°E, extensive mobility 20.8° lat × 39.5° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900363",
+    "summary": "Table argo_1900363: BGC Float 1900363, deployed in Indian Ocean, latitude bounds 40.20°S to 33.51°S, longitude bounds 20.12°E to 41.09°E, average position 36.85°S, 30.60°E, extensive mobility 6.7° lat × 21.0° lon span, temperate oceanic zone, comprehensive coverage with 65 profiles.",
+    "row_count": 65,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900160",
+    "summary": "Table argo_1900160: BGC Float 1900160, deployed in Indian Ocean, latitude bounds 12.66°S to 6.17°N, longitude bounds 42.82°E to 94.09°E, average position 3.24°S, 68.46°E, extensive mobility 18.8° lat × 51.3° lon span, equatorial tropical waters, comprehensive coverage with 88 profiles.",
+    "row_count": 88,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900194",
+    "summary": "Table argo_1900194: BGC Float 1900194, deployed in Indian Ocean, latitude bounds 52.39°S to 36.57°S, longitude bounds 25.53°E to 143.88°E, average position 44.48°S, 84.71°E, extensive mobility 15.8° lat × 118.3° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900151",
+    "summary": "Table argo_1900151: BGC Float 1900151, deployed in Indian Ocean, latitude bounds 47.13°S to 37.63°S, longitude bounds 75.26°E to 108.86°E, average position 42.38°S, 92.06°E, extensive mobility 9.5° lat × 33.6° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900273",
+    "summary": "Table argo_1900273: BGC Float 1900273, deployed in Indian Ocean, latitude bounds 21.23°S to 15.13°S, longitude bounds 65.22°E to 85.46°E, average position 18.18°S, 75.34°E, extensive mobility 6.1° lat × 20.2° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900414",
+    "summary": "Table argo_1900414: BGC Float 1900414, deployed in Indian Ocean, latitude bounds 37.71°S to 31.36°S, longitude bounds 65.11°E to 72.21°E, average position 34.54°S, 68.66°E, moderate drift 6.4° lat × 7.1° lon span, temperate oceanic zone, comprehensive coverage with 79 profiles.",
+    "row_count": 79,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900413",
+    "summary": "Table argo_1900413: BGC Float 1900413, deployed in Indian Ocean, latitude bounds 42.54°S to 26.76°S, longitude bounds 20.08°E to 76.30°E, average position 34.65°S, 48.19°E, extensive mobility 15.8° lat × 56.2° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900046",
+    "summary": "Table argo_1900046: BGC Float 1900046, deployed in Indian Ocean, latitude bounds 49.91°S to 40.06°S, longitude bounds 60.61°E to 145.44°E, average position 44.98°S, 103.02°E, extensive mobility 9.9° lat × 84.8° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900274",
+    "summary": "Table argo_1900274: BGC Float 1900274, deployed in Indian Ocean, latitude bounds 17.37°S to 14.70°S, longitude bounds 60.12°E to 67.52°E, average position 16.03°S, 63.82°E, moderate drift 2.7° lat × 7.4° lon span, subtropical oceanic zone, 38 profiles.",
+    "row_count": 38,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900048",
+    "summary": "Table argo_1900048: BGC Float 1900048, deployed in Indian Ocean, latitude bounds 52.74°S to 51.55°S, longitude bounds 68.90°E to 72.37°E, average position 52.14°S, 70.64°E, localized movement 1.2° lat × 3.5° lon span, subpolar oceanic waters, 26 profiles.",
+    "row_count": 26,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900686",
+    "summary": "Table argo_1900686: BGC Float 1900686, deployed in Indian Ocean, latitude bounds 52.74°S to 36.96°S, longitude bounds 21.19°E to 140.11°E, average position 44.85°S, 80.65°E, extensive mobility 15.8° lat × 118.9° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900440",
+    "summary": "Table argo_1900440: BGC Float 1900440, deployed in Indian Ocean, latitude bounds 13.97°N to 13.97°N, longitude bounds 53.37°E to 53.37°E, average position 13.97°N, 53.37°E, stationary deployment 0.0° lat × 0.0° lon span, subtropical oceanic zone, 1 profiles.",
+    "row_count": 1,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900272",
+    "summary": "Table argo_1900272: BGC Float 1900272, deployed in Indian Ocean, latitude bounds 21.54°S to 5.17°N, longitude bounds 41.30°E to 74.39°E, average position 8.18°S, 57.84°E, extensive mobility 26.7° lat × 33.1° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900047",
+    "summary": "Table argo_1900047: BGC Float 1900047, deployed in Indian Ocean, latitude bounds 59.54°S to 46.04°S, longitude bounds 62.87°E to 136.90°E, average position 52.79°S, 99.89°E, extensive mobility 13.5° lat × 74.0° lon span, subpolar oceanic waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900049",
+    "summary": "Table argo_1900049: BGC Float 1900049, deployed in Indian Ocean, latitude bounds 52.76°S to 52.56°S, longitude bounds 70.85°E to 72.45°E, average position 52.66°S, 71.65°E, localized movement 0.2° lat × 1.6° lon span, subpolar oceanic waters, 13 profiles.",
+    "row_count": 13,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900050",
+    "summary": "Table argo_1900050: BGC Float 1900050, deployed in Indian Ocean, latitude bounds 43.57°S to 20.02°S, longitude bounds 33.06°E to 67.61°E, average position 31.80°S, 50.34°E, extensive mobility 23.6° lat × 34.6° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900441",
+    "summary": "Table argo_1900441: BGC Float 1900441, deployed in Indian Ocean, latitude bounds 8.39°N to 13.02°N, longitude bounds 56.46°E to 63.97°E, average position 10.71°N, 60.22°E, moderate drift 4.6° lat × 7.5° lon span, subtropical oceanic zone, 50 profiles.",
+    "row_count": 50,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900699",
+    "summary": "Table argo_1900699: BGC Float 1900699, deployed in Indian Ocean, latitude bounds 39.02°S to 31.39°S, longitude bounds 62.97°E to 73.75°E, average position 35.20°S, 68.36°E, extensive mobility 7.6° lat × 10.8° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900697",
+    "summary": "Table argo_1900697: BGC Float 1900697, deployed in Indian Ocean, latitude bounds 39.83°S to 17.93°S, longitude bounds 25.25°E to 71.04°E, average position 28.88°S, 48.15°E, extensive mobility 21.9° lat × 45.8° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900412",
+    "summary": "Table argo_1900412: BGC Float 1900412, deployed in Indian Ocean, latitude bounds 32.98°S to 22.08°S, longitude bounds 49.82°E to 78.81°E, average position 27.53°S, 64.32°E, extensive mobility 10.9° lat × 29.0° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900056",
+    "summary": "Table argo_1900056: BGC Float 1900056, deployed in Indian Ocean, latitude bounds 11.58°S to 0.36°S, longitude bounds 43.73°E to 79.88°E, average position 5.97°S, 61.81°E, extensive mobility 11.2° lat × 36.2° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900200",
+    "summary": "Table argo_1900200: BGC Float 1900200, deployed in Indian Ocean, latitude bounds 51.55°S to 20.24°S, longitude bounds 21.34°E to 90.41°E, average position 35.89°S, 55.88°E, extensive mobility 31.3° lat × 69.1° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900435",
+    "summary": "Table argo_1900435: BGC Float 1900435, deployed in Indian Ocean, latitude bounds 9.22°N to 14.65°N, longitude bounds 51.34°E to 64.96°E, average position 11.94°N, 58.15°E, extensive mobility 5.4° lat × 13.6° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900051",
+    "summary": "Table argo_1900051: BGC Float 1900051, deployed in Indian Ocean, latitude bounds 30.89°S to 19.40°S, longitude bounds 33.93°E to 54.31°E, average position 25.15°S, 44.12°E, extensive mobility 11.5° lat × 20.4° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900691",
+    "summary": "Table argo_1900691: BGC Float 1900691, deployed in Indian Ocean, latitude bounds 28.73°S to 22.29°S, longitude bounds 73.99°E to 83.25°E, average position 25.51°S, 78.62°E, moderate drift 6.4° lat × 9.3° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900201",
+    "summary": "Table argo_1900201: BGC Float 1900201, deployed in Indian Ocean, latitude bounds 50.62°S to 35.30°S, longitude bounds 21.81°E to 82.30°E, average position 42.96°S, 52.06°E, extensive mobility 15.3° lat × 60.5° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900146",
+    "summary": "Table argo_1900146: BGC Float 1900146, deployed in Indian Ocean, latitude bounds 45.56°S to 40.71°S, longitude bounds 75.22°E to 108.87°E, average position 43.13°S, 92.05°E, extensive mobility 4.8° lat × 33.6° lon span, temperate oceanic zone, comprehensive coverage with 76 profiles.",
+    "row_count": 76,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900696",
+    "summary": "Table argo_1900696: BGC Float 1900696, deployed in Indian Ocean, latitude bounds 34.66°S to 29.41°S, longitude bounds 63.61°E to 67.24°E, average position 32.04°S, 65.43°E, moderate drift 5.2° lat × 3.6° lon span, temperate oceanic zone, 34 profiles.",
+    "row_count": 34,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900698",
+    "summary": "Table argo_1900698: BGC Float 1900698, deployed in Indian Ocean, latitude bounds 34.91°S to 27.32°S, longitude bounds 45.10°E to 76.28°E, average position 31.12°S, 60.69°E, extensive mobility 7.6° lat × 31.2° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900183",
+    "summary": "Table argo_1900183: BGC Float 1900183, deployed in Indian Ocean, latitude bounds 0.44°S to 3.07°N, longitude bounds 55.37°E to 76.77°E, average position 1.31°N, 66.07°E, extensive mobility 3.5° lat × 21.4° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900170",
+    "summary": "Table argo_1900170: BGC Float 1900170, deployed in Indian Ocean, latitude bounds 7.95°S to 3.79°N, longitude bounds 41.06°E to 76.71°E, average position 2.08°S, 58.89°E, extensive mobility 11.7° lat × 35.7° lon span, equatorial tropical waters, comprehensive coverage with 60 profiles.",
+    "row_count": 60,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900786",
+    "summary": "Table argo_1900786: BGC Float 1900786, deployed in Indian Ocean, latitude bounds 50.19°S to 33.33°S, longitude bounds 20.57°E to 122.77°E, average position 41.76°S, 71.67°E, extensive mobility 16.9° lat × 102.2° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900432",
+    "summary": "Table argo_1900432: BGC Float 1900432, deployed in Indian Ocean, latitude bounds 11.45°N to 13.60°N, longitude bounds 45.06°E to 47.99°E, average position 12.52°N, 46.52°E, localized movement 2.1° lat × 2.9° lon span, subtropical oceanic zone, comprehensive coverage with 60 profiles.",
+    "row_count": 60,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900184",
+    "summary": "Table argo_1900184: BGC Float 1900184, deployed in Indian Ocean, latitude bounds 8.10°S to 9.42°N, longitude bounds 44.90°E to 107.89°E, average position 0.66°N, 76.39°E, extensive mobility 17.5° lat × 63.0° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900148",
+    "summary": "Table argo_1900148: BGC Float 1900148, deployed in Indian Ocean, latitude bounds 51.70°S to 41.54°S, longitude bounds 77.50°E to 146.40°E, average position 46.62°S, 111.95°E, extensive mobility 10.2° lat × 68.9° lon span, temperate oceanic zone, comprehensive coverage with 93 profiles.",
+    "row_count": 93,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900578",
+    "summary": "Table argo_1900578: BGC Float 1900578, deployed in Indian Ocean, latitude bounds 59.81°S to 49.96°S, longitude bounds 20.69°E to 68.61°E, average position 54.88°S, 44.65°E, extensive mobility 9.9° lat × 47.9° lon span, subpolar oceanic waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900171",
+    "summary": "Table argo_1900171: BGC Float 1900171, deployed in Indian Ocean, latitude bounds 12.08°S to 0.07°S, longitude bounds 42.17°E to 94.67°E, average position 6.08°S, 68.42°E, extensive mobility 12.0° lat × 52.5° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900185",
+    "summary": "Table argo_1900185: BGC Float 1900185, deployed in Indian Ocean, latitude bounds 1.04°S to 7.66°N, longitude bounds 46.22°E to 72.24°E, average position 3.31°N, 59.23°E, extensive mobility 8.7° lat × 26.0° lon span, equatorial tropical waters, comprehensive coverage with 95 profiles.",
+    "row_count": 95,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900182",
+    "summary": "Table argo_1900182: BGC Float 1900182, deployed in Indian Ocean, latitude bounds 4.41°N to 11.83°N, longitude bounds 48.77°E to 58.21°E, average position 8.12°N, 53.49°E, moderate drift 7.4° lat × 9.4° lon span, equatorial tropical waters, comprehensive coverage with 98 profiles.",
+    "row_count": 98,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900788",
+    "summary": "Table argo_1900788: BGC Float 1900788, deployed in Indian Ocean, latitude bounds 44.79°S to 35.86°S, longitude bounds 20.32°E to 57.58°E, average position 40.32°S, 38.95°E, extensive mobility 8.9° lat × 37.3° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900576",
+    "summary": "Table argo_1900576: BGC Float 1900576, deployed in Indian Ocean, latitude bounds 50.98°S to 46.88°S, longitude bounds 22.46°E to 43.44°E, average position 48.93°S, 32.95°E, extensive mobility 4.1° lat × 21.0° lon span, temperate oceanic zone, 20 profiles.",
+    "row_count": 20,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900577",
+    "summary": "Table argo_1900577: BGC Float 1900577, deployed in Indian Ocean, latitude bounds 57.02°S to 43.24°S, longitude bounds 21.11°E to 129.56°E, average position 50.13°S, 75.33°E, extensive mobility 13.8° lat × 108.4° lon span, subpolar oceanic waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900149",
+    "summary": "Table argo_1900149: BGC Float 1900149, deployed in Indian Ocean, latitude bounds 56.61°S to 43.47°S, longitude bounds 75.91°E to 119.77°E, average position 50.04°S, 97.84°E, extensive mobility 13.1° lat × 43.9° lon span, subpolar oceanic waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900147",
+    "summary": "Table argo_1900147: BGC Float 1900147, deployed in Indian Ocean, latitude bounds 50.85°S to 42.40°S, longitude bounds 76.33°E to 146.81°E, average position 46.62°S, 111.57°E, extensive mobility 8.4° lat × 70.5° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900787",
+    "summary": "Table argo_1900787: BGC Float 1900787, deployed in Indian Ocean, latitude bounds 46.51°S to 35.48°S, longitude bounds 22.09°E to 80.92°E, average position 41.00°S, 51.50°E, extensive mobility 11.0° lat × 58.8° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900165",
+    "summary": "Table argo_1900165: BGC Float 1900165, deployed in Indian Ocean, latitude bounds 39.17°S to 37.24°S, longitude bounds 20.17°E to 22.69°E, average position 38.20°S, 21.43°E, localized movement 1.9° lat × 2.5° lon span, temperate oceanic zone, 5 profiles.",
+    "row_count": 5,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900760",
+    "summary": "Table argo_1900760: BGC Float 1900760, deployed in Indian Ocean, latitude bounds 43.97°S to 37.43°S, longitude bounds 20.44°E to 82.63°E, average position 40.70°S, 51.54°E, extensive mobility 6.5° lat × 62.2° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900196",
+    "summary": "Table argo_1900196: BGC Float 1900196, deployed in Indian Ocean, latitude bounds 52.79°S to 40.36°S, longitude bounds 34.53°E to 145.25°E, average position 46.57°S, 89.89°E, extensive mobility 12.4° lat × 110.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900162",
+    "summary": "Table argo_1900162: BGC Float 1900162, deployed in Indian Ocean, latitude bounds 1.14°S to 11.36°N, longitude bounds 43.47°E to 55.59°E, average position 5.11°N, 49.53°E, extensive mobility 12.5° lat × 12.1° lon span, equatorial tropical waters, comprehensive coverage with 54 profiles.",
+    "row_count": 54,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900154",
+    "summary": "Table argo_1900154: BGC Float 1900154, deployed in Indian Ocean, latitude bounds 17.02°S to 4.72°S, longitude bounds 38.88°E to 80.39°E, average position 10.87°S, 59.64°E, extensive mobility 12.3° lat × 41.5° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900191",
+    "summary": "Table argo_1900191: BGC Float 1900191, deployed in Indian Ocean, latitude bounds 51.48°S to 42.88°S, longitude bounds 33.06°E to 133.05°E, average position 47.18°S, 83.05°E, extensive mobility 8.6° lat × 100.0° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900357",
+    "summary": "Table argo_1900357: BGC Float 1900357, deployed in Indian Ocean, latitude bounds 18.24°S to 8.81°S, longitude bounds 50.85°E to 80.39°E, average position 13.52°S, 65.62°E, extensive mobility 9.4° lat × 29.5° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900153",
+    "summary": "Table argo_1900153: BGC Float 1900153, deployed in Indian Ocean, latitude bounds 51.11°S to 42.12°S, longitude bounds 74.84°E to 145.29°E, average position 46.62°S, 110.06°E, extensive mobility 9.0° lat × 70.4° lon span, temperate oceanic zone, comprehensive coverage with 80 profiles.",
+    "row_count": 80,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900579",
+    "summary": "Table argo_1900579: BGC Float 1900579, deployed in Indian Ocean, latitude bounds 59.82°S to 53.46°S, longitude bounds 20.33°E to 58.87°E, average position 56.64°S, 39.60°E, extensive mobility 6.4° lat × 38.5° lon span, subpolar oceanic waters, comprehensive coverage with 85 profiles.",
+    "row_count": 85,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900199",
+    "summary": "Table argo_1900199: BGC Float 1900199, deployed in Indian Ocean, latitude bounds 24.81°S to 20.12°S, longitude bounds 68.88°E to 77.19°E, average position 22.47°S, 73.04°E, moderate drift 4.7° lat × 8.3° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900155",
+    "summary": "Table argo_1900155: BGC Float 1900155, deployed in Indian Ocean, latitude bounds 29.54°S to 1.93°S, longitude bounds 46.47°E to 94.13°E, average position 15.74°S, 70.30°E, extensive mobility 27.6° lat × 47.7° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900163",
+    "summary": "Table argo_1900163: BGC Float 1900163, deployed in Indian Ocean, latitude bounds 43.36°S to 37.54°S, longitude bounds 20.81°E to 30.41°E, average position 40.45°S, 25.61°E, moderate drift 5.8° lat × 9.6° lon span, temperate oceanic zone, 20 profiles.",
+    "row_count": 20,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900358",
+    "summary": "Table argo_1900358: BGC Float 1900358, deployed in Indian Ocean, latitude bounds 38.34°S to 32.21°S, longitude bounds 89.17°E to 95.77°E, average position 35.28°S, 92.47°E, moderate drift 6.1° lat × 6.6° lon span, temperate oceanic zone, comprehensive coverage with 78 profiles.",
+    "row_count": 78,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900152",
+    "summary": "Table argo_1900152: BGC Float 1900152, deployed in Indian Ocean, latitude bounds 42.85°S to 34.99°S, longitude bounds 77.85°E to 85.80°E, average position 38.92°S, 81.83°E, moderate drift 7.9° lat × 8.0° lon span, temperate oceanic zone, comprehensive coverage with 70 profiles.",
+    "row_count": 70,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900356",
+    "summary": "Table argo_1900356: BGC Float 1900356, deployed in Indian Ocean, latitude bounds 11.11°S to 4.21°S, longitude bounds 71.07°E to 78.85°E, average position 7.66°S, 74.96°E, moderate drift 6.9° lat × 7.8° lon span, equatorial tropical waters, comprehensive coverage with 60 profiles.",
+    "row_count": 60,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900197",
+    "summary": "Table argo_1900197: BGC Float 1900197, deployed in Indian Ocean, latitude bounds 42.83°S to 24.63°S, longitude bounds 25.06°E to 59.45°E, average position 33.73°S, 42.25°E, extensive mobility 18.2° lat × 34.4° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900198",
+    "summary": "Table argo_1900198: BGC Float 1900198, deployed in Indian Ocean, latitude bounds 42.51°S to 37.30°S, longitude bounds 23.19°E to 58.54°E, average position 39.91°S, 40.86°E, extensive mobility 5.2° lat × 35.3° lon span, temperate oceanic zone, 32 profiles.",
+    "row_count": 32,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900164",
+    "summary": "Table argo_1900164: BGC Float 1900164, deployed in Indian Ocean, latitude bounds 48.00°S to 35.86°S, longitude bounds 20.59°E to 114.43°E, average position 41.93°S, 67.51°E, extensive mobility 12.1° lat × 93.8° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900685",
+    "summary": "Table argo_1900685: BGC Float 1900685, deployed in Indian Ocean, latitude bounds 43.29°S to 31.34°S, longitude bounds 21.94°E to 64.74°E, average position 37.31°S, 43.34°E, extensive mobility 11.9° lat × 42.8° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900647",
+    "summary": "Table argo_1900647: BGC Float 1900647, deployed in Indian Ocean, latitude bounds 59.99°S to 55.39°S, longitude bounds 20.21°E to 35.58°E, average position 57.69°S, 27.89°E, extensive mobility 4.6° lat × 15.4° lon span, subpolar oceanic waters, 26 profiles.",
+    "row_count": 26,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900190",
+    "summary": "Table argo_1900190: BGC Float 1900190, deployed in Indian Ocean, latitude bounds 52.81°S to 43.32°S, longitude bounds 33.46°E to 146.12°E, average position 48.07°S, 89.79°E, extensive mobility 9.5° lat × 112.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900410",
+    "summary": "Table argo_1900410: BGC Float 1900410, deployed in Indian Ocean, latitude bounds 42.95°S to 26.45°S, longitude bounds 28.17°E to 107.01°E, average position 34.70°S, 67.59°E, extensive mobility 16.5° lat × 78.8° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900443",
+    "summary": "Table argo_1900443: BGC Float 1900443, deployed in Indian Ocean, latitude bounds 5.84°S to 2.30°N, longitude bounds 42.58°E to 52.76°E, average position 1.77°S, 47.67°E, extensive mobility 8.1° lat × 10.2° lon span, equatorial tropical waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900649",
+    "summary": "Table argo_1900649: BGC Float 1900649, deployed in Indian Ocean, latitude bounds 52.16°S to 43.51°S, longitude bounds 20.08°E to 132.75°E, average position 47.84°S, 76.42°E, extensive mobility 8.7° lat × 112.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900270",
+    "summary": "Table argo_1900270: BGC Float 1900270, deployed in Indian Ocean, latitude bounds 20.24°S to 10.55°S, longitude bounds 42.02°E to 69.08°E, average position 15.39°S, 55.55°E, extensive mobility 9.7° lat × 27.1° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900045",
+    "summary": "Table argo_1900045: BGC Float 1900045, deployed in Indian Ocean, latitude bounds 51.31°S to 45.40°S, longitude bounds 61.69°E to 133.08°E, average position 48.36°S, 97.38°E, extensive mobility 5.9° lat × 71.4° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900042",
+    "summary": "Table argo_1900042: BGC Float 1900042, deployed in Indian Ocean, latitude bounds 46.92°S to 39.74°S, longitude bounds 50.19°E to 94.91°E, average position 43.33°S, 72.55°E, extensive mobility 7.2° lat × 44.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900271",
+    "summary": "Table argo_1900271: BGC Float 1900271, deployed in Indian Ocean, latitude bounds 15.23°S to 15.05°S, longitude bounds 70.50°E to 71.24°E, average position 15.14°S, 70.87°E, stationary deployment 0.2° lat × 0.7° lon span, subtropical oceanic zone, 2 profiles.",
+    "row_count": 2,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900442",
+    "summary": "Table argo_1900442: BGC Float 1900442, deployed in Indian Ocean, latitude bounds 7.59°N to 15.76°N, longitude bounds 52.52°E to 62.77°E, average position 11.68°N, 57.64°E, extensive mobility 8.2° lat × 10.2° lon span, subtropical oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900044",
+    "summary": "Table argo_1900044: BGC Float 1900044, deployed in Indian Ocean, latitude bounds 50.73°S to 44.23°S, longitude bounds 56.27°E to 145.90°E, average position 47.48°S, 101.09°E, extensive mobility 6.5° lat × 89.6° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900043",
+    "summary": "Table argo_1900043: BGC Float 1900043, deployed in Indian Ocean, latitude bounds 59.66°S to 45.84°S, longitude bounds 54.08°E to 90.40°E, average position 52.75°S, 72.24°E, extensive mobility 13.8° lat × 36.3° lon span, subpolar oceanic waters, comprehensive coverage with 99 profiles.",
+    "row_count": 99,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900684",
+    "summary": "Table argo_1900684: BGC Float 1900684, deployed in Indian Ocean, latitude bounds 52.80°S to 45.68°S, longitude bounds 20.28°E to 120.96°E, average position 49.24°S, 70.62°E, extensive mobility 7.1° lat × 100.7° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900683",
+    "summary": "Table argo_1900683: BGC Float 1900683, deployed in Indian Ocean, latitude bounds 59.18°S to 44.46°S, longitude bounds 20.75°E to 126.72°E, average position 51.82°S, 73.74°E, extensive mobility 14.7° lat × 106.0° lon span, subpolar oceanic waters, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  },
+  {
+    "table": "argo_1900411",
+    "summary": "Table argo_1900411: BGC Float 1900411, deployed in Indian Ocean, latitude bounds 37.26°S to 26.07°S, longitude bounds 36.89°E to 72.90°E, average position 31.67°S, 54.90°E, extensive mobility 11.2° lat × 36.0° lon span, temperate oceanic zone, comprehensive coverage with 100 profiles.",
+    "row_count": 100,
+    "columns": [
+      "profile_id",
+      "latitude",
+      "longitude",
+      "date",
+      "time",
+      "pressure_dbar",
+      "temperature_c",
+      "salinity_psu"
+    ]
+  }
+]
